@@ -1,49 +1,65 @@
-import { Members } from "../../models/Users";
-import { IMembersGroupDTO, IMembersGroupRepository } from "../IUsersRepository";
+import { Users } from "../../models/Users";
+import { IUsersDTO, IUsersRepository } from "../IUsersRepository";
 
-class MembersGroupRepository implements IMembersGroupRepository {
-  private members: Members[];
+class UsersRepository implements IUsersRepository {
+  private users: Users[];
 
-  private static INSTANCE: MembersGroupRepository;
+  private static INSTANCE: UsersRepository;
 
   private constructor() {
-    this.members = [];
+    this.users = [];
   }
 
-  public static getInstance(): MembersGroupRepository {
-    if (!MembersGroupRepository.INSTANCE) {
-      MembersGroupRepository.INSTANCE = new MembersGroupRepository();
+  public static getInstance(): UsersRepository {
+    if (!UsersRepository.INSTANCE) {
+      UsersRepository.INSTANCE = new UsersRepository();
     }
 
-    return MembersGroupRepository.INSTANCE;
+    return UsersRepository.INSTANCE;
   }
 
   create({
     username,
-    id_user,
+    nickname,
     role,
     status,
-    id_group,
-  }: IMembersGroupDTO): void {
-    const member: Members = new Members();
-    Object.assign(member, {
+    plan,
+    active_plan,
+    birth_date,
+    email,
+    phone,
+    uf,
+    city,
+    sexual_orientation,
+    search,
+  }: IUsersDTO): void {
+    const user: Users = new Users();
+    Object.assign(user, {
       username,
-      id_user,
+      nickname,
       role,
       status,
-      id_group,
+      plan,
+      active_plan,
+      birth_date,
+      email,
+      phone,
+      uf,
+      city,
+      sexual_orientation,
+      search,
       created_at: new Date(),
     });
 
-    this.members.push(member);
+    this.users.push(user);
   }
-  findByName(username: string): Members {
-    const member = this.members.find((member) => member.username === username);
-    return member;
+  findByUsername(username: string): Users {
+    const user = this.users.find((user) => user.username === username);
+    return user;
   }
-  list(): Members[] {
-    return this.members;
+  list(): Users[] {
+    return this.users;
   }
 }
 
-export { MembersGroupRepository };
+export { UsersRepository };

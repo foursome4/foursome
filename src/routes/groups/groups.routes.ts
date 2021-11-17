@@ -1,7 +1,7 @@
 import { Router } from "express";
 
-import { createGroupController } from "../../Modules/Moderators/useCases/createGroup";
-import { listGroupController } from "../../Modules/Moderators/useCases/listGroup";
+import { createGroupController } from "../../Modules/Foruns/useCases/createForum";
+import { listGroupController } from "../../Modules/Foruns/useCases/listGroup";
 
 const groupsRoutes = Router();
 
