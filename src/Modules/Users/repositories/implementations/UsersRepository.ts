@@ -32,6 +32,8 @@ class UsersRepository implements IUsersRepository {
     city,
     sexual_orientation,
     search,
+    sign,
+    password,
   }: IUsersDTO): void {
     const user: Users = new Users();
     Object.assign(user, {
@@ -48,6 +50,8 @@ class UsersRepository implements IUsersRepository {
       city,
       sexual_orientation,
       search,
+      sign,
+      password,
       created_at: new Date(),
     });
 

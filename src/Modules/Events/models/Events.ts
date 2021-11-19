@@ -1,10 +1,15 @@
 import { v4 as uuidv4 } from "uuid";
 
-class Foruns {
+class Events {
   id?: string;
-  name: string;
+  id_user: string;
+  title: string;
   description: string;
-  theme: string;
+  address: string;
+  hours: string;
+  event_date: string;
+  local: string;
+  event_type: string;
   created_at: Date;
 
   constructor() {
@@ -14,4 +19,4 @@ class Foruns {
   }
 }
 
-export { Foruns };
+export { Events };

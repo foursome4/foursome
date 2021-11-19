@@ -1,23 +1,49 @@
 import { Request, Response } from "express";
 
-import { CreateMemberGroupUseCase } from "./CreateUsersUseCase";
+import { CreateUsersUseCase } from "./CreateUsersUseCase";
 
-class CreateMemberGroupController {
-  constructor(private createMemberGroupUseCase: CreateMemberGroupUseCase) {
+class CreateUsersController {
+  constructor(private createUsersUseCase: CreateUsersUseCase) {
     ("");
   }
   handle(req: Request, res: Response): Response {
-    const { username, id_user, role, status, id_group } = req.body;
-    this.createMemberGroupUseCase.execute({
+    const {
       username,
-      id_user,
+      nickname,
       role,
       status,
-      id_group,
+      plan,
+      active_plan,
+      birth_date,
+      email,
+      phone,
+      uf,
+      city,
+      sexual_orientation,
+      search,
+      sign,
+      password,
+    } = req.body;
+    this.createUsersUseCase.execute({
+      username,
+      nickname,
+      role,
+      status,
+      plan,
+      active_plan,
+      birth_date,
+      email,
+      phone,
+      uf,
+      city,
+      sexual_orientation,
+      search,
+      sign,
+      password,
     });
 
     return res.status(201).send();
   }
 }
 
-export { CreateMemberGroupController };
+export { CreateUsersController };

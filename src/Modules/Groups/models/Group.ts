@@ -4,10 +4,10 @@ class Group {
   id?: string;
   name: string;
   description: string;
-  created_at: Date;
   avatar: string;
   theme: string;
   privacity: string;
+  created_at: Date;
 
   constructor() {
     if (!this.id) {

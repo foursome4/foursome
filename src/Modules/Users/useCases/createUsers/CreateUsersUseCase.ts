@@ -1,33 +1,69 @@
-import { IMembersGroupRepository } from "../../repositories/IUsersRepository";
+import { IUsersRepository } from "../../repositories/IUsersRepository";
 
 interface IRequest {
   username: string;
-  id_user: string;
-  role: string;
-  status: string;
-  id_group: string;
+  nickname: string;
+  role: string; // guest, member
+  status: string; // active, inactive, suspended, banned
+  plan: string;
+  active_plan: string;
+  birth_date: string;
+  email: string;
+  phone: string;
+  uf: string;
+  city: string;
+  sexual_orientation: string;
+  search: string;
+  sign: string;
+  password: string;
 }
 
-class CreateMemberGroupUseCase {
-  constructor(private membersGroupsRepository: IMembersGroupRepository) {
+class CreateUsersUseCase {
+  constructor(private usersRepository: IUsersRepository) {
     ("");
   }
 
-  execute({ username, id_user, role, status, id_group }: IRequest): void {
+  execute({
+    username,
+    nickname,
+    role,
+    status,
+    plan,
+    active_plan,
+    birth_date,
+    email,
+    phone,
+    uf,
+    city,
+    sexual_orientation,
+    search,
+    sign,
+    password,
+  }: IRequest): void {
     const membersGroupAlreadyExists =
-      this.membersGroupsRepository.findByName(username);
+      this.usersRepository.findByUsername(username);
 
     if (membersGroupAlreadyExists) {
       throw new Error("Member of Group Already Exists! ");
     }
-    this.membersGroupsRepository.create({
+    this.usersRepository.create({
       username,
-      id_user,
+      nickname,
       role,
       status,
-      id_group,
+      plan,
+      active_plan,
+      birth_date,
+      email,
+      phone,
+      uf,
+      city,
+      sexual_orientation,
+      search,
+      sign,
+      password,
     });
   }
 }
 
-export { CreateMemberGroupUseCase };
+export { CreateUsersUseCase };

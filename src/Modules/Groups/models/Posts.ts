@@ -3,12 +3,10 @@ import { v4 as uuidv4 } from "uuid";
 class Posts {
   id?: string;
   text: string;
-  image: string;
-  movie: string;
+  link: string;
   category: string;
   id_group: string;
-  id_member: string;
-  username: string;
+  id_user: string;
   created_at: Date;
 
   constructor() {

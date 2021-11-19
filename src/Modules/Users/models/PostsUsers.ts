@@ -1,11 +1,11 @@
 import { v4 as uuidv4 } from "uuid";
 
-class Comments {
+class PostsUsers {
   id?: string;
-  text: string;
-  link: string;
-  id_post: string;
   id_user: string;
+  type: string;
+  url: string; // guest, member
+  text: string; // active, inactive, suspended, banned
   created_at: Date;
 
   constructor() {
@@ -15,4 +15,4 @@ class Comments {
   }
 }
 
-export { Comments };
+export { PostsUsers };

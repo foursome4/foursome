@@ -1,18 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
 
-interface ICharacteristicsUsers {
-  height: number;
-  weight: string;
-  physique: string;
-  ethnicity: string;
-  eyes: string;
-  hair: string;
-  type: string;
-  tattoos: string;
-  smokes: string;
-  education: string;
-}
-
 class Users {
   id?: string;
   username: string;
@@ -28,8 +15,8 @@ class Users {
   city: string;
   sexual_orientation: string;
   search: string;
-  characteristics: ICharacteristicsUsers;
-  friends: string[];
+  sign: string;
+  password: string;
   created_at: Date;
 
   constructor() {

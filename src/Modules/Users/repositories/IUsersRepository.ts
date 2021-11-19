@@ -1,18 +1,5 @@
 import { Users } from "../models/Users";
 
-interface ICharacteristicsUsers {
-  height: number;
-  weight: string;
-  physique: string;
-  ethnicity: string;
-  eyes: string;
-  hair: string;
-  type: string;
-  tattoos: string;
-  smokes: string;
-  education: string;
-}
-
 interface IUsersDTO {
   username: string;
   nickname: string;
@@ -26,8 +13,9 @@ interface IUsersDTO {
   uf: string;
   city: string;
   sexual_orientation: string;
-  characteristics: ICharacteristicsUsers;
   search: string;
+  sign: string;
+  password: string;
 }
 
 interface IUsersRepository {
@@ -45,20 +33,10 @@ interface IUsersRepository {
     city,
     sexual_orientation,
     search,
+    sign,
+    password,
   }: IUsersDTO): void;
   findByUsername(username: string): Users;
-  updateCharacteristics?({
-    height,
-    weight,
-    physique,
-    ethnicity,
-    eyes,
-    hair,
-    type,
-    tattoos,
-    smokes,
-    education,
-  }): Users["characteristics"];
   list(): Users[];
 }
 

@@ -1,12 +1,8 @@
 import { v4 as uuidv4 } from "uuid";
 
-class Members {
+class FriendsUsers {
   id?: string;
-  id_user: string;
-  username: string;
-  role: string;
-  status: string;
-  id_group: string;
+  id_friend: string;
   created_at: Date;
 
   constructor() {
@@ -16,4 +12,4 @@ class Members {
   }
 }
 
-export { Members };
+export { FriendsUsers };

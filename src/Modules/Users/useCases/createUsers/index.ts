@@ -1,13 +1,9 @@
-import { MembersGroupRepository } from "../../repositories/implementations/UsersRepository";
-import { CreateMemberGroupController } from "./CreateUsersController";
-import { CreateMemberGroupUseCase } from "./CreateUsersUseCase";
+import { UsersRepository } from "../../repositories/implementations/UsersRepository";
+import { CreateUsersController } from "./CreateUsersController";
+import { CreateUsersUseCase } from "./CreateUsersUseCase";
 
-const memberGroupRepository = MembersGroupRepository.getInstance();
-const createMemberGroupUseCase = new CreateMemberGroupUseCase(
-  memberGroupRepository
-);
-const createMemberGroupController = new CreateMemberGroupController(
-  createMemberGroupUseCase
-);
+const usersRepository = UsersRepository.getInstance();
+const createUsersUseCase = new CreateUsersUseCase(usersRepository);
+const createUsersController = new CreateUsersController(createUsersUseCase);
 
-export { createMemberGroupController };
+export { createUsersController };
