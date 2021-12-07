@@ -1,5 +1,6 @@
 import { Group } from "../../models/Group";
 import { ICreateGroupDTO, IGroupsRepository } from "../IGroupsRepository";
+import { collections } from '../../../../../services/database.service'
 
 class GroupsRepository implements IGroupsRepository {
   private groups: Group[];
@@ -18,13 +19,27 @@ class GroupsRepository implements IGroupsRepository {
     return GroupsRepository.INSTANCE;
   }
 
-  create({
+  findByName(name: any): Group {
+    const group = this.groups.find((group) => group.name === name);
+    try {
+      const findName = collections.newsletter.findOne({ name })
+
+      if (findName) {
+        return
+      }
+    } catch {
+
+    }
+    return group;
+  }
+
+  async create({
     name,
     description,
     avatar,
     theme,
     privacity,
-  }: ICreateGroupDTO): void {
+  }: ICreateGroupDTO) {
     const group: Group = new Group();
     Object.assign(group, {
       name,
@@ -36,11 +51,14 @@ class GroupsRepository implements IGroupsRepository {
     });
 
     this.groups.push(group);
+    console.log(group)
+    await collections.groups.insertOne(group).then((result) => {
+      console.log(result)
+    }).catch(error => {
+      console.log(error)
+    })
   }
-  findByName(name: string): Group {
-    const group = this.groups.find((group) => group.name === name);
-    return group;
-  }
+
   list(): Group[] {
     return this.groups;
   }

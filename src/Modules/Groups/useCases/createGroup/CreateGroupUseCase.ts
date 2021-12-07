@@ -14,11 +14,9 @@ class CreateGroupUseCase {
   }
 
   execute({ name, description, avatar, theme, privacity }: IRequest): void {
-    const groupAlreadyExists = this.groupRepository.findByName(name);
+    this.groupRepository.findByName(name);
 
-    if (groupAlreadyExists) {
-      throw new Error("Group Already Exists");
-    }
+
     this.groupRepository.create({
       name,
       description,
