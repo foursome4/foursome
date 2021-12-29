@@ -1,7 +1,7 @@
 import { Mongoose } from "mongoose";
 
 Mongoose.connect(
-  "mongodb+srv://squad34:squad34-fcamara@squad34fcamara.crfpa.mongodb.net/cadUsers?retryWrites=true&w=majority",
+  "mongodb+srv://Foursome:Foursome2021@clusterfoursome.4b2rf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
