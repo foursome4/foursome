@@ -8,10 +8,37 @@ class CreateCharacteristicsController {
   }
 
   handle(req: Request, res: Response): Response {
-    const { id_account, heigth, weight, physique, ethnicity, eyes, hair, tattos, smokes, } = req.body;
+    const {
+        id_account,
+        birthDate,
+        sex,
+        SexualOption,
+        education,
+        sign,
+        heigth,
+        weight,
+        physique,
+        ethnicity,
+        eyes,
+        hair,
+        tattos,
+        smokes, } = req.body;
 
     this.createCharacteristicsUseCase.execute({
-      id_account, heigth, weight, physique, ethnicity, eyes, hair, tattos, smokes,
+        id_account,
+        birthDate,
+        sex,
+        SexualOption,
+        education,
+        sign,
+        heigth,
+        weight,
+        physique,
+        ethnicity,
+        eyes,
+        hair,
+        tattos,
+        smokes,
     });
 
 

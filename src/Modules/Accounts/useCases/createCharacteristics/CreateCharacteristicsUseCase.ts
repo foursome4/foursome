@@ -2,6 +2,11 @@ import { ICharacteristicsRepository } from "../../repositories/ICharacteristicsR
 
 interface IRequest {
   id_account: string;
+  birthDate: string;
+  sex: string;
+  SexualOption: string;
+  education: string;
+  sign: string;
   heigth: string;
   weight: string;
   physique: string;
@@ -17,11 +22,37 @@ class CreateCharacteristicsUseCase {
     " ";
   }
 
-  execute({id_account, heigth, weight, physique, ethnicity, eyes, hair, tattos, smokes,  }: IRequest): void {
+  execute({id_account,
+    birthDate,
+    sex,
+    SexualOption,
+    education,
+    sign,
+    heigth,
+    weight,
+    physique,
+    ethnicity,
+    eyes,
+    hair,
+    tattos,
+    smokes, }: IRequest): void {
 
 
     this.accountRepository.create({
-      id_account, heigth, weight, physique, ethnicity, eyes, hair, tattos, smokes,
+      id_account,
+        birthDate,
+        sex,
+        SexualOption,
+        education,
+        sign,
+        heigth,
+        weight,
+        physique,
+        ethnicity,
+        eyes,
+        hair,
+        tattos,
+        smokes,
     });
   }
 }

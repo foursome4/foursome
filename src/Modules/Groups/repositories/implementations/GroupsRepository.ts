@@ -47,7 +47,7 @@ class GroupsRepository implements IGroupsRepository {
       avatar,
       theme,
       privacity,
-      created_at: new Date(),
+      created_at: new Date()
     });
 
     this.groups.push(group);
@@ -59,9 +59,7 @@ class GroupsRepository implements IGroupsRepository {
     })
   }
 
-  list(): Group[] {
-    return this.groups;
-  }
+  list(){  }
 }
 
 export { GroupsRepository };

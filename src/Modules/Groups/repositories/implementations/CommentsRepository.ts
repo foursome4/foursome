@@ -18,21 +18,16 @@ class CommentsRepository implements ICommentsRepository {
     return CommentsRepository.INSTANCE;
   }
 
-  create({ id, text, id_post, id_user, username }: ICommentsDTO): void {
+  create({ text, id_post, id_account }: ICommentsDTO): void {
     const comment: Comments = new Comments();
     Object.assign(comment, {
-      id,
-      text,
-      id_post,
-      id_user,
-      username,
-      created_at: new Date(),
+      text, id_post, id_account, created_at: new Date(),
     });
 
     this.comments.push(comment);
   }
-  findById(id: string): Comments {
-    const comment = this.comments.find((comment) => comment.id === id);
+  findById(id_account: string): Comments {
+    const comment = this.comments.find((comment) => comment.id_account === id_account);
     return comment;
   }
   list(): Comments[] {

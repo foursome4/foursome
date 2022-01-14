@@ -1,16 +1,15 @@
 import { Members } from "../models/Members";
 
 interface IMembersGroupDTO {
-  username: string;
-  id_user: string;
+  id_group: string;
+  id_account: string;
   role: string;
   status: string;
-  id_group: string;
 }
 
 interface IMembersGroupRepository {
-  create({ id_user, id_group, role, status, username }: IMembersGroupDTO): void;
-  findByName(name: string): Members;
+  create({ id_account, id_group, role, status, }: IMembersGroupDTO): void;
+  findById(id_account: string): Members;
   list(): Members[];
 }
 

@@ -22,7 +22,7 @@ class CreateGroupUseCase {
       description,
       avatar,
       theme,
-      privacity,
+      privacity
     });
   }
 }

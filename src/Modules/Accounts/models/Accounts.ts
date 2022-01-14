@@ -1,13 +1,12 @@
-import { v4 as uuidv4 } from "uuid";
-
 class Accounts {
   nickname: string;
   username: string;
   role: string;
+  status: string;
   type: string;
   email: string;
   phone: string;
-  password: string;
+  password: Promise<void>;
 
   created_at: Date;
 }

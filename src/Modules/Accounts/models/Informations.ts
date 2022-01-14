@@ -1,14 +1,10 @@
 class Informations {
-  id_account: string;
+  id: string;
   avatar: string;
-  status: string;
   relationship: string;
-  signo: string;
-  date_birth: string;
-  orientation: string;
-  education: string;
   city: string;
   uf: string;
+  lookingFor: string;
 
   created_at: Date;
 }

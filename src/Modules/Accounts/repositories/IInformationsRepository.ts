@@ -1,21 +1,16 @@
 import { Informations } from "../models/Informations";
 
 interface IInformationsDTO {
-  id_account: string;
+  id: string;
   avatar: string;
-  status: string;
   relationship: string;
-  signo: string;
-  date_birth: string;
-  orientation: string;
-  education: string;
   city: string;
   uf: string;
+  lookingFor: string;
 }
 
 interface IInformationsRepository {
-  create({ id_account, avatar, status, relationship, signo, date_birth, orientation, education, city, uf,  }: IInformationsDTO): void;
-  list(): Informations[];
+  update({ id, avatar, relationship, city, uf, lookingFor }: IInformationsDTO): Promise<void>;
 }
 
 export { IInformationsRepository, IInformationsDTO };

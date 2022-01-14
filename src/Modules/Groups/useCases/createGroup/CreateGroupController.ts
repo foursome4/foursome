@@ -15,7 +15,7 @@ class CreateGroupController {
       description,
       avatar,
       theme,
-      privacity,
+      privacity
     });
 
 

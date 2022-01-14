@@ -1,5 +1,4 @@
 import { Request, Response } from "express";
-
 import { CreateAccountUseCase } from "./CreateAccountUseCase";
 
 class CreateAccountController {
@@ -7,15 +6,19 @@ class CreateAccountController {
     ("");
   }
 
-  handle(req: Request, res: Response): Response {
-    const { nickname, username, role, type, email, phone, password } = req.body;
+  handle(req: Request, res: Response) {
+    const { nickname, username, role, status, type, email, phone, password } = req.body;
 
     this.createAccountUseCase.execute({
-      nickname, username, role, type, email, phone, password,
-    });
+      nickname, username, role, status, type, email, phone, password
+    }).then((result) => {
+      return res.status(201).json(result).send();
+    }).catch(error => {
+      console.log(error);
+      return res.status(500).send()
+    })
 
 
-    return res.status(201).send();
   }
 }
 

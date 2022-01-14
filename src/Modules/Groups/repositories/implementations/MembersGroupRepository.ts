@@ -22,16 +22,14 @@ class MembersGroupRepository implements IMembersGroupRepository {
   }
 
   create({
-    username,
-    id_user,
+    id_account,
     role,
     status,
     id_group,
   }: IMembersGroupDTO): void {
     const member: Members = new Members();
     Object.assign(member, {
-      username,
-      id_user,
+      id_account,
       role,
       status,
       id_group,
@@ -40,8 +38,8 @@ class MembersGroupRepository implements IMembersGroupRepository {
 
     this.members.push(member);
   }
-  findByName(username: string): Members {
-    const member = this.members.find((member) => member.username === username);
+  findById(id_account: string): Members {
+    const member = this.members.find((member) => member.id_account === id_account);
     return member;
   }
   list(): Members[] {

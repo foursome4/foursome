@@ -14,10 +14,10 @@ interface IGroupsRepository {
     description,
     avatar,
     theme,
-    privacity,
+    privacity
   }: ICreateGroupDTO): void;
   findByName(name: string): Group;
-  list(): Group[];
+  list();
 }
 
 export { IGroupsRepository, ICreateGroupDTO };

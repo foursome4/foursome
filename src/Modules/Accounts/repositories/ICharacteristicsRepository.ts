@@ -2,6 +2,11 @@ import { Characteristics } from "../models/Characteristics";
 
 interface ICharacteristicsDTO {
   id_account: string;
+  birthDate: string;
+  sex: string;
+  SexualOption: string;
+  education: string;
+  sign: string;
   heigth: string;
   weight: string;
   physique: string;
@@ -13,8 +18,23 @@ interface ICharacteristicsDTO {
 }
 
 interface ICharacteristicsRepository {
-  create({ id_account, heigth, weight, physique, ethnicity, eyes, hair, tattos, smokes,  }: ICharacteristicsDTO): void;
-  list(): Characteristics[];
+  create({
+    id_account,
+    birthDate,
+    sex,
+    SexualOption,
+    education,
+    sign,
+    heigth,
+    weight,
+    physique,
+    ethnicity,
+    eyes,
+    hair,
+    tattos,
+    smokes,
+  }: ICharacteristicsDTO): void;
+  findByIdAccount(id_account: string): Promise<void>;
 }
 
 export { ICharacteristicsRepository, ICharacteristicsDTO };

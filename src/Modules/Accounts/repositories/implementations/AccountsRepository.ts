@@ -1,6 +1,9 @@
 import { Accounts } from "../../models/Accounts";
 import { IAccountsRepository, IAccountsDTO } from "../IAccountsRepository";
-import { collections } from '../../../../../services/database.service'
+import { collections } from '../../../../../services/database.service';
+import { compare } from 'bcrypt'
+import { sign } from "jsonwebtoken";
+import { v4 as uuidv4 } from "uuid";
 
 class AccountsRepository implements IAccountsRepository {
   private accounts: Accounts[];
@@ -20,39 +23,42 @@ class AccountsRepository implements IAccountsRepository {
   }
 
   
-  
-  findByEmail(email: string): Accounts {
-    const account = this.accounts.find((account) => account.email === email);
-    
-    try {
-      const findEmail = collections.accounts.findOne({email});
-
-      if(findEmail ) {
-        return
-      }
-    } catch {
-
-    }
-
-    return account;
+  async findByEmail(email: string): Promise<void> {
+    const findEmail = await collections.accounts.findOne({email})
+      if(findEmail) {
+        throw new Error("Email already exists!")
+      } 
+  }
+  async findByUsername(username: string): Promise<void>  {
+    const findUsername = await collections.accounts.findOne({username})
+    if(findUsername) {
+      throw new Error("Username already exists!")
+    } 
   }
 
-    async create({ nickname, username, role, type, email, phone, password }: IAccountsDTO) {
+    async create({ nickname, username, role, status, type, email, phone, password }: IAccountsDTO) {
       const account: Accounts = new Accounts();
-      Object.assign(account, {
-        nickname, username, email, role, type, phone, password,created_at: new Date(),
-      });
-  
-      this.accounts.push(account);
-      console.log(account)
-    await collections.accounts.insertOne(account).then((result) => {
-      console.log(result)
-    }).catch(error => {
-      console.log(error)
-    })
-    }
+      const _id = uuidv4()
+      
+        Object.assign(account, {
+          _id, id: _id, nickname, username, role, status, type, email, phone, password ,created_at: new Date(),
+        });
+        this.accounts.push(account);
+        
+        await collections.accounts.insertOne(account).then((result) => {
+          console.log(result) 
+        }).catch(error => {
+          console.log(error)
+        })
+          }
     
-  
+    async session(email: string, username: string, password: string){
+      return {
+        email,
+        username,
+        password
+      }
+    }
 
   list(): Accounts[] {
     return this.accounts;
@@ -60,3 +66,4 @@ class AccountsRepository implements IAccountsRepository {
 }
 
 export { AccountsRepository };
+

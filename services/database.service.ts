@@ -14,9 +14,12 @@ export const collections: {
   characteristics?:mongoDB.Collection,
   preferences?:mongoDB.Collection,
   friends?:mongoDB.Collection,
+  followers?:mongoDB.Collection,
   events?:mongoDB.Collection,
   post_feed?:mongoDB.Collection,
   plan?:mongoDB.Collection,
+  like_post?:mongoDB.Collection,
+  like_post_group?:mongoDB.Collection,
  } = {}
 
 export async function connectToDatabase() {
@@ -53,6 +56,11 @@ export async function connectToDatabase() {
    collections.comments_groups = groupsCommentsCollection;
    console.log(`Successfully connected to database: ${db.databaseName} and collection: ${groupsCommentsCollection.collectionName}`);
 
+   // Like Post Group
+  const likePostGroupCollection: mongoDB.Collection = db.collection(process.env.LIKEPOSTGROUP_COLLECTION_NAME);
+  collections.like_post_group = likePostGroupCollection;
+  console.log(`Successfully connected to database: ${db.databaseName} and collection: ${likePostGroupCollection.collectionName}`);
+
    //Foruns
   const forunsCollection: mongoDB.Collection = db.collection(process.env.FORUNS_COLLECTION_NAME);
   collections.foruns = forunsCollection;
@@ -88,6 +96,11 @@ export async function connectToDatabase() {
   collections.friends = friendsCollection;
   console.log(`Successfully connected to database: ${db.databaseName} and collection: ${friendsCollection.collectionName}`);
 
+   // Friends
+   const followersCollection: mongoDB.Collection = db.collection(process.env.FOLLOWERS_COLLECTION_NAME);
+   collections.followers = followersCollection;
+   console.log(`Successfully connected to database: ${db.databaseName} and collection: ${followersCollection.collectionName}`);
+ 
   // Events
   const eventsCollection: mongoDB.Collection = db.collection(process.env.EVENTS_COLLECTION_NAME);
   collections.events = eventsCollection;
@@ -102,4 +115,9 @@ export async function connectToDatabase() {
   const planCollection: mongoDB.Collection = db.collection(process.env.PLAN_COLLECTION_NAME);
   collections.plan = planCollection;
   console.log(`Successfully connected to database: ${db.databaseName} and collection: ${planCollection.collectionName}`);
+
+  // Like Post
+  const likePostCollection: mongoDB.Collection = db.collection(process.env.LIKEPOST_COLLECTION_NAME);
+  collections.like_post = likePostCollection;
+  console.log(`Successfully connected to database: ${db.databaseName} and collection: ${likePostCollection.collectionName}`);
 }

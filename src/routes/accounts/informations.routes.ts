@@ -1,10 +1,10 @@
-import { Router } from "express";
-import { createInformationsController } from "../../Modules/Accounts/useCases/createInformations";
+// import { Router } from "express";
+// import { updateInformationsController } from "../../Modules/Accounts/useCases/updateInformations";
 
-const groupsInformations = Router();
+// const groupsInformations = Router();
 
-groupsInformations.post("/", (req, res) => {
-  return createInformationsController.handle(req, res);
-});
+// groupsInformations.patch("/", (req, res) => {
+//   return updateInformationsController.handle(req, res);
+// });
 
-export { groupsInformations };
+// export { groupsInformations };

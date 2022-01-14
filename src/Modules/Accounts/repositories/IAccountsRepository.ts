@@ -4,6 +4,7 @@ interface IAccountsDTO {
   nickname: string;
   username: string;
   role: string;
+  status: string;
   type: string;
   email: string;
   phone: string;
@@ -11,8 +12,10 @@ interface IAccountsDTO {
 }
 
 interface IAccountsRepository {
-  create({ nickname, username, role, type, email, phone, password }: IAccountsDTO): void;
-  findByEmail(email: string): Accounts;
+  create({ nickname, username, role, status, type, email, phone, password }: IAccountsDTO): Promise<void>;
+  findByEmail(email: string): Promise<void> ;
+  findByUsername(username: string): Promise<void> ;
+  session(email: string, username: string, password: string);
   list(): Accounts[];
 }
 

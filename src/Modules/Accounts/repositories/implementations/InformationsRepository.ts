@@ -1,7 +1,11 @@
 import { Informations } from "../../models/Informations";
 import { IInformationsRepository, IInformationsDTO } from "../IInformationsRepository";
 import { collections } from '../../../../../services/database.service'
+import { ObjectId } from "mongodb";
 
+interface TypeId {
+  _id: ObjectId;
+}
 class InformationsRepository implements IInformationsRepository {
   private informations: Informations[];
 
@@ -20,26 +24,28 @@ class InformationsRepository implements IInformationsRepository {
   }
 
   
-    async create({ id_account, avatar, status, relationship, signo, date_birth, orientation, education, city, uf,}: IInformationsDTO) {
+    async update({ id, avatar, relationship, city, uf, lookingFor}: IInformationsDTO) {
       const information: Informations = new Informations();
       Object.assign(information, {
-        id_account, avatar, status, relationship, signo, date_birth, orientation, education, city, uf, created_at: new Date(),
+        id,avatar, relationship, city, uf, lookingFor
       });
   
       this.informations.push(information);
-      console.log(information)
-    await collections.informations.insertOne(information).then((result) => {
-      console.log(result)
-    }).catch(error => {
-      console.log(error)
-    })
+      console.log({ id, avatar, relationship, city, uf, lookingFor})
+    await collections.accounts.findOneAndUpdate(
+      {id},{$set:
+      {avatar: avatar,
+      relationship: relationship,
+      city: city,
+      uf: uf,
+      lookingFor: lookingFor
+      }},{upsert: true}).then((result) => {
+        console.log(result)
+      }).catch(error => {
+        console.log("Erro: " + error)
+      })
     }
     
-  
-
-  list(): Informations[] {
-    return this.informations;
-  }
 }
 
 export { InformationsRepository };

@@ -2,9 +2,16 @@ import express from "express";
 
 import { router } from "./routes";
 
+const bodyParser = require ('body-parser')
+const cookieParser = require('cookie-parser');
+const cors = require('cors');
+
 const server = express();
 const port = 3333;
 
+server.use(cors());
+server.use(cookieParser());
+server.use(bodyParser.urlencoded({extends: true}))
 server.use(express.json());
 server.use(router);
 
