@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.createForunspController = void 0;
+var ForunsRepository_1 = require("../../repositories/implementations/ForunsRepository");
+var CreateForunsController_1 = require("./CreateForunsController");
+var CreateForunsUseCase_1 = require("./CreateForunsUseCase");
+var forunsRepository = ForunsRepository_1.ForunsRepository.getInstance();
+var createForunsUseCase = new CreateForunsUseCase_1.CreateForunsUseCase(forunsRepository);
+var createForunspController = new CreateForunsController_1.CreateForunsController(createForunsUseCase);
+exports.createForunspController = createForunspController;

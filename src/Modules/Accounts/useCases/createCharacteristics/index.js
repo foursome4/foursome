@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.createCharacteristicsController = void 0;
+var CharacteristicsRepository_1 = require("../../repositories/implementations/CharacteristicsRepository");
+var CreateCharacteristicsController_1 = require("./CreateCharacteristicsController");
+var CreateCharacteristicsUseCase_1 = require("./CreateCharacteristicsUseCase");
+var characteristicsRepository = CharacteristicsRepository_1.CharacteristicsRepository.getInstance();
+var createCharacteristicsUseCase = new CreateCharacteristicsUseCase_1.CreateCharacteristicsUseCase(characteristicsRepository);
+var createCharacteristicsController = new CreateCharacteristicsController_1.CreateCharacteristicsController(createCharacteristicsUseCase);
+exports.createCharacteristicsController = createCharacteristicsController;
