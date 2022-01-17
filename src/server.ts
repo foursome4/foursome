@@ -1,6 +1,6 @@
 import express from "express";
 import { Server } from 'socket.io';
-import { router } from "./src/routes";
+import { router } from "./routes";
 import http from 'http';
 
 const app = express();
@@ -8,7 +8,7 @@ const bodyParser = require ('body-parser');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const server = http.createServer(app);
-const PORT = process.env.PORT || 3333;
+const port = process.env.PORT || 3333;
 
 app.use(cors());
 app.use(cookieParser());
@@ -37,6 +37,6 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(PORT, () => {
-  console.log(`Server initialized! Access the link: http://localhost:${PORT}`);
+server.listen(port, () => {
+  console.log(`Server initialized! Access the link: http://localhost:${port}`);
 });
