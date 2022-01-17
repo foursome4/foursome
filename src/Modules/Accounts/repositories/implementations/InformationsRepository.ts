@@ -24,17 +24,18 @@ class InformationsRepository implements IInformationsRepository {
   }
 
   
-    async update({ id, avatar, relationship, city, uf, lookingFor}: IInformationsDTO) {
+    async update({ id, avatar, cover, relationship, city, uf, lookingFor}: IInformationsDTO) {
       const information: Informations = new Informations();
       Object.assign(information, {
-        id,avatar, relationship, city, uf, lookingFor
+        id,avatar, cover, relationship, city, uf, lookingFor
       });
   
       this.informations.push(information);
-      console.log({ id, avatar, relationship, city, uf, lookingFor})
+      console.log({ id, avatar, cover, relationship, city, uf, lookingFor})
     await collections.accounts.findOneAndUpdate(
       {id},{$set:
       {avatar: avatar,
+      cover:cover, 
       relationship: relationship,
       city: city,
       uf: uf,

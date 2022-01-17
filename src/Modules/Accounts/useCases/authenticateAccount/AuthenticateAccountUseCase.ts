@@ -4,8 +4,22 @@ import { collections } from "../../../../../services/database.service";
 import { IAccountsRepository } from "../../repositories/IAccountsRepository";
 
 interface IResponse {
-  userData: Object;
-  token: string;
+          token: string;
+          id: string;
+          id2: string;
+          nickname: string;
+          username: string;
+          email: string;
+          phone: string;
+          role: string;
+          status: string;
+          type: string;
+          avatar: string;
+          cover: string;
+          city: string;
+          relationship: string;
+          uf: string;
+          date: Date;
 }
 
 interface IRequest {
@@ -30,11 +44,14 @@ class AuthenticateAccountUseCase {
       
       if(accountEmail) {
         user = accountEmail
+       // console.log(user)
       } else if (accountUsername) {
         user = accountUsername
+       // console.log(user)
       }
       
       const passwordCompare = await compare(password, user.password)
+      console.log(passwordCompare)
 
       if(!user ) {
         throw new Error("Username or email, incorrect!")
@@ -43,6 +60,7 @@ class AuthenticateAccountUseCase {
         }
         const userData = {
           id: user._id,
+          id2: user.id,
           nickname: user.nickname,
           username: user.username,
           email: user.email,
@@ -50,11 +68,31 @@ class AuthenticateAccountUseCase {
           role: user.role,
           status: user.status,
           type: user.type,
+          avatar: user.avatar,
+          cover: user.cover,
+          city: user.city,
+          relationship: user.relationship,
+          uf: user.uf,
           date: user.created_at
         }
+        console.log(userData)
 
       const token = sign({
-        userData,
+        id: user._id,
+          id2: user.id,
+          nickname: user.nickname,
+          username: user.username,
+          email: user.email,
+          phone: user.phone,
+          role: user.role,
+          status: user.status,
+          type: user.type,
+          avatar: user.avatar,
+          cover: user.cover,
+          city: user.city,
+          relationship: user.relationship,
+          uf: user.uf,
+          date: user.created_at,
       }, "d64d7c8b83dd7212c25c3745933ee76e", 
       {
         subject: userData.id,
@@ -65,8 +103,22 @@ class AuthenticateAccountUseCase {
       console.log(userData)
 
       return {
-        userData,
-          token:token
+        id: user._id,
+          id2: user.id,
+          nickname: user.nickname,
+          username: user.username,
+          email: user.email,
+          phone: user.phone,
+          role: user.role,
+          status: user.status,
+          type: user.type,
+          avatar: user.avatar,
+          cover: user.cover,
+          city: user.city,
+          relationship: user.relationship,
+          uf: user.uf,
+          date: user.created_at,
+        token:token
       }
   }
 }

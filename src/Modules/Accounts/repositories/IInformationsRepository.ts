@@ -3,6 +3,7 @@ import { Informations } from "../models/Informations";
 interface IInformationsDTO {
   id: string;
   avatar: string;
+  cover: string;
   relationship: string;
   city: string;
   uf: string;
@@ -10,7 +11,7 @@ interface IInformationsDTO {
 }
 
 interface IInformationsRepository {
-  update({ id, avatar, relationship, city, uf, lookingFor }: IInformationsDTO): Promise<void>;
+  update({ id, avatar, cover, relationship, city, uf, lookingFor }: IInformationsDTO): Promise<void>;
 }
 
 export { IInformationsRepository, IInformationsDTO };

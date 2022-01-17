@@ -3,6 +3,7 @@ import { IInformationsRepository } from "../../repositories/IInformationsReposit
 interface IRequest {
   id: string;
   avatar: string;
+  cover: string;
   relationship: string;
   city: string;
   uf: string;
@@ -14,11 +15,11 @@ class UpdateInformationsUseCase {
     " ";
   }
 
-  execute({id, avatar, relationship, city, uf, lookingFor }: IRequest): void {
+  execute({id, avatar, cover, relationship, city, uf, lookingFor }: IRequest): void {
 
 
     this.accountRepository.update({
-      id, avatar, relationship, city, uf, lookingFor
+      id, avatar, cover, relationship, city, uf, lookingFor
     });
   }
 }

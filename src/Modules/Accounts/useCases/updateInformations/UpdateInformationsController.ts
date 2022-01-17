@@ -8,11 +8,11 @@ class UpdateInformationsController {
   }
 
   handle(req: Request, res: Response): Response {
-    const { avatar, relationship, city, uf,lookingFor } = req.body;
+    const { avatar, cover, relationship, city, uf,lookingFor } = req.body;
     const { id } = req.params;
 
     this.updateInformationsUseCase.execute({
-      id, avatar, relationship, city, uf, lookingFor
+      id, avatar, cover, relationship, city, uf, lookingFor
     });
 
 
