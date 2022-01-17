@@ -7,7 +7,6 @@ import { sessionAccounts } from "./accounts/session.routes";
 import { groupsFollowers } from "./followers/followers.routes";
 import { groupsFriends } from "./friends/friends.routes";
 import { groupsRoutes } from "./groups/groups.routes";
-import { membersgroups } from "./groups/membersgroups.routes";
 import { newsletterRoutes } from "./newsletter/newsletter.routes";
 
 const router = Router();
@@ -15,7 +14,6 @@ const router = Router();
 connectToDatabase()
   .then(() => {
     router.use("/groups", groupsRoutes);
-    router.use("/membersgroups", membersgroups);
     router.use("/newsletter", newsletterRoutes);
     router.use("/accounts", groupsAccounts);
     router.use("/friends", groupsFriends);

@@ -4,7 +4,6 @@ import { router } from "./routes";
 import http from 'http';
 import dotenv from 'dotenv';
 
-
 const app = express();
 const bodyParser = require ('body-parser');
 const cookieParser = require('cookie-parser');
@@ -12,7 +11,7 @@ const cors = require('cors');
 const server = http.createServer(app);
 const port = process.env.PORT || 3333;
 
-dotenv.config();
+// dotenv.config();
 
 app.use(cors());
 app.use(cookieParser());
