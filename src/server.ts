@@ -8,7 +8,7 @@ const bodyParser = require ('body-parser');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const server = http.createServer(app);
-const port = process.env.PORT || 3333;
+const PORT = process.env.PORT || 3333;
 
 app.use(cors());
 app.use(cookieParser());
@@ -25,7 +25,7 @@ const io = new Server(server, {
 });
 
 app.get("/", (req, res) => {
-  return res.send("app inicialized!");
+  return res.json("app inicialized!");
 });
 
 io.on("connection", (socket) => {
@@ -37,6 +37,6 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(port, () => {
-  console.log(`Server initialized! Access the link: http://localhost:${port}`);
+server.listen(PORT, () => {
+  console.log(`Server initialized! Access the link: http://localhost:${PORT}`);
 });
