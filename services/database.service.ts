@@ -20,6 +20,7 @@ export const collections: {
   plan?:mongoDB.Collection,
   like_post?:mongoDB.Collection,
   like_post_group?:mongoDB.Collection,
+  invites?:mongoDB.Collection,
  } = {}
 
 export async function connectToDatabase() {
@@ -120,4 +121,9 @@ export async function connectToDatabase() {
   const likePostCollection: mongoDB.Collection = db.collection(process.env.LIKEPOST_COLLECTION_NAME);
   collections.like_post = likePostCollection;
   console.log(`Successfully connected to database: ${db.databaseName} and collection: ${likePostCollection.collectionName}`);
+
+  // Like Post
+  const invitesCollection: mongoDB.Collection = db.collection(process.env.INVITES_COLLECTION_NAME);
+  collections.invites = invitesCollection;
+  console.log(`Successfully connected to database: ${db.databaseName} and collection: ${invitesCollection.collectionName}`);
 }

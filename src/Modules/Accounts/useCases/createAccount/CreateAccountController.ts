@@ -7,10 +7,10 @@ class CreateAccountController {
   }
 
   handle(req: Request, res: Response) {
-    const { nickname, username, role, status, type, email, phone, password } = req.body;
+    const { nickname, username, role, status, type, email, phone, password, avatar, cover, relationship, city, uf, lookingFor } = req.body;
 
     this.createAccountUseCase.execute({
-      nickname, username, role, status, type, email, phone, password
+      nickname, username, role, status, type, email, phone, password, avatar, cover, relationship, city, uf, lookingFor
     }).then((result) => {
       return res.status(201).json(result).send();
     }).catch(error => {

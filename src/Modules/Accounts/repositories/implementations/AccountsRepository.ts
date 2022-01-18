@@ -1,8 +1,6 @@
 import { Accounts } from "../../models/Accounts";
 import { IAccountsRepository, IAccountsDTO } from "../IAccountsRepository";
 import { collections } from '../../../../../services/database.service';
-import { compare } from 'bcrypt'
-import { sign } from "jsonwebtoken";
 import { v4 as uuidv4 } from "uuid";
 
 class AccountsRepository implements IAccountsRepository {
@@ -36,12 +34,12 @@ class AccountsRepository implements IAccountsRepository {
     } 
   }
 
-    async create({ nickname, username, role, status, type, email, phone, password }: IAccountsDTO) {
+    async create({ nickname, username, role, status, type, email, phone, password, avatar, cover, relationship, city, uf, lookingFor }: IAccountsDTO) {
       const account: Accounts = new Accounts();
       const _id = uuidv4()
       
         Object.assign(account, {
-          _id, id: _id, nickname, username, role, status, type, email, phone, password ,created_at: new Date(),
+          _id, id: _id, nickname, username, role, status, type, email, phone, password, avatar, cover, relationship, city, uf, lookingFor ,created_at: new Date(),
         });
         this.accounts.push(account);
         

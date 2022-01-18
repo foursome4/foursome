@@ -11,6 +11,12 @@ interface IRequest {
   email: string;
   phone: string;
   password: Promise<string>;
+  avatar: string;
+  cover: string;
+  relationship: string;
+  city: string;
+  uf: string;
+  lookingFor: string
 }
 
 class CreateAccountUseCase {
@@ -18,13 +24,13 @@ class CreateAccountUseCase {
     " ";
   }
   
-  async execute({nickname, username, role, status, type, email, phone, password  }: IRequest): Promise<void> {
+  async execute({nickname, username, role, status, type, email, phone, password, avatar, cover, relationship, city, uf, lookingFor }: IRequest): Promise<void> {
     const findEmail = await this.accountRepository.findByEmail(email);
     const findUsername = await this.accountRepository.findByUsername(username);
     const passwordHash = await hash(await password, 8);
 
       await this.accountRepository.create({
-        nickname, username, role, status, type, email, phone, password: passwordHash,
+        nickname, username, role, status, type, email, phone, password: passwordHash, avatar, cover, relationship, city, uf, lookingFor
       });
 
   }

@@ -7,6 +7,7 @@ import { sessionAccounts } from "./accounts/session.routes";
 import { groupsFollowers } from "./followers/followers.routes";
 import { groupsFriends } from "./friends/friends.routes";
 import { groupsRoutes } from "./groups/groups.routes";
+import { groupsInvites } from "./invites/invites.routes";
 import { newsletterRoutes } from "./newsletter/newsletter.routes";
 
 const router = Router();
@@ -20,6 +21,7 @@ connectToDatabase()
     router.use("/followers", groupsFollowers);
     router.use("/characteristics", groupsCharacteristics);
     router.use("/session", sessionAccounts);
+    router.use("/invites", groupsInvites);
   }).catch((error: Error) => {
     console.error("Database connection failed", error);
     process.exit();

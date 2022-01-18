@@ -7,6 +7,12 @@ class Accounts {
   email: string;
   phone: string;
   password: Promise<void>;
+  avatar: string;
+  cover: string;
+  relationship: string;
+  city: string;
+  uf: string;
+  lookingFor: string;
 
   created_at: Date;
 }
