@@ -58,9 +58,7 @@ class AccountsRepository implements IAccountsRepository {
       }
     }
 
-  list(): Accounts[] {
-    return this.accounts;
-  }
+  list(){ }
 }
 
 export { AccountsRepository };

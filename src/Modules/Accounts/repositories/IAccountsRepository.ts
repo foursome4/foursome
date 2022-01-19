@@ -22,7 +22,7 @@ interface IAccountsRepository {
   findByEmail(email: string): Promise<void> ;
   findByUsername(username: string): Promise<void> ;
   session(email: string, username: string, password: string);
-  list(): Accounts[];
+  list();
 }
 
 export { IAccountsRepository, IAccountsDTO };

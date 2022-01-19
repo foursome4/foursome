@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { createFollowersController } from "../../Modules/Accounts/useCases/createFollowers";
+import { listFriendsController } from "../../Modules/Accounts/useCases/listFriends";
 import { updateInformationsController } from "../../Modules/Accounts/useCases/updateInformations";
 import { listGroupController } from "../../Modules/Groups/useCases/listGroup";
 
@@ -15,7 +16,7 @@ groupsFollowers.patch("/", (req, res) => {
   return updateInformationsController.handle(req, res)
 })
 groupsFollowers.get("/", (req, res) => {
-  return listGroupController.handle(req, res);
+  return listFriendsController.handle(req, res);
 });
 
 export { groupsFollowers };

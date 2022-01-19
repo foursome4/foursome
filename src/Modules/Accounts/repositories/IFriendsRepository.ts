@@ -11,7 +11,7 @@ interface IFriendsRepository {
   create({ id_account, id_friend, type, status }: IFriendsDTO): void;
   findByIdAccount(id_account: string): Promise<void>;
   findByIdFriend(id_friend: string): Promise<void>;
-  list(): Friends[];
+  list();
 }
 
 export { IFriendsRepository, IFriendsDTO };

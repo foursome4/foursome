@@ -73,9 +73,7 @@ class FriendsRepository implements IFriendsRepository {
         })
           }
 
-  list(): Friends[] {
-    return this.friends;
-  }
+  list(){}
 }
 
 export { FriendsRepository };
