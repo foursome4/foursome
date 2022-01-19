@@ -9,6 +9,9 @@ import { groupsFriends } from "./friends/friends.routes";
 import { groupsRoutes } from "./groups/groups.routes";
 import { groupsInvites } from "./invites/invites.routes";
 import { newsletterRoutes } from "./newsletter/newsletter.routes";
+import { commentsRoutes } from "./posts/comments.routes";
+import { postsRoutes } from "./posts/posts.routes";
+import { reactionsRoutes } from "./posts/reactions.routes";
 
 const router = Router();
 
@@ -22,6 +25,9 @@ connectToDatabase()
     router.use("/characteristics", groupsCharacteristics);
     router.use("/session", sessionAccounts);
     router.use("/invites", groupsInvites);
+    router.use("/posts", postsRoutes);
+    router.use("/comments", commentsRoutes);
+    router.use("/reactions", reactionsRoutes);
   }).catch((error: Error) => {
     console.error("Database connection failed", error);
     process.exit();

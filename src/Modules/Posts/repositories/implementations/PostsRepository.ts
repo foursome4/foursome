@@ -1,0 +1,59 @@
+import { Posts } from "../../models/Posts";
+import { IPostsDTO, IPostsRepository } from "../IPostsRepository";
+import {v4 as uuidv4} from 'uuid'
+import { collections } from "../../../../../services/database.service";
+
+class PostsRepository implements IPostsRepository {
+  private posts: Posts[];
+
+  private static INSTANCE: PostsRepository;
+
+  private constructor() {
+    this.posts = [];
+  }
+
+  public static getInstance(): PostsRepository {
+    if (!PostsRepository.INSTANCE) {
+      PostsRepository.INSTANCE = new PostsRepository();
+    }
+
+    return PostsRepository.INSTANCE;
+  }
+
+ async create({ 
+    idAccount,
+    idGroup,
+    idForum,
+    type,
+    text,
+    link,
+  }: IPostsDTO) {
+    const post: Posts = new Posts();
+    const _id = uuidv4()
+    Object.assign(post, {
+      _id,
+      id: _id,
+      idAccount,
+      idGroup,
+      idForum,
+      type,
+      text,
+      link,
+      created_at: new Date(),
+    });
+
+    this.posts.push(post);
+    console.log(post)
+
+    await collections.post.insertOne(post).then((result) => {
+      console.log(result) 
+    }).catch(error => {
+      console.log(error)
+    })
+  }
+  list(): Posts[] {
+    return this.posts;
+  }
+}
+
+export { PostsRepository };

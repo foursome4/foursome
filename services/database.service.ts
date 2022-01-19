@@ -6,7 +6,7 @@ export const collections: {
   newsletter?: mongoDB.Collection,
   members_groups?:mongoDB.Collection,
   posts_groups?:mongoDB.Collection,
-  comments_groups?:mongoDB.Collection,
+  comments?:mongoDB.Collection,
   foruns?:mongoDB.Collection,
   posts_foruns?:mongoDB.Collection,
   accounts?:mongoDB.Collection,
@@ -16,11 +16,12 @@ export const collections: {
   friends?:mongoDB.Collection,
   followers?:mongoDB.Collection,
   events?:mongoDB.Collection,
-  post_feed?:mongoDB.Collection,
+  post?:mongoDB.Collection,
   plan?:mongoDB.Collection,
   like_post?:mongoDB.Collection,
   like_post_group?:mongoDB.Collection,
   invites?:mongoDB.Collection,
+  reactions?:mongoDB.Collection,
  } = {}
 
 export async function connectToDatabase() {
@@ -52,10 +53,10 @@ export async function connectToDatabase() {
   collections.posts_groups = groupsPostsCollection;
   console.log(`Successfully connected to database: ${db.databaseName} and collection: ${groupsPostsCollection.collectionName}`);
 
-   //Groups Comments
-   const groupsCommentsCollection: mongoDB.Collection = db.collection(process.env.COMMENTSGROUPS_COLLECTION_NAME);
-   collections.comments_groups = groupsCommentsCollection;
-   console.log(`Successfully connected to database: ${db.databaseName} and collection: ${groupsCommentsCollection.collectionName}`);
+   //Comments
+   const commentsCollection: mongoDB.Collection = db.collection(process.env.COMMENTS_COLLECTION_NAME);
+   collections.comments = commentsCollection;
+   console.log(`Successfully connected to database: ${db.databaseName} and collection: ${commentsCollection.collectionName}`);
 
    // Like Post Group
   const likePostGroupCollection: mongoDB.Collection = db.collection(process.env.LIKEPOSTGROUP_COLLECTION_NAME);
@@ -107,10 +108,10 @@ export async function connectToDatabase() {
   collections.events = eventsCollection;
   console.log(`Successfully connected to database: ${db.databaseName} and collection: ${eventsCollection.collectionName}`);
 
-  // Posts Feed
-  const accountsPostsFeedCollection: mongoDB.Collection = db.collection(process.env.POSTFEED_COLLECTION_NAME);
-  collections.post_feed = accountsPostsFeedCollection;
-  console.log(`Successfully connected to database: ${db.databaseName} and collection: ${accountsPostsFeedCollection.collectionName}`);
+  // Posts
+  const postsCollection: mongoDB.Collection = db.collection(process.env.POST_COLLECTION_NAME);
+  collections.post = postsCollection;
+  console.log(`Successfully connected to database: ${db.databaseName} and collection: ${postsCollection.collectionName}`);
 
   // Accounts Plan
   const planCollection: mongoDB.Collection = db.collection(process.env.PLAN_COLLECTION_NAME);
@@ -122,8 +123,13 @@ export async function connectToDatabase() {
   collections.like_post = likePostCollection;
   console.log(`Successfully connected to database: ${db.databaseName} and collection: ${likePostCollection.collectionName}`);
 
-  // Like Post
+  // Invites
   const invitesCollection: mongoDB.Collection = db.collection(process.env.INVITES_COLLECTION_NAME);
   collections.invites = invitesCollection;
   console.log(`Successfully connected to database: ${db.databaseName} and collection: ${invitesCollection.collectionName}`);
+
+  // Like Post
+  const reactionsCollection: mongoDB.Collection = db.collection(process.env.REACTIONS_COLLECTION_NAME);
+  collections.reactions = reactionsCollection;
+  console.log(`Successfully connected to database: ${db.databaseName} and collection: ${reactionsCollection.collectionName}`);
 }
