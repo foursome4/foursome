@@ -8,12 +8,12 @@ class ListFriendsUseCase {
   }
 
   async execute() {
-   const friends = await collections.friends.find({});
-   const friendsAll = friends.toArray(function(err, result){
-    console.log(result)
-    return result;
-   })
-console.log(friendsAll)
+  //  const friends = await collections.friends.find({});
+  //  const friendsAll = friends.toArray(function(err, result){
+  //   // console.log(result)
+  //   // return result;
+  //  })
+// console.log(friendsAll)
         }
   }
 

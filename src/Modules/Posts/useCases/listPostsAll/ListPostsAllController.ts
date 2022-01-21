@@ -1,16 +1,16 @@
 import { Request, Response } from "express";
 import { collections } from "../../../../../services/database.service";
 
-import { ListFriendsUseCase } from "./ListFriendsUseCase";
+import { ListPostsAllUseCase } from "./ListPostsAllUseCase";
 
-class ListFriendsController {
-  constructor(private listFriendsUseCase: ListFriendsUseCase) {
+class ListPostsAllController {
+  constructor(private listPostseCase: ListPostsAllUseCase) {
     ("");
   }
 
   async handle(req: Request, res: Response) {
-    const id_account = req.body;
-   await collections.friends.find(id_account).toArray(function(err, result){
+    const idAccount = req.body;
+   await collections.post.find({}).toArray(function(err, result){
       if(err) {
         res.status(500).json(err).send()
       } else {
@@ -23,4 +23,4 @@ class ListFriendsController {
   }
 }
 
-export { ListFriendsController };
+export { ListPostsAllController };
