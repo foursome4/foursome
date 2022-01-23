@@ -1,9 +1,12 @@
 import { ICommentsRepository } from "../../repositories/ICommentsRepository";
 
 interface IRequest {
-  text: string;
-  idPost: string;
   idAccount: string;
+  avatar: string;
+  nickname: string;
+  username:string;
+  idPost: string;
+  text: string;
 }
 
 class CreateCommentsUseCase {
@@ -12,11 +15,11 @@ class CreateCommentsUseCase {
   }
 
   async execute({
-    text, idPost, idAccount
+    idAccount, idPost, avatar, nickname, username, text
   }: IRequest): Promise<void>{
 
    await this.CommentsRepository.create({
-    text, idPost, idAccount
+    idAccount, idPost, avatar, nickname, username, text
     });
   }
 }

@@ -1,6 +1,7 @@
 import { Group } from "../../models/Group";
 import { ICreateGroupDTO, IGroupsRepository } from "../IGroupsRepository";
-import { collections } from '../../../../../services/database.service'
+import { collections } from '../../../../../services/database.service';
+import { v4 as uuidv4 } from 'uuid'
 
 class GroupsRepository implements IGroupsRepository {
   private groups: Group[];
@@ -41,7 +42,9 @@ class GroupsRepository implements IGroupsRepository {
     privacity,
   }: ICreateGroupDTO) {
     const group: Group = new Group();
+    const _id = uuidv4()
     Object.assign(group, {
+      _id, id: _id,
       name,
       description,
       avatar,

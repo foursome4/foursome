@@ -8,11 +8,11 @@ class CreateCommentsController {
   }
   handle(req: Request, res: Response) {
     const { 
-      text, idPost, idAccount
+      idAccount, idPost, avatar, nickname, username, text
      } =
       req.body;
     this.createCommentsUseCase.execute({
-      text, idPost, idAccount
+      idAccount, idPost, avatar, nickname, username, text
     }).then((result) => {
       return res.status(201).json(result).send();
     }).catch(error => {

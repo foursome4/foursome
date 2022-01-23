@@ -28,16 +28,14 @@ class ReactionsRepository implements IReactionsRepository {
   }
 
  async create({ 
-    idAccount,
-    idPost,
+  idAccount, idPost, avatar, username, nickname, 
   }: IReactionsDTO) {
     const post: Reactions = new Reactions();
     const _id = uuidv4()
     Object.assign(post, {
       _id,
       id: _id,
-      idAccount,
-      idPost,
+      idAccount, idPost, avatar, username, nickname, 
       created_at: new Date(),
     });
 

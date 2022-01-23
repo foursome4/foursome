@@ -20,11 +20,11 @@ class CommentsRepository implements ICommentsRepository {
     return CommentsRepository.INSTANCE;
   }
 
-  async create({ text, idPost, idAccount }: ICommentsDTO) {
+  async create({ idAccount, idPost, avatar, nickname, username, text }: ICommentsDTO) {
     const comment: Comments = new Comments();
     const _id = uuidv4()
     Object.assign(comment, {
-      _id, id: _id, text, idPost, idAccount, created_at: new Date(),
+      _id, id: _id, idAccount, idPost, avatar, nickname, username, text, created_at: new Date(),
     });
 
     this.comments.push(comment);

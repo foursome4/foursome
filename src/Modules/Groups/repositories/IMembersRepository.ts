@@ -1,16 +1,19 @@
 import { Members } from "../models/Members";
 
-interface IMembersGroupDTO {
+interface IMembersDTO {
   id_group: string;
   id_account: string;
-  role: string;
-  status: string;
+  avatar: string;
+  username: string;
+  nickname:string;
+  role: string;  // Administrator, member
+  status: string;  // pending, aproved, recused e banned
 }
 
-interface IMembersGroupRepository {
-  create({ id_account, id_group, role, status, }: IMembersGroupDTO): void;
+interface IMembersRepository {
+  create({ id_account, id_group, role, status, avatar, username, nickname }: IMembersDTO);
   findById(id_account: string): Members;
-  list(): Members[];
+  list();
 }
 
-export { IMembersGroupRepository, IMembersGroupDTO };
+export { IMembersRepository, IMembersDTO };

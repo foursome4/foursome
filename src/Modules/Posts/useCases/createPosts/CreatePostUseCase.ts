@@ -2,6 +2,11 @@ import { IPostsRepository } from "../../repositories/IPostsRepository";
 
 interface IRequest {
   idAccount: string;
+  avatar: string;
+  nickname:string;
+  username:string;
+  nameGroup: string;
+  nameForum: string;
   idGroup: string;
   idForum: string;
   type: string;
@@ -16,6 +21,11 @@ class CreatePostUseCase {
 
   async execute({
     idAccount,
+    avatar,
+    nickname,
+    username,
+    nameGroup,
+    nameForum,
     idGroup,
     idForum,
     type,
@@ -24,7 +34,12 @@ class CreatePostUseCase {
   }: IRequest): Promise<void>{
 
    await this.postsRepository.create({
-      idAccount,
+    idAccount,
+    avatar,
+    nickname,
+    username,
+    nameGroup,
+    nameForum,
     idGroup,
     idForum,
     type,

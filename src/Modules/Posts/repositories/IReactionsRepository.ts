@@ -2,6 +2,9 @@ import { Reactions } from "../models/Reactions";
 
 interface IReactionsDTO {
   idAccount: string;
+  avatar: string;
+  username: string;
+  nickname: string;
   idPost: string;
 }
 

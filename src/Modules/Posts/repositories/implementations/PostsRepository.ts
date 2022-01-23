@@ -21,12 +21,17 @@ class PostsRepository implements IPostsRepository {
   }
 
  async create({ 
-    idAccount,
-    idGroup,
-    idForum,
-    type,
-    text,
-    link,
+  idAccount,
+  avatar,
+  nickname,
+  username,
+  nameGroup,
+  nameForum,
+  idGroup,
+  idForum,
+  type,
+  text,
+  link,
   }: IPostsDTO) {
     const post: Posts = new Posts();
     const _id = uuidv4()
@@ -34,6 +39,11 @@ class PostsRepository implements IPostsRepository {
       _id,
       id: _id,
       idAccount,
+      avatar,
+      nickname,
+      username,
+      nameGroup,
+      nameForum,
       idGroup,
       idForum,
       type,

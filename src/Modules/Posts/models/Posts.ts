@@ -2,6 +2,11 @@ import { v4 as uuidv4 } from "uuid";
 
 class Posts {
   idAccount: string;
+  avatar: string;
+  nickname:string;
+  username:string;
+  nameGroup: string;
+  nameForum: string;
   idGroup: string;
   idForum: string;
   type: string;

@@ -8,13 +8,11 @@ class CreateReactionsController {
   }
   handle(req: Request, res: Response) {
     const { 
-      idAccount,
-      idPost,
+      idAccount, idPost, avatar, username, nickname, 
      } =
       req.body;
     this.createReactionsUseCase.execute({
-      idAccount,
-      idPost,
+      idAccount, idPost, avatar, username, nickname, 
     }).then((result) => {
       return res.status(201).json(result).send();
     }).catch(error => {

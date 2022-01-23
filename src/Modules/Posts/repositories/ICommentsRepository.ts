@@ -1,13 +1,16 @@
 import { Comments } from "../models/Comments";
 
 interface ICommentsDTO {
-  text: string;
-  idPost: string;
   idAccount: string;
+  avatar: string;
+  nickname: string;
+  username:string;
+  idPost: string;
+  text: string;
 }
 
 interface ICommentsRepository {
-  create({text, idPost, idAccount, }: ICommentsDTO): Promise<void>;
+  create({idAccount, idPost, avatar, nickname, username, text, }: ICommentsDTO): Promise<void>;
   list()
 }
 

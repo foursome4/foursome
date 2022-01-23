@@ -22,6 +22,8 @@ export const collections: {
   like_post_group?:mongoDB.Collection,
   invites?:mongoDB.Collection,
   reactions?:mongoDB.Collection,
+  reply?:mongoDB.Collection,
+  message?:mongoDB.Collection,
  } = {}
 
 export async function connectToDatabase() {
@@ -132,4 +134,15 @@ export async function connectToDatabase() {
   const reactionsCollection: mongoDB.Collection = db.collection(process.env.REACTIONS_COLLECTION_NAME);
   collections.reactions = reactionsCollection;
   console.log(`Successfully connected to database: ${db.databaseName} and collection: ${reactionsCollection.collectionName}`);
-}
+
+    // Reply Comments
+    const replyCollection: mongoDB.Collection = db.collection(process.env.REPLY_COLLECTION_NAME);
+    collections.reply = replyCollection;
+    console.log(`Successfully connected to database: ${db.databaseName} and collection: ${replyCollection.collectionName}`);
+
+      // Messages
+      const messageCollection: mongoDB.Collection = db.collection(process.env.MESSAGE_COLLECTION_NAME);
+      collections.message = messageCollection;
+      console.log(`Successfully connected to database: ${db.databaseName} and collection: ${messageCollection.collectionName}`);
+    }
+  

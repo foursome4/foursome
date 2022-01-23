@@ -1,12 +1,12 @@
 
-class Comments {
+class Reply {
   idAccount: string;
   avatar: string;
   nickname: string;
   username:string;
-  idPost: string;
+  idComment: string;
   text: string;
   created_at: Date;
 }
 
-export { Comments };
+export { Reply };

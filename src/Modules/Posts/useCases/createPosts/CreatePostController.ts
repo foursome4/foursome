@@ -8,21 +8,31 @@ class CreatePostController {
   }
   handle(req: Request, res: Response) {
     const { 
-      idAccount,
-      idGroup,
-      idForum,
-      type,
-      text,
-      link,
+         idAccount,
+    avatar,
+    nickname,
+    username,
+    nameGroup,
+    nameForum,
+    idGroup,
+    idForum,
+    type,
+    text,
+    link,
      } =
       req.body;
     this.createPostUseCase.execute({
-      idAccount,
-      idGroup,
-      idForum,
-      type,
-      text,
-      link,
+         idAccount,
+    avatar,
+    nickname,
+    username,
+    nameGroup,
+    nameForum,
+    idGroup,
+    idForum,
+    type,
+    text,
+    link,
     }).then((result) => {
       return res.status(201).json(result).send();
     }).catch(error => {
