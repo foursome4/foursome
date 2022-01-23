@@ -13,11 +13,16 @@ const port = process.env.PORT || 3333;
 
 // dotenv.config();
 
-app.use(cors());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extends: true}));
 app.use(express.json());
 app.use(router);
+app.use((req, res, next) =>{
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Method", "['GET', 'PUT', 'POST', 'PATCH, DELETE]");
+  app.use(cors());
+  next()
+}) 
 
 const io = new Server(server, {
   cors: {
