@@ -9,7 +9,7 @@ class ListInformationsController {
   }
 
   async handle(req: Request, res: Response) {
-    const idAccount = req.body;
+    const idAccount = req.params;
     await collections.informations.find(idAccount).toArray(function(err, result){
        if(err) {
          res.status(500).json(err).send()

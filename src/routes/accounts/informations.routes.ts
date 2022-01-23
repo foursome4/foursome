@@ -8,7 +8,7 @@ informationsRoutes.post("/", (req, res) => {
   return createInformationsController.handle(req, res);
 });
 
-informationsRoutes.get("/", (req, res) => {
+informationsRoutes.get("/:idAccount", (req, res) => {
     return listInformationsController.handle(req, res);
   });
 
