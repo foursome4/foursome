@@ -10,6 +10,7 @@ informationsRoutes.post("/", (req, res) => {
 
 informationsRoutes.get("/:idAccount", (req, res) => {
     return listInformationsController.handle(req, res);
+    
   });
 
 export { informationsRoutes };
