@@ -2,8 +2,8 @@ import { Router } from "express";
 import { connectToDatabase } from "../../services/database.service";
 import { groupsAccounts } from "./accounts/accounts.routes";
 import { groupsCharacteristics } from "./accounts/characteristics.routes";
+import { informationsRoutes } from "./accounts/informations.routes";
 import { preferencesRoutes } from "./accounts/preferences.routes";
-// import { groupsInformations } from "./accounts/informations.routes";
 import { sessionAccounts } from "./accounts/session.routes";
 import { eventsRoutes } from "./events/events.routes";
 import { groupsFollowers } from "./followers/followers.routes";
@@ -24,6 +24,7 @@ connectToDatabase()
     router.use("/groups", groupsRoutes);
     router.use("/newsletter", newsletterRoutes);
     router.use("/accounts", groupsAccounts);
+    router.use("/informations", informationsRoutes);
     router.use("/friends", groupsFriends);
     router.use("/followers", groupsFollowers);
     router.use("/characteristics", groupsCharacteristics);

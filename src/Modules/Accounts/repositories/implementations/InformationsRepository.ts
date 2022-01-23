@@ -1,11 +1,8 @@
 import { Informations } from "../../models/Informations";
 import { IInformationsRepository, IInformationsDTO } from "../IInformationsRepository";
-import { collections } from '../../../../../services/database.service'
-import { ObjectId } from "mongodb";
+import { collections } from '../../../../../services/database.service';
+import { v4 as uuidv4 } from "uuid";
 
-interface TypeId {
-  _id: ObjectId;
-}
 class InformationsRepository implements IInformationsRepository {
   private informations: Informations[];
 
@@ -24,29 +21,31 @@ class InformationsRepository implements IInformationsRepository {
   }
 
   
-    async update({ id, avatar, cover, relationship, city, uf, lookingFor}: IInformationsDTO) {
-      const information: Informations = new Informations();
-      Object.assign(information, {
-        id,avatar, cover, relationship, city, uf, lookingFor
-      });
-  
-      this.informations.push(information);
-      console.log({ id, avatar, cover, relationship, city, uf, lookingFor})
-    await collections.accounts.findOneAndUpdate(
-      {id},{$set:
-      {avatar: avatar,
-      cover:cover, 
-      relationship: relationship,
-      city: city,
-      uf: uf,
-      lookingFor: lookingFor
-      }},{upsert: true}).then((result) => {
-        console.log(result)
-      }).catch(error => {
-        console.log("Erro: " + error)
-      })
-    }
-    
+  async findById(idAccount: string): Promise<void> {
+    const findIdAccount = await collections.informations.findOne({idAccount})
+      if(findIdAccount) {
+        throw new Error("Email already exists!")
+      } 
+  }
+
+    async create({idAccount, nickname, avatar, cover, relationship, city, uf }: IInformationsDTO) {
+      const informations: Informations = new Informations();
+      const _id = uuidv4()
+      
+        Object.assign(informations, {
+          _id, id: _id, idAccount, nickname, avatar, cover, relationship, city, uf ,created_at: new Date(),
+        });
+        this.informations.push(informations);
+        
+        await collections.informations.insertOne(informations).then((result) => {
+          console.log(result)
+        }).catch(error => {
+          console.log(error)
+        })
+          }
+
+  list(){ }
 }
 
 export { InformationsRepository };
+
