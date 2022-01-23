@@ -35,6 +35,7 @@ interface ICharacteristicsRepository {
     smokes,
   }: ICharacteristicsDTO): void;
   findByIdAccount(id_account: string): Promise<void>;
+  list();
 }
 
 export { ICharacteristicsRepository, ICharacteristicsDTO };

@@ -73,6 +73,7 @@ class CharacteristicsRepository implements ICharacteristicsRepository {
         console.log(error)
       })
     }
+    list(){ }
     
 }
 
