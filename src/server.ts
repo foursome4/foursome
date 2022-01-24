@@ -18,7 +18,8 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({extends: true}));
 app.use(express.json());
 app.use(router);
-app.use(cors());
+app.use(cors())
+
 
 
 const io = new Server(server, {
@@ -26,6 +27,7 @@ const io = new Server(server, {
     origin: "*",
   }
 });
+
 
 app.get("/", (req, res) => {
   return res.json("app inicialized!");
