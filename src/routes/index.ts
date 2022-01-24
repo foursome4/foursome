@@ -16,7 +16,6 @@ import { commentsRoutes } from "./posts/comments.routes";
 import { postsRoutes } from "./posts/posts.routes";
 import { reactionsRoutes } from "./posts/reactions.routes";
 import { replyRoutes } from "./posts/reply.routes";
-
 const router = Router();
 
 connectToDatabase()
