@@ -11,19 +11,16 @@ postsRoutes.post("/", (req, res) => {
   return createPostController.handle(req, res);
 });
 
-postsRoutes.get("/filter", (req, res) => {
+postsRoutes.post("/filter", (req, res) => {
   return listPostsController.handle(req, res);
 });
-postsRoutes.get("/filter/:type", (req, res) => {
+postsRoutes.post("/filter/all", (req, res) => {
   return listPostsAllController.handle(req, res);
 });
-postsRoutes.get("/all", (req, res) => {
-  return listPostsAllController.handle(req, res);
-});
-postsRoutes.get("/groups", (req, res) => {
+postsRoutes.post("/groups", (req, res) => {
   return listPostsController.handle(req, res);
 });
-postsRoutes.get("/foruns", (req, res) => {
+postsRoutes.post("/foruns", (req, res) => {
   return listPostsController.handle(req, res);
 });
 

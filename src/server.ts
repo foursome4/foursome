@@ -1,10 +1,8 @@
 import express from "express";
-import http from 'http';
-import dotenv from 'dotenv';
-dotenv.config();
-
 import { Server } from 'socket.io';
 import { router } from "./routes";
+import http from 'http';
+import dotenv from 'dotenv';
 
 const app = express();
 const bodyParser = require ('body-parser');
@@ -13,21 +11,21 @@ const cors = require('cors');
 const server = http.createServer(app);
 const port = process.env.PORT || 3333;
 
+// dotenv.config();
 
+app.use(cors());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extends: true}));
 app.use(express.json());
 app.use(router);
-app.use(cors())
-
-
 
 const io = new Server(server, {
   cors: {
-    origin: "*",
+    origin: "http://localhost:3334",
+    methods: ["GET", "POST", "PUT", "DELETE","PATCH"],
+    credentials: true
   }
 });
-
 
 app.get("/", (req, res) => {
   return res.json("app inicialized!");

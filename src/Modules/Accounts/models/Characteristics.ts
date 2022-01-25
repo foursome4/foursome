@@ -2,7 +2,7 @@ class Characteristics {
   id_account: string;
   birthDate: string;
   sex: string;
-  SexualOption: string;
+  sexualOption: string;
   education: string;
   sign: string;
   heigth: string;

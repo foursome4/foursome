@@ -4,7 +4,7 @@ interface ICharacteristicsDTO {
   id_account: string;
   birthDate: string;
   sex: string;
-  SexualOption: string;
+  sexualOption: string;
   education: string;
   sign: string;
   heigth: string;
@@ -22,7 +22,7 @@ interface ICharacteristicsRepository {
     id_account,
     birthDate,
     sex,
-    SexualOption,
+    sexualOption,
     education,
     sign,
     heigth,

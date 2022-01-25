@@ -24,7 +24,7 @@ class InformationsRepository implements IInformationsRepository {
   async findById(idAccount: string): Promise<void> {
     const findIdAccount = await collections.informations.findOne({idAccount})
       if(findIdAccount) {
-        throw new Error("Email already exists!")
+        throw new Error("Informação existente!")
       } 
   }
 

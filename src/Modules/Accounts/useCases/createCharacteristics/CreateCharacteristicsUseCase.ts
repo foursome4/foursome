@@ -4,7 +4,7 @@ interface IRequest {
   id_account: string;
   birthDate: string;
   sex: string;
-  SexualOption: string;
+  sexualOption: string;
   education: string;
   sign: string;
   heigth: string;
@@ -25,7 +25,7 @@ class CreateCharacteristicsUseCase {
   execute({id_account,
     birthDate,
     sex,
-    SexualOption,
+    sexualOption,
     education,
     sign,
     heigth,
@@ -42,7 +42,7 @@ class CreateCharacteristicsUseCase {
       id_account,
         birthDate,
         sex,
-        SexualOption,
+        sexualOption,
         education,
         sign,
         heigth,

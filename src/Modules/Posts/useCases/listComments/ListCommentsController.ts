@@ -1,16 +1,16 @@
 import { Request, Response } from "express";
 import { collections } from "../../../../../services/database.service";
 
-import { ListPostsAllUseCase } from "./ListPostsAllUseCase";
+import { ListCommentsUseCase } from "./ListCommentsUseCase";
 
-class ListPostsAllController {
-  constructor(private listPostseCase: ListPostsAllUseCase) {
+class ListCommentsController {
+  constructor(private listCommentseCase: ListCommentsUseCase) {
     ("");
   }
 
   async handle(req: Request, res: Response) {
-    const type = req.params;
-   await collections.post.find(type).sort( { created_at: -1 } ).toArray(function(err, result){
+    const idPost = req.params;
+   await collections.comments.find(idPost).sort( { created_at: -1 } ).toArray(function(err, result){
       if(err) {
         res.status(500).json(err)
       } else {
@@ -23,4 +23,4 @@ class ListPostsAllController {
   }
 }
 
-export { ListPostsAllController };
+export { ListCommentsController };
