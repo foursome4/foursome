@@ -1,6 +1,7 @@
 import { Router } from "express";
-import { createAccountController } from "../../Modules/Accounts/useCases/createAccount";
 import { listAccountsController } from "../../Modules/Accounts/useCases/listAccounts";
+
+import { createAccountController } from '../../Modules/Accounts/useCases/createAccount/index'
 
 
 
