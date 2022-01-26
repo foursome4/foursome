@@ -5,6 +5,7 @@ class Accounts {
   type: string;
   email: string;
   phone: string;
+  code: string;
   password: string;
 
   created_at: Date;

@@ -7,18 +7,12 @@ interface IResponse {
           token: string;
           id: string;
           id2: string;
-          nickname: string;
           username: string;
           email: string;
           phone: string;
           role: string;
           status: string;
           type: string;
-          avatar: string;
-          cover: string;
-          city: string;
-          relationship: string;
-          uf: string;
           date: Date;
 }
 
@@ -61,18 +55,12 @@ class AuthenticateAccountUseCase {
         const userData = {
           id: user._id,
           id2: user.id,
-          nickname: user.nickname,
           username: user.username,
           email: user.email,
           phone: user.phone,
           role: user.role,
           status: user.status,
           type: user.type,
-          avatar: user.avatar,
-          cover: user.cover,
-          city: user.city,
-          relationship: user.relationship,
-          uf: user.uf,
           date: user.created_at
         }
         console.log(userData)
@@ -87,11 +75,6 @@ class AuthenticateAccountUseCase {
           role: user.role,
           status: user.status,
           type: user.type,
-          avatar: user.avatar,
-          cover: user.cover,
-          city: user.city,
-          relationship: user.relationship,
-          uf: user.uf,
           date: user.created_at,
       }, "d64d7c8b83dd7212c25c3745933ee76e", 
       {
@@ -105,18 +88,12 @@ class AuthenticateAccountUseCase {
       return {
         id: user._id,
           id2: user.id,
-          nickname: user.nickname,
           username: user.username,
           email: user.email,
           phone: user.phone,
           role: user.role,
           status: user.status,
           type: user.type,
-          avatar: user.avatar,
-          cover: user.cover,
-          city: user.city,
-          relationship: user.relationship,
-          uf: user.uf,
           date: user.created_at,
         token:token
       }

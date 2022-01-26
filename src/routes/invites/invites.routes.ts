@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { createInvitesController } from "../../Modules/Invite/useCases/createAccount";
+import { createInvitesController } from "../../Modules/Invite/useCases/createInvite";
 
 
 

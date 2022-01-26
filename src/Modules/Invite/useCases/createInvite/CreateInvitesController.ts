@@ -7,10 +7,10 @@ class CreateInvitesController {
   }
 
   handle(req: Request, res: Response) {
-    const { inviteCode, idAccount, name, email, phone } = req.body;
+    const { inviteCode, idAccount, username, name, email, phone } = req.body;
 
     this.createInvitesUseCase.execute({
-      inviteCode, idAccount, name, email, phone
+      inviteCode, idAccount, username, name, email, phone
     }).then((result) => {
       return res.status(201).json(result).send();
     }).catch(error => {
