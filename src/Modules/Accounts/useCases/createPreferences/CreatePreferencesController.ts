@@ -9,10 +9,10 @@ class CreatePreferencesController {
 
   handle(req: Request, res: Response): Response {
     const {
-      idAccount, search, relationship, humor, activities } = req.body;
+     idAccount, men, woman, couple, trisal, transvestites, transsexuals, groups } = req.body;
 
     this.createPreferencesUseCase.execute({
-      idAccount, search, relationship, humor, activities
+     idAccount, men, woman, couple, trisal, transvestites, transsexuals, groups
     });
 
 

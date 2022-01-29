@@ -2,10 +2,13 @@ import { IPreferencesRepository } from "../../repositories/IPreferencesRepositor
 
 interface IRequest {
   idAccount: string;
-  search: string;
-  relationship: string;
-  humor: string;
-  activities: string;
+  men: string;
+  woman: string;
+  couple: string;
+  trisal: string;
+  transvestites: string;
+  transsexuals: string;
+  groups: string;
 }
 
 class CreatePreferencesUseCase {
@@ -13,11 +16,11 @@ class CreatePreferencesUseCase {
     " ";
   }
 
-  execute({idAccount, search, relationship, humor, activities }: IRequest): void {
+  execute({idAccount, men, woman, couple, trisal, transvestites, transsexuals, groups }: IRequest): void {
 
 
     this.accountRepository.create({
-      idAccount, search, relationship, humor, activities
+      idAccount, men, woman, couple, trisal, transvestites, transsexuals, groups
     });
   }
 }

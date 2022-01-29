@@ -28,12 +28,12 @@ class PreferencesRepository implements IPreferencesRepository {
       } 
   }
 
-    async create({ idAccount, search, relationship, humor, activities }: IPreferencesDTO) {
+    async create({ idAccount, men, woman, couple, trisal, transvestites, transsexuals, groups }: IPreferencesDTO) {
       const preferences: Preferences = new Preferences();
       const _id = uuidv4()
       
         Object.assign(preferences, {
-          _id, id: _id, idAccount, search, relationship, humor, activities ,created_at: new Date(),
+          _id, id: _id, idAccount, men, woman, couple, trisal, transvestites, transsexuals, groups ,created_at: new Date(),
         });
         this.preferences.push(preferences);
         

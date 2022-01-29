@@ -1,9 +1,12 @@
 class Preferences {
   idAccount: string;
-  search: string;
-  relationship: string;
-  humor: string;
-  activities: string;
+  men: string;
+  woman: string;
+  couple: string;
+  trisal: string;
+  transvestites: string;
+  transsexuals: string;
+  groups: string;
   created_at: Date;
 }
 
