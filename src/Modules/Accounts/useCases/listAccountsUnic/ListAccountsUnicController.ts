@@ -9,8 +9,8 @@ class ListAccountsUnicController {
   }
 
   async handle(req: Request, res: Response) {
-    const idAccount = req.params;
-   await collections.accounts.find(idAccount).toArray(function(err, result){
+    const id = req.params;
+   await collections.accounts.find(id).toArray(function(err, result){
       if(err) {
         res.status(500).json(err)
       } else {
@@ -19,7 +19,6 @@ class ListAccountsUnicController {
       console.log(result)
       return result;
      })
-
   }
 }
 

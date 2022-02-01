@@ -17,7 +17,7 @@ groupsAccounts.get("/", (req, res) => {
   return listAccountsController.handle(req, res);
 })
 
-groupsAccounts.get("/:id", (req, res) => {
+groupsAccounts.get("/filter/:id", (req, res) => {
   return listAccountsUnicController.handle(req, res);
 });
 

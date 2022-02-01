@@ -59,17 +59,17 @@ class FriendsRepository implements IFriendsRepository {
           created_at: new Date(),
         });
         this.friends.push(friend);
-        console.log(friend)
-        console.log(friend2)
+        console.log(friend);
+        console.log(friend2);
         
         await collections.friends.insertOne(friend).then( async () => 
           await collections.friends .insertOne(friend2).then((result) => {
             console.log(result)
           }).catch(err => {
-            console.log(err)
+            console.log(err);
           })
         ).catch(err => {
-          console.log(err)
+          console.log(err);
         })
           }
 
