@@ -7,6 +7,7 @@ class Accounts {
   phone: string;
   code: string;
   password: string;
+  online: boolean;
 
   created_at: Date;
 }
