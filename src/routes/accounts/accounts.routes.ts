@@ -15,7 +15,7 @@ groupsAccounts.post("/", (req, res) => {
 
 groupsAccounts.get("/", (req, res) => {
   return listAccountsController.handle(req, res);
-});
+})
 
 groupsAccounts.get("/:id", (req, res) => {
   return listAccountsUnicController.handle(req, res);
