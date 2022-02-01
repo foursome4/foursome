@@ -11,9 +11,8 @@ const cors = require('cors');
 const server = http.createServer(app);
 const port = process.env.PORT || 3333;
 
-dotenv.config();
-
 app.use(cors());
+dotenv.config();
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extends: true}));
 app.use(express.json());
