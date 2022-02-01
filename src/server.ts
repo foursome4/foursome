@@ -11,7 +11,7 @@ const cors = require('cors');
 const server = http.createServer(app);
 const port = process.env.PORT || 3333;
 
-dotenv.config();
+// dotenv.config();
 
 app.use(cors());
 app.use(cookieParser());
@@ -21,8 +21,8 @@ app.use(router);
 
 const io = new Server(server, {
   cors: {
-    origin: "*",
-    methods: ["GET", "POST", "PUT", "DELETE","PATCH"],
+    origin: "http://localhost:3334",
+    methods: ["GET", "POST"],
     credentials: true
   }
 });
