@@ -4,6 +4,7 @@ interface IRequest {
   name: string;
   description: string;
   avatar: string;
+  cover: string;
   theme: string;
   privacity: string;
 }
@@ -13,7 +14,7 @@ class CreateGroupUseCase {
     " ";
   }
 
-  execute({ name, description, avatar, theme, privacity }: IRequest): void {
+  execute({ name, description, avatar, cover, theme, privacity }: IRequest): void {
     this.groupRepository.findByName(name);
 
 
@@ -21,6 +22,7 @@ class CreateGroupUseCase {
       name,
       description,
       avatar,
+      cover,
       theme,
       privacity
     });

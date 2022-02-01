@@ -57,13 +57,20 @@ class PostsRepository implements IPostsRepository {
 
     await collections.post.insertOne(post).then((result) => {
       console.log(result) 
-    }).catch(error => {
-      console.log(error)
     })
   }
   list(): Posts[] {
     return this.posts;
   }
+
+  async delete({id}) {
+    await collections.post.deleteOne(id).then((result) => {
+      console.log(result)
+    }).catch(error => {
+      console.log(error)
+    })
+  }
 }
+
 
 export { PostsRepository };

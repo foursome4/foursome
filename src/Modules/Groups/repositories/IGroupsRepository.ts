@@ -4,6 +4,7 @@ interface ICreateGroupDTO {
   name: string;
   description: string;
   avatar: string;
+  cover:string;
   theme: string;
   privacity: string;
 }
@@ -13,6 +14,7 @@ interface IGroupsRepository {
     name,
     description,
     avatar,
+    cover,
     theme,
     privacity
   }: ICreateGroupDTO): void;

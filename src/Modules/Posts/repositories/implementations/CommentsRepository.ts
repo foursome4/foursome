@@ -38,6 +38,14 @@ class CommentsRepository implements ICommentsRepository {
   }
 
   list(){}
+
+  async delete({id}) {
+    await collections.comments.deleteOne(id).then((result) => {
+      console.log(result)
+    }).catch(error => {
+      console.log(error)
+    })
+  }
 }
 
 export { CommentsRepository };

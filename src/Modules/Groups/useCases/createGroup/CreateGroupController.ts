@@ -8,12 +8,13 @@ class CreateGroupController {
   }
 
   handle(req: Request, res: Response): Response {
-    const { name, description, avatar, theme, privacity } = req.body;
+    const { name, description, avatar, cover, theme, privacity } = req.body;
 
     this.createGroupUseCase.execute({
       name,
       description,
       avatar,
+      cover,
       theme,
       privacity
     });

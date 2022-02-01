@@ -2,9 +2,7 @@ import { IReactionsRepository } from "../../repositories/IReactionsRepository";
 
 interface IRequest {
   idAccount: string;
-  avatar: string;
   username: string;
-  nickname: string;
   idPost: string;
 }
 
@@ -14,11 +12,11 @@ class CreateReactionsUseCase {
   }
 
   async execute({
-    idAccount, idPost, avatar, username, nickname, 
+    idAccount, idPost, username, 
   }: IRequest): Promise<void>{
 
    await this.ReactionsRepository.create({
-      idAccount, idPost, avatar, username, nickname, 
+      idAccount, idPost, username,
     });
   }
 }

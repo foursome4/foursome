@@ -38,6 +38,7 @@ class GroupsRepository implements IGroupsRepository {
     name,
     description,
     avatar,
+    cover,
     theme,
     privacity,
   }: ICreateGroupDTO) {
@@ -48,6 +49,7 @@ class GroupsRepository implements IGroupsRepository {
       name,
       description,
       avatar,
+      cover,
       theme,
       privacity,
       created_at: new Date()

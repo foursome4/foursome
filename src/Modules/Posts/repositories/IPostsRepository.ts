@@ -29,6 +29,7 @@ interface IPostsRepository {
     link,
     }: IPostsDTO): Promise<void>;
   list();
+  delete({id});
 }
 
 export { IPostsRepository, IPostsDTO };

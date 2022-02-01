@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { createPostController } from "../../Modules/Posts/useCases/createPosts";
+import { deletePostController } from "../../Modules/Posts/useCases/deletePosts";
 import { listPostsController } from "../../Modules/Posts/useCases/listPosts";
 import { listPostsAccountsTypeController } from "../../Modules/Posts/useCases/listPostsAccountsType";
 import { listPostsAllController } from "../../Modules/Posts/useCases/listPostsAll";
@@ -10,6 +11,9 @@ const postsRoutes = Router();
 
 postsRoutes.post("/", (req, res) => {
   return createPostController.handle(req, res);
+});
+postsRoutes.delete("/:id", (req, res) => {
+  return deletePostController.handle(req, res);
 });
 
 postsRoutes.get("/filter/accounts/:idAccount", (req, res) => {
