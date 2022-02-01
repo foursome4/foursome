@@ -18,6 +18,7 @@ interface IAccountsRepository {
   findByUsername(username: string): Promise<void> ;
   session(email: string, username: string, password: string);
   list();
+  update({ username, role, status, type, email, phone, password, code, online}: IAccountsDTO): void;
 }
 
 export { IAccountsRepository, IAccountsDTO };

@@ -59,6 +59,9 @@ class AccountsRepository implements IAccountsRepository {
     }
 
   list(){ }
+  update({username, role, status, type, email, phone, password, code, online}):void {
+    
+  }
 }
 
 export { AccountsRepository };

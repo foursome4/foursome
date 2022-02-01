@@ -8,7 +8,6 @@ class Accounts {
   code: string;
   password: string;
   online: boolean;
-
   created_at: Date;
 }
 
