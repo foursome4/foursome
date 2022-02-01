@@ -12,9 +12,9 @@ class ListAccountsUnicController {
     const idAccount = req.params;
    await collections.accounts.find(idAccount).toArray(function(err, result){
       if(err) {
-        res.status(500).json(err).send()
+        res.status(500).json(err)
       } else {
-        res.status(200).json(result).send()
+        res.status(200).json(result)
       }
       console.log(result)
       return result;
