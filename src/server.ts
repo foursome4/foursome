@@ -3,6 +3,8 @@ import { Server } from 'socket.io';
 import { router } from "./routes";
 import http from 'http';
 import dotenv from 'dotenv';
+import { handlerWebSockets } from "./websockets/handler";
+import verifyUserID from "./websockets/middleware/auth";
 
 const app = express();
 const bodyParser = require ('body-parser');
@@ -22,23 +24,15 @@ app.use(router);
 const io = new Server(server, {
   cors: {
     origin: "*",
-    methods: ["GET", "POST", "PUT", "DELETE","PATCH"],
-    credentials: true
-  }
+  },
 });
 
 app.get("/", (req, res) => {
   return res.json("app inicialized!");
 });
 
-io.on("connection", (socket) => {
-  console.log(`User Connection ${socket.id}`)
-  console.log("Connection successfully established!");
-  
-  socket.on("disconnect", () => {
-    console.log("Disconnected user!", socket.id);
-  });
-});
+io.use(verifyUserID);
+handlerWebSockets(io);
 
 server.listen(port, () => {
   console.log(`Server initialized! Access the link: http://localhost:${port}`);
