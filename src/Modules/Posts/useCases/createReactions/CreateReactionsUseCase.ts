@@ -11,9 +11,9 @@ class CreateReactionsUseCase {
     ("");
   }
 
-  async execute({
-    idAccount, idPost, username, 
-  }: IRequest): Promise<void>{
+  async execute({idAccount, idPost, username}: IRequest): Promise<void>{
+
+    const findEmail = await this.ReactionsRepository.findById(idAccount);
 
    await this.ReactionsRepository.create({
       idAccount, idPost, username,
