@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extends: true}));
 app.use(router);
-dotenv.config();
+// dotenv.config();
 
 const io = new Server(server, {
   cors: {
