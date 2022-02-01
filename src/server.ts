@@ -21,7 +21,7 @@ app.use(router);
 
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3334",
+    origin: "*",
     methods: ["GET", "POST", "DELETE", "PUT"],
     credentials: true
   }
