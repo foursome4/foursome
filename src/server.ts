@@ -5,19 +5,19 @@ import http from 'http';
 import dotenv from 'dotenv';
 
 const app = express();
+const bodyParser = require ('body-parser');
+const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const server = http.createServer(app);
 const port = process.env.PORT || 3333;
-const bodyParser = require ('body-parser');
-const cookieParser = require('cookie-parser');
+
+dotenv.config();
 
 app.use(cors());
-
-app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extends: true}));
+app.use(express.json());
 app.use(router);
-// dotenv.config();
 
 const io = new Server(server, {
   cors: {
