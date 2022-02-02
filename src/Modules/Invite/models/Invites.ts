@@ -4,7 +4,7 @@ class Invites {
   username: string;
   email: string;
   phone: string;
-  inviteCode: string;
+  code: string;
   created_at: Date;
 }
 

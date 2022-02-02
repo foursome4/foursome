@@ -6,13 +6,13 @@ interface IInvitesDTO {
   username: string;
   email: string;
   phone: string;
-  inviteCode: string;
+  code: string;
 }
 
 interface IInvitesRepository {
-  create({ inviteCode, idAccount, username, name, email, phone }: IInvitesDTO): Promise<void>;
+  create({ code, idAccount, username, name, email, phone }: IInvitesDTO): Promise<void>;
   findByInvites(email: string): Promise<void> ;
-  list(): Invites[];
+  list();
 }
 
 export { IInvitesRepository, IInvitesDTO };

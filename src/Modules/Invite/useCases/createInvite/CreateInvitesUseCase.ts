@@ -7,7 +7,7 @@ interface IRequest {
   username: string;
   email: string;
   phone: string;
-  inviteCode: string;
+  code: string;
 }
 
 class CreateInvitesUseCase {
@@ -15,11 +15,11 @@ class CreateInvitesUseCase {
     " ";
   }
   
-  async execute({inviteCode, idAccount, username, name, email, phone }: IRequest): Promise<void> {
+  async execute({code, idAccount, username, name, email, phone }: IRequest): Promise<void> {
     const findEmail = await this.invitesRepository.findByInvites(email);
 
       await this.invitesRepository.create({
-        inviteCode, idAccount, username, name, email, phone
+        code, idAccount, username, name, email, phone
       });
 
   }
