@@ -9,8 +9,8 @@ class ListCharacteristicsController {
   }
 
   async handle(req: Request, res: Response) {
-    const id_account = req.params;
-    await collections.characteristics.find(id_account).toArray(function(err, result){
+    const idAccount = req.params;
+    await collections.characteristics.find(idAccount).toArray(function(err, result){
        if(err) {
          res.status(500).json(err)
        } else {

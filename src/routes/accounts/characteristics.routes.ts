@@ -8,7 +8,7 @@ groupsCharacteristics.post("/", (req, res) => {
   return createCharacteristicsController.handle(req, res);
 });
 
-groupsCharacteristics.get("/:id_account", (req, res) => {
+groupsCharacteristics.get("/:idAccount", (req, res) => {
   return listCharacteristicsController.handle(req, res);
 });
 
