@@ -1,7 +1,7 @@
 
 class Followers {
-  id_account: string;
-  id_frined: string;
+  idAccount: string;
+  idFriend: string;
   type: string;
   status: string;
 

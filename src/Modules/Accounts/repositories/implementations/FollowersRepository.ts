@@ -21,28 +21,28 @@ class FollowersRepository implements IFollowersRepository {
   }
 
   
-  async findByIdAccount(id_account: string): Promise<void> {
-    const findEmail = await collections.followers.findOne({id_account})
-      if(findEmail) {
-        throw new Error("Email already exists!")
+  async findByIdAccount(idAccount: string): Promise<void> {
+    const findAccount = await collections.followers.findOne({idAccount})
+      if(findAccount) {
+        throw new Error("Account already exists!")
       }   
   }
-  async findByIdFriend(id_friends: string): Promise<void>  {
-    const findUsername = await collections.friends.findOne({id_friends})
-    if(findUsername) {
-      throw new Error("Username already exists!")
+  async findByIdFriend(idFriend: string): Promise<void>  {
+    const findFriend = await collections.friends.findOne({idFriend})
+    if(findFriend) {
+      throw new Error("Friend already exists!")
     } 
   }
 
-    async create({ id_account, id_friend, type, status}: IFollowersDTO) {
+    async create({ idAccount, idFriend, type, status}: IFollowersDTO) {
       const followers: Followers = new Followers();
       const _id = uuidv4();
       
         Object.assign(followers, {
           _id,
           id: _id,
-          id_account,
-          id_friend,
+          idAccount,
+          idFriend,
           type,
           status,
           created_at: new Date(),

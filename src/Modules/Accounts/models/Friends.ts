@@ -1,7 +1,7 @@
 
 class Friends {
-  id_account: string;
-  id_friend: string;
+  idAccount: string;
+  idFriend: string;
   type: string;
   status: string;
   created_at: Date;

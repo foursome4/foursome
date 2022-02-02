@@ -19,13 +19,13 @@ class CreateAccountUseCase {
     " ";
   }
   
-  async execute({username, role, status, type, email, phone, code, online, password }: IRequest): Promise<void> {
+  async execute({username, role, status, type, email, phone, online, password }: IRequest): Promise<void> {
     const findEmail = await this.accountRepository.findByEmail(email);
     const findUsername = await this.accountRepository.findByUsername(username);
     const passwordHash = await hash(await password, 8);
 
       await this.accountRepository.create({
-        username, role, status, type, email, phone, code, online, password: passwordHash
+        username, role, status, type, email, phone, online, password: passwordHash
       });
 
   }

@@ -28,7 +28,7 @@ class CharacteristicsRepository implements ICharacteristicsRepository {
     }
   
     async create({ 
-      id_account,
+      idAccount,
       birthDate,
       sex,
       sexualOption,
@@ -48,7 +48,7 @@ class CharacteristicsRepository implements ICharacteristicsRepository {
       Object.assign(characteristic, {
         _id,
         id: _id,
-        id_account,
+        idAccount,
         birthDate,
         sex,
         sexualOption,

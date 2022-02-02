@@ -3,8 +3,8 @@ import { IFriendsRepository } from "../../repositories/IFriendsRepository";
 import { Request, Response } from "express";
 
 interface IRequest {
-  id_account: string;
-  id_friend: string;
+  idAccount: string;
+  idFriend: string;
   type: string;
   status: string;
 }
@@ -14,12 +14,12 @@ class CreateFriendsUseCase {
     " ";
   }
   
-  async execute({id_account, id_friend, type, status  }: IRequest): Promise<void> {
-    const findAccount = await this.accountRepository.findByIdAccount(id_account);
-    const findFriend = await this.accountRepository.findByIdFriend(id_friend);
+  async execute({idAccount, idFriend, type, status  }: IRequest): Promise<void> {
+    const findAccount = await this.accountRepository.findByIdAccount(idAccount);
+    const findFriend = await this.accountRepository.findByIdFriend(idFriend);
 
       await this.accountRepository.create({
-        id_account, id_friend, type, status
+        idAccount, idFriend, type, status
         
       });
 

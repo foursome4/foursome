@@ -20,29 +20,30 @@ class ReactionsRepository implements IReactionsRepository {
     return ReactionsRepository.INSTANCE;
   }
 
-  async findById(idAccount: string): Promise<void>  {
-    const findIdAccount = await collections.reactions.findOne({idAccount})
-    if(findIdAccount) {
-      throw new Error("idAccount already exists!")
-    } 
-  }
-
+  async findById(idAccount: string, idPost: string): Promise<void>  {
+    const findIdAccount = await collections.reactions.findOne({idAccount, idPost})
+    
+        if(findIdAccount) {
+          throw new Error("Email already exists!")
+        } 
+    }
+ 
  async create({ 
   idAccount, idPost, username, 
   }: IReactionsDTO) {
-    const post: Reactions = new Reactions();
+    const reactions: Reactions = new Reactions();
     const _id = uuidv4()
-    Object.assign(post, {
+    Object.assign(reactions, {
       _id,
       id: _id,
       idAccount, idPost, username, 
       created_at: new Date(),
     });
 
-    this.reactions.push(post);
-    console.log(post)
+    this.reactions.push(reactions);
+    console.log(reactions)
 
-    await collections.reactions.insertOne(post).then((result) => {
+    await collections.reactions.insertOne(reactions).then((result) => {
       console.log(result) 
     }).catch(error => {
       console.log(error)

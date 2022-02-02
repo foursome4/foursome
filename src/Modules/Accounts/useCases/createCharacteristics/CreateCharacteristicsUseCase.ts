@@ -1,7 +1,7 @@
 import { ICharacteristicsRepository } from "../../repositories/ICharacteristicsRepository";
 
 interface IRequest {
-  id_account: string;
+  idAccount: string;
   birthDate: string;
   sex: string;
   sexualOption: string;
@@ -22,7 +22,7 @@ class CreateCharacteristicsUseCase {
     " ";
   }
 
-  execute({id_account,
+  execute({idAccount,
     birthDate,
     sex,
     sexualOption,
@@ -39,7 +39,7 @@ class CreateCharacteristicsUseCase {
 
 
     this.accountRepository.create({
-      id_account,
+      idAccount,
         birthDate,
         sex,
         sexualOption,

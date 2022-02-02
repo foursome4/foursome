@@ -8,10 +8,10 @@ class CreateFriendsController {
   }
 
   async handle(req: Request, res: Response) {
-    const { id_account, id_friend, type, status } = req.body;
+    const { idAccount, idFriend, type, status } = req.body;
 
     this.createFriendsUseCase.execute({
-      id_account, id_friend, type, status
+      idAccount, idFriend, type, status
     }).then((result) => {
       console.log(result)
       return res.status(201).json(result).send();

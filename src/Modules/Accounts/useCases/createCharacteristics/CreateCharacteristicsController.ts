@@ -9,7 +9,7 @@ class CreateCharacteristicsController {
 
   handle(req: Request, res: Response): Response {
     const {
-        id_account,
+        idAccount,
         birthDate,
         sex,
         sexualOption,
@@ -25,7 +25,7 @@ class CreateCharacteristicsController {
         smokes, } = req.body;
 
     this.createCharacteristicsUseCase.execute({
-        id_account,
+        idAccount,
         birthDate,
         sex,
         sexualOption,

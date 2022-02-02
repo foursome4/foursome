@@ -22,19 +22,19 @@ class FriendsRepository implements IFriendsRepository {
 
   
   async findByIdAccount(id_account: string): Promise<void> {
-    const findEmail = await collections.friends.findOne({id_account})
-      if(findEmail) {
-        throw new Error("Email already exists!")
+    const findAccount = await collections.friends.findOne({id_account})
+      if(findAccount) {
+        throw new Error("Account already exists!")
       }   
   }
-  async findByIdFriend(id_friends: string): Promise<void>  {
-    const findUsername = await collections.friends.findOne({id_friends})
-    if(findUsername) {
-      throw new Error("Username already exists!")
+  async findByIdFriend(idFriends: string): Promise<void>  {
+    const findFriend = await collections.friends.findOne({idFriends})
+    if(findFriend) {
+      throw new Error("Friend already exists!")
     } 
   }
 
-    async create({ id_account, id_friend, type, status}: IFriendsDTO) {
+    async create({ idAccount, idFriend, type, status}: IFriendsDTO) {
       const friend: Friends = new Friends();
       const friend2: Friends = new Friends();
       const _id = uuidv4();
@@ -43,8 +43,8 @@ class FriendsRepository implements IFriendsRepository {
         Object.assign(friend, {
           _id,
           id: _id,
-          id_account,
-          id_friend,
+          idAccount,
+          idFriend,
           type,
           status,
           created_at: new Date(),
@@ -52,8 +52,8 @@ class FriendsRepository implements IFriendsRepository {
         Object.assign(friend2, {
           _id: _id2,
           id: _id2,
-          id_account:id_friend ,
-          id_friend: id_account,
+          idAccount:idFriend ,
+          idFriend: idAccount,
           type,
           status,
           created_at: new Date(),

@@ -12,7 +12,7 @@ interface IReactionsRepository {
     username,
     idPost,
     }: IReactionsDTO): Promise<void>;
-    findById(idAccount: string): Promise<void> ;
+    findById(idAccount: string, idPost: string): Promise<void> ;
   list();
 }
 

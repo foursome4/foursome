@@ -1,7 +1,7 @@
 import { Accounts } from "../../models/Accounts";
 import { IAccountsRepository, IAccountsDTO } from "../IAccountsRepository";
 import { collections } from '../../../../../services/database.service';
-import { v4 as uuidv4 } from "uuid";
+import { v1 as uuidv4 } from "uuid";
 
 class AccountsRepository implements IAccountsRepository {
   private accounts: Accounts[];
@@ -34,12 +34,13 @@ class AccountsRepository implements IAccountsRepository {
     } 
   }
 
-    async create({username, role, status, type, email, phone, code, online, password }: IAccountsDTO) {
+    async create({username, role, status, type, email, phone, online, password }: IAccountsDTO) {
       const account: Accounts = new Accounts();
-      const _id = uuidv4()
+      const v4 = uuidv4()
+      const _id = (v4.substring(0, 6))
       
         Object.assign(account, {
-          _id, id: _id, username, role, status, type, email, phone, code, online, password ,created_at: new Date(),
+          _id, id: _id, username, role, status, type, email, phone, online, password ,created_at: new Date(),
         });
         this.accounts.push(account);
         

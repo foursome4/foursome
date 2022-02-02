@@ -1,3 +1,4 @@
+import { collections } from "../../../../../services/database.service";
 import { IReactionsRepository } from "../../repositories/IReactionsRepository";
 
 interface IRequest {
@@ -13,7 +14,12 @@ class CreateReactionsUseCase {
 
   async execute({idAccount, idPost, username}: IRequest): Promise<void>{
 
-    const findEmail = await this.ReactionsRepository.findById(idAccount);
+   const findByIdAccount = await collections.reactions.findOne({idAccount, idPost});
+
+   if(findByIdAccount) {
+      throw new Error("Email already exists!")
+ 
+   }
 
    await this.ReactionsRepository.create({
       idAccount, idPost, username,
