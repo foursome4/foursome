@@ -20,6 +20,15 @@ class AccountsRepository implements IAccountsRepository {
     return AccountsRepository.INSTANCE;
   }
 
+    async findByInvite(email: string, code: string): Promise<void> {
+        const validateInvite = await collections.invites.find({email, code})
+
+        if(validateInvite) {
+          console.log(validateInvite)
+        } else {
+            throw new Error("Invite not exists!")
+        }
+    }
   
   async findByEmail(email: string): Promise<void> {
     const findEmail = await collections.accounts.findOne({email})
@@ -60,7 +69,7 @@ class AccountsRepository implements IAccountsRepository {
     }
 
   list(){ }
-  update({username, role, status, type, email, phone, password, code, online}):void {
+  update({username, role, status, type, email, phone, password, online}):void {
     
   }
 }

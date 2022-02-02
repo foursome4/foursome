@@ -20,6 +20,9 @@ groupsAccounts.get("/", (req, res) => {
 groupsAccounts.get("/filter/:id", (req, res) => {
   return listAccountsUnicController.handle(req, res);
 });
+groupsAccounts.get("/find/:email", (req, res) => {
+  return listAccountsUnicController.handle(req, res);
+});
 
 
 groupsAccounts.patch("/:id", (req, res) => {
