@@ -12,9 +12,9 @@ class ListFriendsController {
     const id_account = req.body;
    await collections.friends.find(id_account).toArray(function(err, result){
       if(err) {
-        res.status(500).json(err).send()
+        res.status(500).json(err)
       } else {
-        res.status(200).json(result).send()
+        res.status(200).json(result)
       }
       console.log(result)
       return result;
