@@ -13,6 +13,8 @@ interface IResponse {
           role: string;
           status: string;
           type: string;
+          patron: string,
+          online: boolean,
           date: Date;
 }
 
@@ -61,14 +63,15 @@ class AuthenticateAccountUseCase {
           role: user.role,
           status: user.status,
           type: user.type,
-          date: user.created_at
+          date: user.created_at,
+          online: user.online,
+          patron: user.patron
         }
         console.log(userData)
 
       const token = sign({
         id: user._id,
           id2: user.id,
-          nickname: user.nickname,
           username: user.username,
           email: user.email,
           phone: user.phone,
@@ -76,6 +79,8 @@ class AuthenticateAccountUseCase {
           status: user.status,
           type: user.type,
           date: user.created_at,
+          online: user.online,
+          patron: user.patron
       }, "d64d7c8b83dd7212c25c3745933ee76e", 
       {
         subject: userData.id,
@@ -95,7 +100,9 @@ class AuthenticateAccountUseCase {
           status: user.status,
           type: user.type,
           date: user.created_at,
-        token:token
+          online: user.online,
+          patron: user.patron,
+          token:token
       }
   }
 }

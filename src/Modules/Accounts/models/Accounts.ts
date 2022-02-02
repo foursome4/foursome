@@ -7,6 +7,7 @@ class Accounts {
   phone: string;
   password: string;
   online: boolean;
+  patron: string;
   created_at: Date;
 }
 

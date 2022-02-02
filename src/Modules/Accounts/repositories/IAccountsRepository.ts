@@ -9,10 +9,11 @@ interface IAccountsDTO {
   phone: string;
   password: string;
   online: boolean;
+  patron: string;
 }
 
 interface IAccountsRepository {
-  create({ username, role, status, type, email, phone, password, online}: IAccountsDTO): Promise<void>;
+  create({ username, role, status, type, email, phone, password, online, patron}: IAccountsDTO): Promise<void>;
   findByEmail(email: string): Promise<void> ;
   findByUsername(username: string): Promise<void>;
   session(email: string, username: string, password: string);
