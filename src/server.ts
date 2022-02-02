@@ -14,6 +14,7 @@ const port = process.env.PORT || 3333;
 
 app.use(cors());
 // dotenv.config();
+
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extends: true}));
 app.use(express.json());
