@@ -20,7 +20,6 @@ class CreateFriendsUseCase {
 
       await this.accountRepository.create({
         idAccount, idFriend, type, status
-        
       });
 
   }

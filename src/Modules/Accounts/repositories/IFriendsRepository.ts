@@ -1,7 +1,6 @@
 import { Friends } from "../models/Friends";
 
 interface IFriendsDTO {
-  id: string;
   idAccount: string;
   idFriend: string;
   type: string;
