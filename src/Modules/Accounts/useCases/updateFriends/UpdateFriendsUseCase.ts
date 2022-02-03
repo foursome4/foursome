@@ -2,9 +2,10 @@ import { IFriendsRepository } from "../../repositories/IFriendsRepository";
 
 
 interface IRequest {
-    idAccount: string;
-    idFriend: string;
-    type: string;
+  id: string;
+    idAccount?: string;
+    idFriend?: string;
+    type?: string;
     status: string;
 }
 
@@ -13,11 +14,11 @@ class UpdateFriendsUseCase {
     " ";
   }
 
-  execute({ idAccount, idFriend, type, status }: IRequest): void {
+  execute({ status, id}: IRequest): void {
 
 
     this.friendsRepository.update({
-        idAccount, idFriend, type, status
+        status, id
     });
   }
 }

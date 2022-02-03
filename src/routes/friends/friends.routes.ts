@@ -20,7 +20,7 @@ groupsFriends.get("/filter/:idAccount", (req, res) => {
   return listFriendsUnicController.handle(req, res);
 });
 
-groupsFriends.patch("/:idAccount", (req, res) => {
+groupsFriends.put("/:id", (req, res) => {
   return updateFriendsController.handle(req, res)
 })
 
