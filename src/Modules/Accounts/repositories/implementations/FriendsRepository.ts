@@ -76,10 +76,10 @@ class FriendsRepository implements IFriendsRepository {
   list(){}
 
 
-  async update({ idAccount, idFriend, status}: IFriendsDTO) {
+  async update({ idAccount, idFriend, status, type}: IFriendsDTO) {
     const friend: Friends = new Friends();
     Object.assign(friend, {
-      idAccount, idFriend, status
+      idAccount, idFriend, status, type
     });
 
     this.friends.push(friend);
