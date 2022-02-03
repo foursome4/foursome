@@ -12,7 +12,7 @@ class UpdateFriendsController {
     const { id } = req.params;
 
     this.UpdateFriendsUseCase.execute({
-        id, idAccount, idFriend, type, status
+        idAccount, idFriend, type, status
     });
 
 
