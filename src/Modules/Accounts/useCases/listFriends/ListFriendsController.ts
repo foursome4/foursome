@@ -9,8 +9,9 @@ class ListFriendsController {
   }
 
   async handle(req: Request, res: Response) {
-    const id_account = req.body;
-   await collections.friends.find(id_account).toArray(function(err, result){
+    const {id }= req.params;
+
+   await collections.friends.find({$or:[{"idAccount":id },{"idFriend":id }]}).toArray(function(err, result){
       if(err) {
         res.status(500).json(err)
       } else {
@@ -24,3 +25,4 @@ class ListFriendsController {
 }
 
 export { ListFriendsController };
+

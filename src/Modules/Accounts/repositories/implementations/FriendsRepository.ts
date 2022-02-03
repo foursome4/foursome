@@ -74,6 +74,36 @@ class FriendsRepository implements IFriendsRepository {
           }
 
   list(){}
+
+
+  async update({ idAccount, idFriend, status}: IFriendsDTO) {
+    const friend: Friends = new Friends();
+    Object.assign(friend, {
+      idAccount, idFriend, status
+    });
+
+    this.friends.push(friend);
+    console.log({idAccount, idFriend, status})
+  await collections.friends.findOneAndUpdate(
+    {idAccount},{$set:
+    {status: "aproved"
+    }},{upsert: true}).then(async (result) => {
+      console.log(result)
+
+      await collections.friends.findOneAndUpdate(
+        {idAccount: idFriend},{$set:
+        {status: "aproved"
+        }},{upsert: true}).then((result) => {
+          console.log(result)
+        }).catch(error => {
+          console.log("Erro: " + error)
+        })
+
+
+    }).catch(error => {
+      console.log("Erro: " + error)
+    })
+  }
 }
 
 export { FriendsRepository };
