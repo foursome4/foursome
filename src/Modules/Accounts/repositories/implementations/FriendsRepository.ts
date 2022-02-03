@@ -36,9 +36,7 @@ class FriendsRepository implements IFriendsRepository {
 
     async create({ idAccount, idFriend, type, status}: IFriendsDTO) {
       const friend: Friends = new Friends();
-      const friend2: Friends = new Friends();
       const _id = uuidv4();
-      const _id2 = uuidv4();
       
         Object.assign(friend, {
           _id,
@@ -49,25 +47,11 @@ class FriendsRepository implements IFriendsRepository {
           status,
           created_at: new Date(),
         });
-        Object.assign(friend2, {
-          _id: _id2,
-          id: _id2,
-          idAccount:idFriend ,
-          idFriend: idAccount,
-          type,
-          status,
-          created_at: new Date(),
-        });
+
         this.friends.push(friend);
         console.log(friend);
-        console.log(friend2);
-        
-        await collections.friends.insertOne(friend).then( async () => 
-          await collections.friends .insertOne(friend2).then((result) => {
-            console.log(result)
-          }).catch(err => {
-            console.log(err);
-          })
+        await collections.friends.insertOne(friend).then((result) => 
+         console.log(result)
         ).catch(err => {
           console.log(err);
         })
@@ -92,7 +76,17 @@ class FriendsRepository implements IFriendsRepository {
       console.log("Erro: " + error)
     })
   }
+
+  async delete({id}) {
+    await collections.friends.deleteOne(id).then((result) => {
+      console.log(result)
+    }).catch(error => {
+      console.log(error)
+    })
+  }
+
 }
+
 
 export { FriendsRepository };
 

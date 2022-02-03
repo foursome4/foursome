@@ -8,11 +8,11 @@ class UpdateFriendsController {
   }
 
   handle(req: Request, res: Response): Response {
-    const { idAccount, idFriend, type, status } = req.body;
+    const { status } = req.body;
     const { id } = req.params;
 
     this.UpdateFriendsUseCase.execute({
-        idAccount, idFriend, type, status, id
+        status, id
     });
 
 

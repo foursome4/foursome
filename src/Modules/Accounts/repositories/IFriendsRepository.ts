@@ -14,6 +14,7 @@ interface IFriendsRepository {
   findByIdFriend(id_friend: string): Promise<void>;
   list();
   update({status, id}: IFriendsDTO):  Promise<void>;
+  delete({id});
 }
 
 export { IFriendsRepository, IFriendsDTO };
