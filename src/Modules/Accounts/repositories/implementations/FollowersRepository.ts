@@ -23,15 +23,15 @@ class FollowersRepository implements IFollowersRepository {
   
   async findByIdAccount(idAccount: string): Promise<void> {
     const findAccount = await collections.followers.findOne({idAccount})
-      if(findAccount) {
-        throw new Error("Account already exists!")
-      }   
+      // if(findAccount) {
+      //   throw new Error("Account already exists!")
+      // }   
   }
   async findByIdFriend(idFriend: string): Promise<void>  {
     const findFriend = await collections.friends.findOne({idFriend})
-    if(findFriend) {
-      throw new Error("Friend already exists!")
-    } 
+    // if(findFriend) {
+    //   throw new Error("Friend already exists!")
+    // } 
   }
 
     async create({ idAccount, idFriend, type, status}: IFollowersDTO) {
@@ -59,6 +59,15 @@ class FollowersRepository implements IFollowersRepository {
 
   list(): Followers[] {
     return this.followers;
+  }
+
+
+  async delete({id}) {
+    await collections.followers.deleteOne(id).then((result) => {
+      console.log(result)
+    }).catch(error => {
+      console.log(error)
+    })
   }
 }
 

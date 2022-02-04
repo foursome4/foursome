@@ -12,6 +12,7 @@ interface IFollowersRepository {
   findByIdAccount(idAccount: string): Promise<void>;
   findByIdFriend(idFriend: string): Promise<void>;
   list(): Followers[];
+  delete({id});
 }
 
 export { IFollowersRepository, IFollowersDTO };
