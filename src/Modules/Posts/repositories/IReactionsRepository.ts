@@ -14,6 +14,7 @@ interface IReactionsRepository {
     }: IReactionsDTO): Promise<void>;
     findById(idAccount: string, idPost: string): Promise<void> ;
   list();
+  delete({id});
 }
 
 export { IReactionsRepository, IReactionsDTO };

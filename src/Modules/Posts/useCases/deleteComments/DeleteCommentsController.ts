@@ -11,10 +11,10 @@ class DeleteCommentsController {
     const id = req.params;
       await collections.comments.deleteOne(id)
       .then((result) => {
-      return res.status(201).json(result).send();
+      return res.status(201).json(result);
     }).catch(error => {
       console.log(error);
-      return res.status(500).send()
+      return res.status(500)
     })
 
   }

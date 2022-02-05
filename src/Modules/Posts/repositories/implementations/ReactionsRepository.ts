@@ -52,6 +52,14 @@ class ReactionsRepository implements IReactionsRepository {
   list(): Reactions[] {
     return this.reactions;
   }
+
+  async delete({id}) {
+    await collections.reactions.deleteOne(id).then((result) => {
+      console.log(result)
+    }).catch(error => {
+      console.log(error)
+    })
+  }
 }
 
 export { ReactionsRepository };
