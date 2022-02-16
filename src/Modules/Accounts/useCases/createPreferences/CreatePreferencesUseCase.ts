@@ -9,6 +9,7 @@ interface IRequest {
   transvestites: string;
   transsexuals: string;
   groups: string;
+  proposal: string;
 }
 
 class CreatePreferencesUseCase {
@@ -16,11 +17,11 @@ class CreatePreferencesUseCase {
     " ";
   }
 
-  execute({idAccount, men, woman, couple, trisal, transvestites, transsexuals, groups }: IRequest): void {
+  execute({idAccount, men, woman, couple, trisal, transvestites, transsexuals, groups, proposal }: IRequest): void {
 
 
     this.accountRepository.create({
-      idAccount, men, woman, couple, trisal, transvestites, transsexuals, groups
+      idAccount, men, woman, couple, trisal, transvestites, transsexuals, groups, proposal
     });
   }
 }

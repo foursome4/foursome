@@ -13,7 +13,7 @@ class ListInformationsUseCase {
     console.log(result)
     return result;
    })
-console.log(informationsAll)
+//console.log(informationsAll)
         }
   }
 

@@ -14,7 +14,7 @@ class ListCommentsUseCase {
     console.log(result)
     return result;
    })
-console.log(commentsAll)
+//console.log(commentsAll)
         }
   }
 

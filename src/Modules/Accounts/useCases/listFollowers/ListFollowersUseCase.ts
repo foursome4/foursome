@@ -13,7 +13,7 @@ class ListFollowersUseCase {
     console.log(result)
     return result;
    })
-console.log(followersAll)
+  // console.log(followersAll)
         }
   }
 

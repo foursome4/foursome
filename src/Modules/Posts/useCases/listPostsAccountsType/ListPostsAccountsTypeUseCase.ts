@@ -14,7 +14,7 @@ class ListPostsAccountsTypeUseCase {
     console.log(result)
     return result;
    })
-console.log(postAll)
+//console.log(postAll)
         }
   }
 

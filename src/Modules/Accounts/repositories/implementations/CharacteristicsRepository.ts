@@ -66,9 +66,9 @@ class CharacteristicsRepository implements ICharacteristicsRepository {
       });
   
       this.characteristics.push(characteristic);
-        console.log(characteristic)
+        //console.log(characteristic)
       await collections.characteristics.insertOne(characteristic).then((result) => {
-        console.log(result)
+       // console.log(result)
       }).catch(error => {
         console.log(error)
       })

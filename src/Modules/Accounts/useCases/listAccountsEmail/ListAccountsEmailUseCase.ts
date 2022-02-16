@@ -13,7 +13,7 @@ class ListAccountsEmailUseCase {
     console.log(result)
     return result;
    })
-console.log(accountsAll)
+//console.log(accountsAll)
         }
   }
 

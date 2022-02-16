@@ -47,7 +47,7 @@ class AuthenticateAccountUseCase {
       }
       
       const passwordCompare = await compare(password, user.password)
-      console.log(passwordCompare)
+      //console.log(passwordCompare)
 
       if(!user ) {
         throw new Error("Username or email, incorrect!")
@@ -87,8 +87,8 @@ class AuthenticateAccountUseCase {
         expiresIn: "1d"
       });
 
-      console.log(token)
-      console.log(userData)
+      // console.log(token)
+      // console.log(userData)
 
       return {
         id: user._id,

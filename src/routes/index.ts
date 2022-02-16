@@ -16,6 +16,9 @@ import { commentsRoutes } from "./posts/comments.routes";
 import { postsRoutes } from "./posts/posts.routes";
 import { reactionsRoutes } from "./posts/reactions.routes";
 import { replyRoutes } from "./posts/reply.routes";
+import { cnversationsRoutes } from "./realTime/conversations.routes";
+import { messagesRoutes } from "./realTime/messages.routes";
+import { usersOlineRoutes } from "./realTime/usersOnline.routes";
 const router = Router();
 
 connectToDatabase()
@@ -36,6 +39,9 @@ connectToDatabase()
     router.use("/events", eventsRoutes);
     router.use("/foruns", forunsRoutes);
     router.use("/preferences", preferencesRoutes);
+    router.use("/conversations", cnversationsRoutes);
+    router.use("/messages", messagesRoutes);
+    router.use("/online", usersOlineRoutes);
   }).catch((error: Error) => {
     console.error("Database connection failed", error);
     process.exit();

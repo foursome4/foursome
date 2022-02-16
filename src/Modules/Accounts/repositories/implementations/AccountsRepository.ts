@@ -44,7 +44,7 @@ class AccountsRepository implements IAccountsRepository {
         this.accounts.push(account);
         
         await collections.accounts.insertOne(account).then((result) => {
-          console.log(result)
+          //console.log(result)
         }).catch(error => {
           console.log(error)
         })

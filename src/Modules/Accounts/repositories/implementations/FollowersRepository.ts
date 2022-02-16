@@ -50,9 +50,8 @@ class FollowersRepository implements IFollowersRepository {
         this.followers.push(followers);
         console.log("Followers: " + followers)
         
-        await collections.followers.insertOne(followers).then((result) => 
-        console.log(result)
-        ).catch(err => {
+        await collections.followers.insertOne(followers).then((result) => {
+        }).catch(err => {
           console.log(err)
         })
           }
@@ -64,7 +63,7 @@ class FollowersRepository implements IFollowersRepository {
 
   async delete({id}) {
     await collections.followers.deleteOne(id).then((result) => {
-      console.log(result)
+      //console.log(result)
     }).catch(error => {
       console.log(error)
     })

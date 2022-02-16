@@ -1,5 +1,4 @@
 import { Request, Response } from "express";
-import { ConnectionClosedEvent } from "mongodb";
 import { CreateFriendsUseCase } from "./CreateFriendstUseCase";
 
 class CreateFriendsController {
@@ -13,7 +12,7 @@ class CreateFriendsController {
     this.createFriendsUseCase.execute({
       idAccount, idFriend, type, status
     }).then((result) => {
-      console.log(result)
+    //  console.log(result)
       return res.status(201).json(result).send();
       
     }).catch(error => {

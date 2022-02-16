@@ -50,9 +50,9 @@ class FriendsRepository implements IFriendsRepository {
 
         this.friends.push(friend);
         console.log(friend);
-        await collections.friends.insertOne(friend).then((result) => 
-         console.log(result)
-        ).catch(err => {
+        await collections.friends.insertOne(friend).then((result) =>{ 
+        //  console.log(result)
+        }).catch(err => {
           console.log(err);
         })
           }
@@ -71,7 +71,7 @@ class FriendsRepository implements IFriendsRepository {
   await collections.friends.findOneAndUpdate(
     {id},{$set:
     {status: status}},{upsert: true}).then(async (result) => {
-      console.log(result)
+      // console.log(result)
     }).catch(error => {
       console.log("Erro: " + error)
     })
@@ -79,7 +79,7 @@ class FriendsRepository implements IFriendsRepository {
 
   async delete({id}) {
     await collections.friends.deleteOne(id).then((result) => {
-      console.log(result)
+      // console.log(result)
     }).catch(error => {
       console.log(error)
     })

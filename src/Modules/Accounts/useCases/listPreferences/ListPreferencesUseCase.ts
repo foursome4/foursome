@@ -13,7 +13,7 @@ class ListPreferencesUseCase {
     console.log(result)
     return result;
    })
-console.log(preferencesAll)
+//console.log(preferencesAll)
         }
   }
 

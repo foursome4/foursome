@@ -10,7 +10,7 @@ class ListAccountsUseCase {
   async execute() {
    const accounts = await collections.accounts.find({});
    const accountsAll = accounts.toArray(function(err, result){
-    console.log(result)
+   // console.log(result)
     return result;
    })
 console.log(accountsAll)

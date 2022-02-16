@@ -9,10 +9,11 @@ interface IPreferencesDTO {
   transvestites: string;
   transsexuals: string;
   groups: string;
+  proposal: string;
 }
 
 interface IPreferencesRepository {
-  create({ idAccount, men, woman, couple, trisal, transvestites, transsexuals, groups }: IPreferencesDTO): Promise<void>;
+  create({ idAccount, men, woman, couple, trisal, transvestites, transsexuals, groups,proposal }: IPreferencesDTO): Promise<void>;
   findById({ idAccount: string }: IPreferencesDTO): Promise<void>;
   list()
 }

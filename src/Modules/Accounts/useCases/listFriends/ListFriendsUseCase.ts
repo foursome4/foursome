@@ -13,7 +13,7 @@ class ListFriendsUseCase {
     console.log(result)
     return result;
    })
-console.log(friendsAll)
+//console.log(friendsAll)
         }
   }
 

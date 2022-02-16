@@ -16,7 +16,7 @@ class ListPreferencesController {
        } else {
          res.status(200).json(result).send()
        }
-       console.log(result)
+     //  console.log(result)
        return result;
       })
 

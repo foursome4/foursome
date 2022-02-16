@@ -7,6 +7,7 @@ class Preferences {
   transvestites: string;
   transsexuals: string;
   groups: string;
+  proposal: string;
   created_at: Date;
 }
 

@@ -38,7 +38,7 @@ class InformationsRepository implements IInformationsRepository {
         this.informations.push(informations);
         
         await collections.informations.insertOne(informations).then((result) => {
-          console.log(result)
+         // console.log(result)
         }).catch(error => {
           console.log(error)
         })

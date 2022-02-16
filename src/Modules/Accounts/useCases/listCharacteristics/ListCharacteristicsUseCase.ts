@@ -13,7 +13,7 @@ class ListCharacteristicsUseCase {
     console.log(result)
     return result;
    })
-console.log(characteristicsAll)
+  // console.log(characteristicsAll)
         }
   }
 

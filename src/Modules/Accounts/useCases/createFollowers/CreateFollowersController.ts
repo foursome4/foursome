@@ -12,7 +12,7 @@ class CreateFollowersController {
     this.createFollowersUseCase.execute({
       idAccount, idFriend, type, status
     }).then((result) => {
-      console.log(result)
+     // console.log(result)
       return res.status(201).json(result).send();
       
     }).catch(error => {
