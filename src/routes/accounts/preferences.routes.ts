@@ -8,7 +8,7 @@ preferencesRoutes.post("/", (req, res) => {
   return createPreferencesController.handle(req, res);
 });
 
-preferencesRoutes.get("/", (req, res) => {
+preferencesRoutes.get("/:idAccount", (req, res) => {
   return listPreferencesController.handle(req, res);
 });
 

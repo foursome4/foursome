@@ -39,8 +39,11 @@ io.on("connection", (socket) => {
     console.log("Connection successfully established!");
   
     socket.on("select_room", (data, callback)=> {
+      console.log(data)
       socket.join(data.room);
       console.log("Usuário entrou na sala: " + data.room);
+
+
 
       const userInRoom = users.find(user => user.idAccount === data.idAccount);
 
@@ -91,25 +94,32 @@ io.on("connection", (socket) => {
         equalCity: data.equalCity
       }
 
-  
-      collections.usersOnline.find().toArray(function(err, result){
 
-        returnData(result)
-       })
+      usersOnline.push(onlineUsers)
+
+  
+  //     collections.usersOnline.find().toArray(function(err, result){
+
+  //       returnData(result)
+  //      })
 
        
-       function returnData(res) {
-        console.log("dataResult")
-        console.log(res)
-       const userInOnline = res.filter(dataUser => (dataUser.idAccount === data.idAccount));
-       console.log("userInOnline")
-       console.log(userInOnline);
-       console.log("onlineUsers")
-       console.log(onlineUsers);
+  //      function returnData(res) {
+  //     //   console.log("dataResult")
+  //     //   console.log(res)
+  //     //  const userInOnline = res.filter(dataUser => (dataUser.idAccount === data.idAccount));
+  //     //  console.log("userInOnline")
+  //     //  console.log(userInOnline);
+  //     //  console.log("onlineUsers")
+  //     //  console.log(onlineUsers);
 
-       userInOnline === "" ? collections.usersOnline.insertOne(onlineUsers) : console.log("Usuário ja cadastrado")
+  //     //  userInOnline === "" ? collections.usersOnline.insertOne(onlineUsers) : console.log("Usuário ja cadastrado")
+  //     console.log("data")
+  //     console.log(data)
+  //     console.log("onlineUsers")
+  //     console.log(onlineUsers)
 
-  }
+  // }
   
   
 
@@ -117,8 +127,8 @@ io.on("connection", (socket) => {
     })
 
     socket.emit("userOnline", usersOnline);
-    // console.log("userOnline")
-    // console.log(usersOnline);
+    console.log("userOnline");
+    console.log(usersOnline);
     
     
     socket.on("disconnect", () => {
