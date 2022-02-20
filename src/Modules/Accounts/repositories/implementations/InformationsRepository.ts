@@ -45,6 +45,7 @@ class InformationsRepository implements IInformationsRepository {
           }
 
   list(){ }
+  update({    nickname, avatar, cover, relationship, city, uf}):void {}
 }
 
 export { InformationsRepository };

@@ -1,15 +1,22 @@
-import { ServerOpeningEvent } from "mongodb";
 import { Socket } from "socket.io";
 import { stringify } from "uuid";
 import { collections } from "../services/database.service";
 import { io } from "./http";
 
+interface Rooms {
+  room: string;
+  idAccount: string;
+  idFriend: string;
+}
+
 interface RoomUser  {
   socketId: string;
   room: string;
   idAccount: string;
+  idFriend: string;
 }
 interface UsersOline  {
+  socketId: string;
   idAccount: string;
   username: string;
   nickname: string;
@@ -32,6 +39,7 @@ interface Messages {
 const users: RoomUser[] = [];
 const usersOnline: UsersOline[] = [];
 const messages: Messages[] = [];
+const rooms: Rooms[] = [];
 
 
 io.on("connection", (socket) => {
@@ -43,6 +51,18 @@ io.on("connection", (socket) => {
       socket.join(data.room);
       console.log("Usuário entrou na sala: " + data.room);
 
+      const verifyRooms = rooms.find(room => room.room === data.room);
+
+      if(verifyRooms) {
+        console.log("sala ja existe")
+      } else {
+        rooms.push({
+          room: data.room,
+          idAccount: data.idAccount,
+          idFriend: data.idFriend
+        })
+      }
+
 
 
       const userInRoom = users.find(user => user.idAccount === data.idAccount);
@@ -53,14 +73,18 @@ io.on("connection", (socket) => {
         users.push({
           room: data.room,
           idAccount: data.idAccount,
-          socketId: socket.id
+          socketId: socket.id,
+          idFriend: data.idFriend
         })
       }
 
-      const messagesRoom = findMessages(data.room)
+        const messagesRoom = findMessages(data.room)
       callback(messagesRoom)
 
     });
+
+    socket.emit("rooms", rooms);
+
   
     socket.on("message", (data) => {
       console.log(data);
@@ -91,11 +115,19 @@ io.on("connection", (socket) => {
         avatar: data.avatar,
         lat: data.lat,
         long: data.long,
-        equalCity: data.equalCity
+        equalCity: data.equalCity,
+        socketId: socket.id
+      }
+
+      const userOnlineNew = usersOnline.find(user => user.idAccount === data.idAccount);
+
+      if(userOnlineNew) {
+        userOnlineNew.socketId = socket.id
+      } else {
+        usersOnline.push(onlineUsers)
       }
 
 
-      usersOnline.push(onlineUsers)
 
   
   //     collections.usersOnline.find().toArray(function(err, result){
@@ -127,7 +159,7 @@ io.on("connection", (socket) => {
     })
 
     socket.emit("userOnline", usersOnline);
-    console.log("userOnline");
+    console.log("usersOnline");
     console.log(usersOnline);
     
     

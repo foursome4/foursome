@@ -12,9 +12,10 @@ class UpdateAccountController {
     const id = req.params; 
 
 
-    await collections.accounts.findOneAndUpdate(id, {$set:{username, role, status, type, email, phone, online, password, patron}}, {upsert: true}).then((result) => {
+    await collections.accounts.findOneAndUpdate(id, {username, role, status, type, email, phone, online, password, patron}, {upsert: true}).then((result) => {
       return res.status(201).json(result).send();
     }).catch(error => {
+     // console.log(error);
       return res.status(500).send()
     })
 

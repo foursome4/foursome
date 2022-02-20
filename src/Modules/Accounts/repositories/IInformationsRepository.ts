@@ -14,6 +14,7 @@ interface IInformationsRepository {
   create({ idAccount, nickname, avatar, cover, relationship, city, uf}: IInformationsDTO): Promise<void>;
   findById(idAccount: string): Promise<void> ;
   list();
+  update({nickname, avatar, cover, relationship, city, uf}):void
 }
 
 export { IInformationsRepository, IInformationsDTO };

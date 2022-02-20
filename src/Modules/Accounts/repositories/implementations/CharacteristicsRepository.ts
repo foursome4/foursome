@@ -74,6 +74,20 @@ class CharacteristicsRepository implements ICharacteristicsRepository {
       })
     }
     list(){ }
+    update({
+      birthDate,
+      sex,
+      sexualOption,
+      education,
+      sign,
+      heigth,
+      weight,
+      physique,
+      ethnicity,
+      eyes,
+      hair,
+      tattos,
+      smokes}):void {}
     
 }
 

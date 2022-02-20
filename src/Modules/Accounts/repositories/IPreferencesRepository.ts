@@ -15,7 +15,8 @@ interface IPreferencesDTO {
 interface IPreferencesRepository {
   create({ idAccount, men, woman, couple, trisal, transvestites, transsexuals, groups,proposal }: IPreferencesDTO): Promise<void>;
   findById({ idAccount: string }: IPreferencesDTO): Promise<void>;
-  list()
+  list();
+  update({ men, woman, couple, trisal, transvestites, transsexuals, groups, proposal}):void
 }
 
 export { IPreferencesRepository, IPreferencesDTO };

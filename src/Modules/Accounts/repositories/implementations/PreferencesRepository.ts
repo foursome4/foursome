@@ -45,6 +45,8 @@ class PreferencesRepository implements IPreferencesRepository {
           }
     
   list(){ }
+  update({ men, woman, couple, trisal, transvestites, transsexuals, groups, proposal}):void {}
+  
 }
 
 export { PreferencesRepository };

@@ -36,6 +36,20 @@ interface ICharacteristicsRepository {
   }: ICharacteristicsDTO): void;
   findByIdAccount(id_account: string): Promise<void>;
   list();
+  update({
+    birthDate,
+    sex,
+    sexualOption,
+    education,
+    sign,
+    heigth,
+    weight,
+    physique,
+    ethnicity,
+    eyes,
+    hair,
+    tattos,
+    smokes}):void
 }
 
 export { ICharacteristicsRepository, ICharacteristicsDTO };
