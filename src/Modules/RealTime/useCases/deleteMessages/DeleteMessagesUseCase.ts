@@ -5,9 +5,9 @@ class DeleteMessagesUseCase {
     ("");
   }
 
-  async execute({id}){
+  async execute({_id}){
 
-   await this.MessagesRepository.delete({id});
+   await this.MessagesRepository.delete({_id});
   }
 }
 
