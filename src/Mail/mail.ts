@@ -24,7 +24,7 @@ async function main(): Promise<void> {
     to: "bar@example.com, baz@example.com", // list of receivers
     subject: "Hello ✔", // Subject line
     text: "Hello world?", // plain text body
-    html: "<b>Hello world?</b>", // html body
+    html: "<b>Hello world?</b>", // html body.
   });
 
   console.log("Message sent: %s", info.messageId);
