@@ -13,9 +13,9 @@ class UpdateAccountController {
 
 
     await collections.accounts.findOneAndUpdate(id, {$set:{username, role, status, type, email, phone, online, password, patron}}, {upsert: true}).then((result) => {
-      return res.status(201).json(result).send();
+      return res.status(201).json(result);
     }).catch(error => {
-      return res.status(500).send()
+      return res.status(500);
     })
 
   }

@@ -34,6 +34,7 @@ interface Messages {
   avatar: string;
   username: string;
   nickname: string;
+  created_at: string;
 }
 
 const users: RoomUser[] = [];
@@ -95,10 +96,21 @@ io.on("connection", (socket) => {
         link: data.link,
         avatar: data.avatar,
         username: data.username,
-        nickname: data.nickname
+        nickname: data.nickname,
+        created_at: data.created_at
       }
 
-      messages.push(message)
+      collections.message.insertOne({
+        idRoom: data.room,
+        idAccount: data.idAccount,
+        text: data.text,
+        link: data.link,
+        avatar: data.avatar,
+        username: data.username,
+        nickname: data.nickname,
+        created_at: data.created_at}
+      )
+      messages.push(message);
 
       socket.to(data.room).emit("message", message);
     });

@@ -37,10 +37,10 @@ class UpdateCharacteristcsController {
         hair,
         tattos,
         smokes}}, {upsert: false}).then((result) => {
-      return res.status(201).json(result).send();
+      return res.status(201).json(result);
     }).catch(error => {
      // console.log(error);
-      return res.status(500).send()
+      return res.status(500)
     })
 
   }
