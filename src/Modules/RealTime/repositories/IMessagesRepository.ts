@@ -13,7 +13,7 @@ interface IMessagesDTO {
 interface IMessagesRepository {
   create({ idRoom, idAccount, link, avatar, nickname, username, text }: IMessagesDTO): Promise<void>;
   list();
-  delete({id});
+  delete({_id});
 }
 
 export { IMessagesRepository, IMessagesDTO };

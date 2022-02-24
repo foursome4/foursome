@@ -1,23 +1,23 @@
 import { Request, Response } from "express";
 import { collections } from "../../../../../services/database.service";
 
-import { DeleteMessagesUseCase } from "./DeleteMessagesUseCase";
+import { DeleteInvitesUseCase } from "./DeleteInvitesUseCase";
 
-class DeleteMessagesController {
-  constructor(private DeleteMessagesUseCase: DeleteMessagesUseCase) {
+class DeleteInvitesController {
+  constructor(private DeleteInvitesUseCase: DeleteInvitesUseCase) {
     ("");
   }
   async handle(req: Request, res: Response) {
-    const _id = req.params;
-      await collections.message.deleteOne(_id)
+    const id = req.params;
+      await collections.invites.deleteOne(id)
       .then((result) => {
       return res.status(201).json(result);
     }).catch(error => {
-      console.log(error);
+    console.log(error);
       return res.status(500)
     })
 
   }
 }
 
-export { DeleteMessagesController };
+export { DeleteInvitesController };

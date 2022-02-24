@@ -42,8 +42,8 @@ class MessagesRepository implements IMessagesRepository {
     return this.messages;
   }
 
-  async delete({id}) {
-    await collections.message.deleteOne(id).then((result) => {
+  async delete({_id}) {
+    await collections.message.deleteOne(_id).then((result) => {
       console.log(result)
     }).catch(error => {
       console.log(error)

@@ -47,6 +47,14 @@ class InvitesRepository implements IInvitesRepository {
   list(): Invites[] {
     return this.invites;
   }
+
+  async delete({id}) {
+    await collections.invites.deleteOne(id).then((result) => {
+      console.log(result)
+    }).catch(error => {
+      console.log(error)
+    })
+  }
 }
 
 export { InvitesRepository };

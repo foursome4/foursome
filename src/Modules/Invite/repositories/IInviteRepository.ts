@@ -13,6 +13,7 @@ interface IInvitesRepository {
   create({ code, idAccount, username, name, email, phone }: IInvitesDTO): Promise<void>;
   findByInvites(email: string): Promise<void> ;
   list();
+  delete({id});
 }
 
 export { IInvitesRepository, IInvitesDTO };

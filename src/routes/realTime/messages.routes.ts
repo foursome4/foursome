@@ -9,7 +9,7 @@ messagesRoutes.post("/", (req, res) => {
   return createMessagesController.handle(req, res);
 });
 
-messagesRoutes.delete("/:id", (req, res) => {
+messagesRoutes.delete("/:_id", (req, res) => {
   return deleteMessagesController.handle(req, res);
 });
 
