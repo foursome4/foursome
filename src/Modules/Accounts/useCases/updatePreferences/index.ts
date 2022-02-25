@@ -1,11 +1,11 @@
-import { AccountsRepository } from "../../repositories/implementations/AccountsRepository";
-import { UpdateAccountController } from "./UpdateAccountController";
-import { UpdateAccountUseCase } from "./UpdateAccountUseCase";
+import { PreferencesRepository } from "../../repositories/implementations/PreferencesRepository";
+import { UpdatePreferencesController } from "./UpdatePreferencesController";
+import { UpdatePreferencesUseCase } from "./UpdatePreferencesUseCase";
 
-const accountsRepository = AccountsRepository.getInstance();
+const preferencesRepository = PreferencesRepository.getInstance();
 
-const updateAccountUseCase = new UpdateAccountUseCase(accountsRepository);
+const updatePreferencesUseCase = new UpdatePreferencesUseCase(preferencesRepository);
 
-const updateAccountController = new UpdateAccountController(updateAccountUseCase);
+const updatePreferencesController = new UpdatePreferencesController(updatePreferencesUseCase);
 
-export { updateAccountController };
+export { updatePreferencesController };
