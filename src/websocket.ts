@@ -1,5 +1,6 @@
 import { Socket } from "socket.io";
 import { stringify } from "uuid";
+import { v4 as uuidv4 } from "uuid";
 import { collections } from "../services/database.service";
 import { io } from "./http";
 
@@ -35,6 +36,7 @@ interface Messages {
   username: string;
   nickname: string;
   created_at: string;
+  id: string;
 }
 
 const users: RoomUser[] = [];
@@ -97,7 +99,8 @@ io.on("connection", (socket) => {
         avatar: data.avatar,
         username: data.username,
         nickname: data.nickname,
-        created_at: data.created_at
+        created_at: data.created_at,
+        id: uuidv4()
       }
 
       collections.message.insertOne({
@@ -108,7 +111,8 @@ io.on("connection", (socket) => {
         avatar: data.avatar,
         username: data.username,
         nickname: data.nickname,
-        created_at: data.created_at}
+        created_at: data.created_at,
+        id: uuidv4()}
       )
       messages.push(message);
 
