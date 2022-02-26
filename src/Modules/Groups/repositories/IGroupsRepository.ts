@@ -4,9 +4,13 @@ interface ICreateGroupDTO {
   name: string;
   description: string;
   avatar: string;
-  cover:string;
+  cover: string;
   theme: string;
   privacity: string;
+  idAccount: string;
+  username: string;
+  avatarUser: string;
+  
 }
 
 interface IGroupsRepository {
@@ -16,7 +20,10 @@ interface IGroupsRepository {
     avatar,
     cover,
     theme,
-    privacity
+    privacity,
+    idAccount,
+    username,
+    avatarUser
   }: ICreateGroupDTO): void;
   findByName(name: string): Group;
   list();

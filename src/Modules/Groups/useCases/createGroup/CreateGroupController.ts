@@ -1,27 +1,33 @@
 import { Request, Response } from "express";
+import { collections } from "../../../../../services/database.service";
 
 import { CreateGroupUseCase } from "./CreateGroupUseCase";
+import {v4 as uuidv4} from 'uuid'
 
 class CreateGroupController {
   constructor(private createGroupUseCase: CreateGroupUseCase) {
     ("");
   }
 
-  handle(req: Request, res: Response): Response {
-    const { name, description, avatar, cover, theme, privacity } = req.body;
+  async handle(req: Request, res: Response) {
+    const { name, description, avatar, cover, theme, privacity, idAccount, username, avatarUser } = req.body;
+    const id = uuidv4();
 
-    this.createGroupUseCase.execute({
-      name,
-      description,
-      avatar,
-      cover,
-      theme,
-      privacity
-    });
+    await collections.groups.insertOne({id, name, description, avatar, cover, theme, privacity, idAccount, username, avatarUser}).then((result) => {
+      console.log(result);
+      res.status(201).json({id, name, description, avatar, cover, theme, privacity, idAccount, username, avatarUser})
+      
+    }).catch(error => {
+      console.log(error)
+    })
+
+    
 
 
-    return res.status(201).send();
+    return res.status(201).json();
   }
 }
 
 export { CreateGroupController };
+
+

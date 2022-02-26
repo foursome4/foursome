@@ -1,6 +1,8 @@
 import { Router } from "express";
 import { createPostController } from "../../Modules/Posts/useCases/createPosts";
 import { deletePostController } from "../../Modules/Posts/useCases/deletePosts";
+import { listPostGroupsController } from "../../Modules/Posts/useCases/listPostGroups";
+import { listPostGroupsTypeController } from "../../Modules/Posts/useCases/listPostGroupsType";
 import { listPostsController } from "../../Modules/Posts/useCases/listPosts";
 import { listPostsAccountsTypeController } from "../../Modules/Posts/useCases/listPostsAccountsType";
 import { listPostsAllController } from "../../Modules/Posts/useCases/listPostsAll";
@@ -28,9 +30,13 @@ postsRoutes.get("/filter/:type", (req, res) => {
 postsRoutes.get("/all", (req, res) => {
   return listPostsAllController.handle(req, res);
 });
-postsRoutes.get("/groups", (req, res) => {
-  return listPostsController.handle(req, res);
+postsRoutes.get("/groups/:idGroup", (req, res) => {
+  return listPostGroupsController.handle(req, res);
 });
+postsRoutes.get("/groups/:idGroup/:type", (req, res) => {
+  return listPostGroupsTypeController.handle(req, res);
+});
+
 postsRoutes.get("/foruns", (req, res) => {
   return listPostsController.handle(req, res);
 });

@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { createGroupController } from "../../Modules/Groups/useCases/createGroup";
-import { createMembersController } from "../../Modules/Groups/useCases/createMembers";
 import { listGroupController } from "../../Modules/Groups/useCases/listGroup";
+import { listGroupUnicController } from "../../Modules/Groups/useCases/listGroupUnic";
 
 
 
@@ -15,8 +15,10 @@ groupsRoutes.get("/", (req, res) => {
   return listGroupController.handle(req, res);
 });
 
-groupsRoutes.post("/members", (req, res) => {
-  return createMembersController.handle(req, res);
+groupsRoutes.get("/:id", (req, res) => {
+  return listGroupUnicController.handle(req, res);
 });
+
+
 
 export { groupsRoutes };

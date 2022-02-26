@@ -8,10 +8,10 @@ class CreateMembersController {
   }
 
   handle(req: Request, res: Response): Response {
-    const { id_account, id_group, role, status, avatar, username, nickname } = req.body;
+    const { idAccount, idGroup, role, status, avatar, username, nickname } = req.body;
 
     this.createMembersUseCase.execute({
-      id_account, id_group, role, status, avatar, username, nickname
+      idAccount, idGroup, role, status, avatar, username, nickname
     });
 
 

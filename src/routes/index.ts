@@ -20,11 +20,13 @@ import { cnversationsRoutes } from "./realTime/conversations.routes";
 import { messagesRoutes } from "./realTime/messages.routes";
 import { usersOlineRoutes } from "./realTime/usersOnline.routes";
 import {mailRoutes} from "./mail/mail"
+import { membersRoutes } from "./groups/members.routes";
 const router = Router();
 
 connectToDatabase()
   .then(() => {
     router.use("/groups", groupsRoutes);
+    router.use("/members", membersRoutes);
     router.use("/newsletter", newsletterRoutes);
     router.use("/accounts", groupsAccounts);
     router.use("/informations", informationsRoutes);

@@ -1,7 +1,7 @@
 
 class Members {
-  id_group: string;
-  id_account: string;
+  idGroup: string;
+  idAccount: string;
   avatar: string;
   username: string;
   nickname:string;

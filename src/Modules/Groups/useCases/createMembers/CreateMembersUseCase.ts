@@ -1,7 +1,7 @@
 import { IMembersRepository } from "../../repositories/IMembersRepository";
 interface IRequest {
-  id_group: string;
-  id_account: string;
+  idGroup: string;
+  idAccount: string;
   avatar: string;
   username: string;
   nickname:string;
@@ -14,12 +14,12 @@ class CreateMembersUseCase {
     " ";
   }
 
-  execute({ id_account, id_group, role, status, avatar, username, nickname }: IRequest): void {
-    this.iMembersRepository.findById(id_account);
+  execute({ idAccount, idGroup, role, status, avatar, username, nickname }: IRequest): void {
+    this.iMembersRepository.findById(idAccount);
 
 
     this.iMembersRepository.create({
-      id_account, id_group, role, status, avatar, username, nickname
+      idAccount, idGroup, role, status, avatar, username, nickname
     });
   }
 }

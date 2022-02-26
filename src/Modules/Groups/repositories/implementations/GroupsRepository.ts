@@ -41,28 +41,10 @@ class GroupsRepository implements IGroupsRepository {
     cover,
     theme,
     privacity,
-  }: ICreateGroupDTO) {
-    const group: Group = new Group();
-    const _id = uuidv4()
-    Object.assign(group, {
-      _id, id: _id,
-      name,
-      description,
-      avatar,
-      cover,
-      theme,
-      privacity,
-      created_at: new Date()
-    });
-
-    this.groups.push(group);
-    console.log(group)
-    await collections.groups.insertOne(group).then((result) => {
-      console.log(result)
-    }).catch(error => {
-      console.log(error)
-    })
-  }
+    idAccount,
+    username,
+    avatarUser
+  }){}
 
   list(){  }
 }

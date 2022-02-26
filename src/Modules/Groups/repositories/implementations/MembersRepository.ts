@@ -24,12 +24,12 @@ class MembersRepository implements IMembersRepository {
   }
 
   async create({
-    id_account, id_group, role, status, avatar, username, nickname
+    idAccount, idGroup, role, status, avatar, username, nickname
   }: IMembersDTO) {
     const member: Members = new Members();
     const _id = uuidv4()
     Object.assign(member, {
-      _id, id: _id, id_account, id_group, role, status, avatar, username, nickname,
+      _id, id: _id, idAccount, idGroup, role, status, avatar, username, nickname,
       created_at: new Date(),
     });
 
@@ -41,8 +41,8 @@ class MembersRepository implements IMembersRepository {
       console.log(error)
     })
   }
-  findById(id_account: string): Members {
-    const member = this.members.find((member) => member.id_account === id_account);
+  findById(idAccount: string): Members {
+    const member = this.members.find((member) => member.idAccount === idAccount);
     return member;
   }
   list(){}
