@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { createPostController } from "../../Modules/Posts/useCases/createPosts";
 import { deletePostController } from "../../Modules/Posts/useCases/deletePosts";
+import { listPostEventsController } from "../../Modules/Posts/useCases/listPostEvents";
 import { listPostForunsController } from "../../Modules/Posts/useCases/listPostForuns";
 import { listPostGroupsController } from "../../Modules/Posts/useCases/listPostGroups";
 import { listPostGroupsTypeController } from "../../Modules/Posts/useCases/listPostGroupsType";
