@@ -7,6 +7,8 @@ interface IPostsDTO {
   username:string;
   nameGroup: string;
   nameForum: string;
+  nameEvent: string;
+  idEvent: string;
   idGroup: string;
   idForum: string;
   type: string;
@@ -22,6 +24,8 @@ interface IPostsRepository {
     username,
     nameGroup,
     nameForum,
+    nameEvent,
+    idEvent,
     idGroup,
     idForum,
     type,

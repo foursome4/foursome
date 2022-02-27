@@ -7,6 +7,8 @@ class Posts {
   username:string;
   nameGroup: string;
   nameForum: string;
+  nameEvent: string;
+  idEvent: string;
   idGroup: string;
   idForum: string;
   type: string;

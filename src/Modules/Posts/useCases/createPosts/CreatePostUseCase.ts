@@ -7,6 +7,8 @@ interface IRequest {
   username:string;
   nameGroup: string;
   nameForum: string;
+  nameEvent: string;
+  idEvent: string;
   idGroup: string;
   idForum: string;
   type: string;
@@ -26,6 +28,8 @@ class CreatePostUseCase {
     username,
     nameGroup,
     nameForum,
+  nameEvent,
+  idEvent,
     idGroup,
     idForum,
     type,
@@ -40,6 +44,8 @@ class CreatePostUseCase {
     username,
     nameGroup,
     nameForum,
+    nameEvent,
+    idEvent,
     idGroup,
     idForum,
     type,
