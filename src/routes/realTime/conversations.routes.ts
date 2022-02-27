@@ -17,10 +17,10 @@ cnversationsRoutes.delete("/:id", (req, res) => {
 cnversationsRoutes.get("/:idAccount/:idFriend", (req, res) => {
   return listConversationsController.handle(req, res);
 });
-cnversationsRoutes.get("/my/:idAccount", (req, res) => {
+cnversationsRoutes.get("/account/filter/:idAccount", (req, res) => {
   return listMyConversationsController.handle(req, res);
 });
-cnversationsRoutes.get("/my2/:friend", (req, res) => {
+cnversationsRoutes.get("/friend/filter/:idFriend", (req, res) => {
   return listMyConversations2Controller.handle(req, res);
 });
 

@@ -9,14 +9,14 @@ class ListMyConversationsController {
   }
 
   async handle(req: Request, res: Response) {
-    const { idAccount } = req.params;
-   await collections.conversations.find({idAccount}).sort( { created_at: -1 } ).toArray(function(err, result){
+    const {idAccount}  = req.params;
+   await collections.conversations.find({idAccount}).toArray(function(err, result){
       if(err) {
         res.status(500).json(err)
       } else {
         res.status(200).json(result)
       }
-     // console.log(result)
+      console.log(result)
       return result;
      })
 
