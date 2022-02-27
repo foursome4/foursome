@@ -8,17 +8,14 @@ class CreateForunsController {
   }
 
   handle(req: Request, res: Response): Response {
-    const { name, description, avatar, theme } = req.body;
+    const { name, description, avatar, cover, theme, idAccount, username, nickname, avatarUser } = req.body;
 
     this.createForunsUseCase.execute({
-      name,
-      description,
-      avatar,
-      theme,
+      name, description, avatar, cover, theme, idAccount, username, nickname, avatarUser
     });
 
 
-    return res.status(201).send();
+    return res.status(201).json();
   }
 }
 

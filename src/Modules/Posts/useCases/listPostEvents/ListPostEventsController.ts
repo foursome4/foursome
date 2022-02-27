@@ -1,16 +1,16 @@
 import { Request, Response } from "express";
 import { collections } from "../../../../../services/database.service";
 
-import { ListPostGroupsUseCase } from "./ListPostGroupsAllUseCase";
+import { ListPostEventsUseCase } from "./ListPostEventsUseCase";
 
-class ListPostGroupsController {
-  constructor(private ListPostGroupseCase: ListPostGroupsUseCase) {
+class ListPostEventsController {
+  constructor(private ListPostEventseCase: ListPostEventsUseCase) {
     ("");
   }
 
   async handle(req: Request, res: Response) {
-              const {idGroup} = req.params;
-   await collections.post.find({idGroup}).sort( { created_at: -1 } ).toArray(function(err, result){
+              const {idEvent} = req.params;
+   await collections.post.find({idEvent}).sort( { created_at: -1 } ).toArray(function(err, result){
       if(err) {
         res.status(500).json(err)
       } else {
@@ -23,6 +23,6 @@ class ListPostGroupsController {
   }
 }
 
-export { ListPostGroupsController };
+export { ListPostEventsController };
 
 

@@ -1,4 +1,4 @@
-import { IEventsRepository } from "../../repositories/IEventsRepository";
+import { ILocationsRepository } from "../../repositories/ILocationsRepository";
 
 interface IRequest {
   name: string;
@@ -18,8 +18,8 @@ interface IRequest {
   reference: string;
 }
 
-class CreateEventsUseCase {
-  constructor(private EventsRepository: IEventsRepository) {
+class CreateLocationsUseCase {
+  constructor(private LocationsRepository: ILocationsRepository) {
     " ";
   }
 
@@ -38,10 +38,10 @@ class CreateEventsUseCase {
     uf,
     complement,
     reference, }: IRequest): void {
-    this.EventsRepository.findByName(name);
+    this.LocationsRepository.findByName(name);
 
 
-    this.EventsRepository.create({
+    this.LocationsRepository.create({
       name,
       description,
       avatar,
@@ -61,4 +61,4 @@ class CreateEventsUseCase {
   }
 }
 
-export { CreateEventsUseCase };
+export { CreateLocationsUseCase };

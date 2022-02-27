@@ -38,11 +38,18 @@ class EventsRepository implements IEventsRepository {
     name,
     description,
     avatar,
+    cover,
     theme,
     privacity,
     date,
     status,
-    address,
+        street,
+    number,
+    district,
+    city,
+    uf,
+    complement,
+    reference,
   }: ICreateEventsDTO) {
     const event: Events = new Events();
     const _id = uuidv4()
@@ -51,11 +58,18 @@ class EventsRepository implements IEventsRepository {
       name,
       description,
       avatar,
+      cover,
       theme,
       privacity,
       date,
       status,
-      address,
+          street,
+    number,
+    district,
+    city,
+    uf,
+    complement,
+    reference,
       created_at: new Date()
     });
 

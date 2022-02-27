@@ -4,7 +4,12 @@ interface IRequest {
   name: string;
   description: string;
   avatar: string;
+  cover: string;
   theme: string;
+  idAccount: string;
+  username: string;
+  nickname: string;
+  avatarUser: string;
 }
 
 class CreateForunsUseCase {
@@ -12,15 +17,12 @@ class CreateForunsUseCase {
     " ";
   }
 
-  execute({ name, description, avatar, theme }: IRequest): void {
+  execute({ name, description, avatar, cover, theme, idAccount, username,nickname,  avatarUser }: IRequest): void {
     this.forunsRepository.findByName(name);
 
 
     this.forunsRepository.create({
-      name,
-      description,
-      avatar,
-      theme,
+      name, description, avatar, cover, theme, idAccount, username, nickname, avatarUser
     });
   }
 }

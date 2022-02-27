@@ -35,19 +35,13 @@ class ForunsRepository implements IForunsRepository {
   }
 
   async create({
-    name,
-    description,
-    avatar,
-    theme,
+    name, description, avatar, cover, theme, idAccount, username, nickname, avatarUser
   }: ICreateForunsDTO) {
     const foruns: Foruns = new Foruns();
     const _id = uuidv4()
     Object.assign(foruns, {
       _id, id: _id,
-      name,
-      description,
-      avatar,
-      theme,
+      name, description, avatar, cover, theme, idAccount, username, nickname, avatarUser,
       created_at: new Date()
     });
 

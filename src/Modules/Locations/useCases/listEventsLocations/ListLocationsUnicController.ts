@@ -1,15 +1,16 @@
 import { Request, Response } from "express";
 import { collections } from "../../../../../services/database.service";
 
-import { ListForunsUseCase } from "./ListForunsUseCase";
+import { ListLocationsUnicUseCase } from "./ListLocationsUnicUseCase";
 
-class ListForunsController {
-  constructor(private listForunsUseCase: ListForunsUseCase) {
+class ListLocationsUnicController {
+  constructor(private listLocationsUnicUseCase: ListLocationsUnicUseCase) {
     ("");
   }
 
   async handle(req: Request, res: Response) {
-   await collections.foruns.find().toArray(function(err, result){
+    const id = req.params
+   await collections.locations.find(id).toArray(function(err, result){
       if(err) {
         res.status(500).json(err)
       } else {
@@ -22,4 +23,4 @@ class ListForunsController {
   }
 }
 
-export { ListForunsController };
+export { ListLocationsUnicController };

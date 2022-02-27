@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
 
-import { CreateEventsUseCase } from "./CreateEventsUseCase";
+import { CreateLocationsUseCase } from "./CreateLocationsUseCase";
 
-class CreateEventsController {
-  constructor(private createEventsUseCase: CreateEventsUseCase) {
+class CreateLocationsController {
+  constructor(private createLocationsUseCase: CreateLocationsUseCase) {
     ("");
   }
 
@@ -24,7 +24,7 @@ class CreateEventsController {
     complement,
     reference, } = req.body;
 
-    this.createEventsUseCase.execute({
+    this.createLocationsUseCase.execute({
       name,
       description,
       avatar,
@@ -47,4 +47,4 @@ class CreateEventsController {
   }
 }
 
-export { CreateEventsController };
+export { CreateLocationsController };

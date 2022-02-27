@@ -1,6 +1,6 @@
-import { Events } from "../models/Events";
+import { Locations } from "../models/Locations";
 
-interface ICreateEventsDTO {
+interface ICreateLocationsDTO {
   name: string;
   description: string;
   avatar: string;
@@ -18,7 +18,7 @@ interface ICreateEventsDTO {
   reference: string;
 }
 
-interface IEventsRepository {
+interface ILocationsRepository {
   create({
     name,
     description,
@@ -35,9 +35,9 @@ interface IEventsRepository {
     uf,
     complement,
     reference
-  }: ICreateEventsDTO): void;
-  findByName(name: string): Events;
+  }: ICreateLocationsDTO): void;
+  findByName(name: string): Locations;
   list();
 }
 
-export { IEventsRepository, ICreateEventsDTO };
+export { ILocationsRepository, ICreateLocationsDTO };

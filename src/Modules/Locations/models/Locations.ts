@@ -1,5 +1,5 @@
 
-class Events {
+class Locations {
   name: string;
   description: string;
   avatar: string;
@@ -18,4 +18,4 @@ class Events {
   created_at: Date;
 }
 
-export { Events };
+export { Locations };

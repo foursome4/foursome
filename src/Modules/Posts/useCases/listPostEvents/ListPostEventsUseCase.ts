@@ -2,7 +2,7 @@ import { collections } from "../../../../../services/database.service";
 import { Posts } from "../../models/Posts";
 import { IPostsRepository } from "../../repositories/IPostsRepository";
 
-class ListPostGroupsUseCase {
+class ListPostEventsUseCase {
   constructor(private PostsRepository: IPostsRepository) {
     " ";
   }
@@ -18,4 +18,4 @@ class ListPostGroupsUseCase {
         }
   }
 
-export { ListPostGroupsUseCase };
+export { ListPostEventsUseCase };
