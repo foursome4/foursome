@@ -5,8 +5,7 @@ class Events {
   avatar: string;
   cover: string;
   theme: string;
-  privacity: string;
-  date: string;
+  date: Date;
   status: string;
   street: string;
   number: string;

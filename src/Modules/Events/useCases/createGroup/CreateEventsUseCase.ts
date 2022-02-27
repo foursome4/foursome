@@ -6,9 +6,8 @@ interface IRequest {
   avatar: string;
   cover: string;
   theme: string;
-  privacity: string;
-  date: string;
   status: string;
+  date: Date;
   street: string;
   number: string;
   district: string;
@@ -16,6 +15,10 @@ interface IRequest {
   uf: string;
   complement: string;
   reference: string;
+  idAccount: string;
+  username: string;
+  avatarUser: string;
+  nickname: string;
 }
 
 class CreateEventsUseCase {
@@ -23,21 +26,25 @@ class CreateEventsUseCase {
     " ";
   }
 
-  execute({   name,
+  execute({ name,
     description,
     avatar,
     cover,
     theme,
-    privacity,
-    date,
     status,
-        street,
+    date,
+    street,
     number,
     district,
     city,
     uf,
     complement,
-    reference, }: IRequest): void {
+    reference,
+    idAccount,
+    username,
+    avatarUser,
+    nickname
+    , }: IRequest): void {
     this.EventsRepository.findByName(name);
 
 
@@ -47,16 +54,19 @@ class CreateEventsUseCase {
       avatar,
       cover,
       theme,
-      privacity,
-      date,
       status,
-          street,
-    number,
-    district,
-    city,
-    uf,
-    complement,
-    reference,
+      date,
+      street,
+      number,
+      district,
+      city,
+      uf,
+      complement,
+      reference,
+      idAccount,
+      username,
+      avatarUser,
+      nickname
     });
   }
 }

@@ -6,9 +6,8 @@ interface ICreateEventsDTO {
   avatar: string;
   cover: string;
   theme: string;
-  privacity: string;
-  date: string;
   status: string;
+  date: Date;
   street: string;
   number: string;
   district: string;
@@ -16,6 +15,10 @@ interface ICreateEventsDTO {
   uf: string;
   complement: string;
   reference: string;
+  idAccount: string;
+    username: string;
+    avatarUser: string;
+    nickname: string;
 }
 
 interface IEventsRepository {
@@ -25,16 +28,19 @@ interface IEventsRepository {
     avatar,
     cover,
     theme,
-    privacity,
-    date,
     status,
+    date,
     street,
     number,
     district,
     city,
     uf,
     complement,
-    reference
+    reference,
+    idAccount,
+    username,
+    avatarUser,
+    nickname
   }: ICreateEventsDTO): void;
   findByName(name: string): Events;
   list();

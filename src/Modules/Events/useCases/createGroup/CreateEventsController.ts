@@ -8,31 +8,14 @@ class CreateEventsController {
   }
 
   handle(req: Request, res: Response): Response {
-    const {   name,
-      description,
-      avatar,
-      cover,
-      theme,
-      privacity,
-      date,
-      status,
-      street,
-    number,
-    district,
-    city,
-    uf,
-    complement,
-    reference, } = req.body;
-
-    this.createEventsUseCase.execute({
+    const { 
       name,
       description,
       avatar,
       cover,
       theme,
-      privacity,
-      date,
       status,
+      date,
       street,
       number,
       district,
@@ -40,6 +23,31 @@ class CreateEventsController {
       uf,
       complement,
       reference,
+      idAccount,
+      username,
+      avatarUser,
+      nickname
+  } = req.body;
+
+    this.createEventsUseCase.execute({
+      name,
+      description,
+      avatar,
+      cover,
+      theme,
+      status,
+      date,
+      street,
+      number,
+      district,
+      city,
+      uf,
+      complement,
+      reference,
+      idAccount,
+      username,
+      avatarUser,
+      nickname
     });
 
 
