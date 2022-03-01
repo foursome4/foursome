@@ -11,6 +11,7 @@ interface IInvitesDTO {
 
 interface IInvitesRepository {
   create({ code, idAccount, username, name, email, phone }: IInvitesDTO): Promise<void>;
+  update({ code, idAccount, username, name, email, phone }: IInvitesDTO): Promise<void>;
   findByInvites(email: string): Promise<void> ;
   list();
   delete({id});

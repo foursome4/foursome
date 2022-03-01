@@ -4,7 +4,7 @@ import * as dotenv from "dotenv";
 export const collections: { 
   groups?: mongoDB.Collection,
   newsletter?: mongoDB.Collection,
-  members_groups?:mongoDB.Collection,
+  membersEvent?:mongoDB.Collection,
   posts_groups?:mongoDB.Collection,
   comments?:mongoDB.Collection,
   foruns?:mongoDB.Collection,
@@ -49,9 +49,9 @@ export async function connectToDatabase() {
   // console.log(`Successfully connected to database: ${db.databaseName} and collection: ${groupsCollection.collectionName}`);
 
    //Groups Members
-   const groupsMembersCollection: mongoDB.Collection = db.collection(process.env.MEMBERSGROUPS_COLLECTION_NAME);
-   collections.members_groups = groupsMembersCollection;
-   // console.log(`Successfully connected to database: ${db.databaseName} and collection: ${groupsMembersCollection.collectionName}`);
+   const membersEventCollection: mongoDB.Collection = db.collection(process.env.MEMBERSEVENT_COLLECTION_NAME);
+   collections.membersEvent = membersEventCollection;
+   // console.log(`Successfully connected to database: ${db.databaseName} and collection: ${membersEventCollection.collectionName}`);
 
     //Groups Posts
   const groupsPostsCollection: mongoDB.Collection = db.collection(process.env.POSTSGROUPS_COLLECTION_NAME);

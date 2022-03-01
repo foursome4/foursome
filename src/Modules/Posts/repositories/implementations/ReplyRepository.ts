@@ -38,6 +38,17 @@ class ReplyRepository implements IReplyRepository {
   }
 
   list(){}
+
+  async update({ }){}
+
+  async delete({id}) {
+    await collections.reply.deleteOne(id).then((result) => {
+      console.log(result)
+    }).catch(error => {
+      console.log(error)
+    })
+  }
 }
+
 
 export { ReplyRepository };

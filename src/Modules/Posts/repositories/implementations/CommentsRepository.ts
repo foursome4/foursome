@@ -46,6 +46,8 @@ class CommentsRepository implements ICommentsRepository {
       console.log(error)
     })
   }
+
+  async update({text}): Promise<void> {}
 }
 
 export { CommentsRepository };

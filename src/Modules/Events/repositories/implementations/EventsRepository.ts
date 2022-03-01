@@ -89,6 +89,16 @@ class EventsRepository implements IEventsRepository {
   }
 
   list(){  }
+
+  async update({ }){}
+
+  async delete({id}) {
+    await collections.events.deleteOne(id).then((result) => {
+      console.log(result)
+    }).catch(error => {
+      console.log(error)
+    })
+  }
 }
 
 export { EventsRepository };

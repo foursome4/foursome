@@ -48,6 +48,8 @@ class InvitesRepository implements IInvitesRepository {
     return this.invites;
   }
 
+  async update({ }){}
+
   async delete({id}) {
     await collections.invites.deleteOne(id).then((result) => {
       console.log(result)
@@ -55,6 +57,7 @@ class InvitesRepository implements IInvitesRepository {
       console.log(error)
     })
   }
+
 }
 
 export { InvitesRepository };

@@ -6,6 +6,9 @@ class Group {
   cover: string;
   theme: string;
   privacity: string;
+  idAccount: string;
+  username: string;
+  avatarUser: string;
   created_at: Date;
 }
 

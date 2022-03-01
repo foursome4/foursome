@@ -14,6 +14,10 @@ class Events {
   uf: string;
   complement: string;
   reference: string;
+  idAccount: string;
+  username: string;
+  avatarUser: string;
+  nickname: string;
   created_at: Date;
 }
 

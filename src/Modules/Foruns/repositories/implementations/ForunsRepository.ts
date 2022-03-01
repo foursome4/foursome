@@ -55,6 +55,16 @@ class ForunsRepository implements IForunsRepository {
   }
 
   list(){  }
+
+  async update({ }){}
+
+  async delete({id}) {
+    await collections.foruns.deleteOne(id).then((result) => {
+      console.log(result)
+    }).catch(error => {
+      console.log(error)
+    })
+  }
 }
 
 export { ForunsRepository };

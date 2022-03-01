@@ -45,8 +45,19 @@ class GroupsRepository implements IGroupsRepository {
     username,
     avatarUser
   }){}
+  async update({ }){}
 
   list(){  }
+
+  async delete({id}) {
+    await collections.groups.deleteOne(id).then((result) => {
+      console.log(result)
+    }).catch(error => {
+      console.log(error)
+    })
+  }
+
+  
 }
 
 export { GroupsRepository };

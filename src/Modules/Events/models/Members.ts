@@ -1,6 +1,6 @@
 
 class Members {
-  idGroup: string;
+  idEvent: string;
   idAccount: string;
   avatar: string;
   username: string;

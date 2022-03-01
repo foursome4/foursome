@@ -24,18 +24,18 @@ class MembersRepository implements IMembersRepository {
   }
 
   async create({
-    idAccount, idGroup, role, status, avatar, username, nickname
+    idAccount, idEvent, role, status, avatar, username, nickname
   }: IMembersDTO) {
     const member: Members = new Members();
     const _id = uuidv4()
     Object.assign(member, {
-      _id, id: _id, idAccount, idGroup, role, status, avatar, username, nickname,
+      _id, id: _id, idAccount, idEvent, role, status, avatar, username, nickname,
       created_at: new Date(),
     });
 
     this.members.push(member);
     console.log(member)
-    await collections.members_groups.insertOne(member).then((result) => {
+    await collections.membersEvent.insertOne(member).then((result) => {
       console.log(result)
     }).catch(error => {
       console.log(error)
@@ -46,6 +46,16 @@ class MembersRepository implements IMembersRepository {
     return member;
   }
   list(){}
+
+  async update({ }){}
+
+  async delete({id}) {
+    await collections.membersEvent.deleteOne(id).then((result) => {
+      console.log(result)
+    }).catch(error => {
+      console.log(error)
+    })
+  }
 }
 
 export { MembersRepository };

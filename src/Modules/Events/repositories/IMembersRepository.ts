@@ -1,7 +1,7 @@
 import { Members } from "../models/Members";
 
 interface IMembersDTO {
-  idGroup: string;
+  idEvent: string;
   idAccount: string;
   avatar: string;
   username: string;
@@ -11,9 +11,13 @@ interface IMembersDTO {
 }
 
 interface IMembersRepository {
-  create({ idAccount, idGroup, role, status, avatar, username, nickname }: IMembersDTO);
+  create({ idAccount, idEvent, role, status, avatar, username, nickname }: IMembersDTO);
   findById(idAccount: string): Members;
   list();
+  delete({id});
+  update({
+    idAccount, idEvent, role, status, avatar, username, nickname 
+  }: IMembersDTO): void;
 }
 
 export { IMembersRepository, IMembersDTO };

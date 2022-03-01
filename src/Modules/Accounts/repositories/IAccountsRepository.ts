@@ -19,6 +19,7 @@ interface IAccountsRepository {
   session(email: string, username: string, password: string);
   list();
   update({ username, role, status, type, email, phone, password, online, patron}: IAccountsDTO): void;
+  delete({id});
 }
 
 export { IAccountsRepository, IAccountsDTO };

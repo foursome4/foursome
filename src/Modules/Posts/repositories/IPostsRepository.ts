@@ -32,6 +32,7 @@ interface IPostsRepository {
     text,
     link,
     }: IPostsDTO): Promise<void>;
+    update({text}): Promise<void>
   list();
   delete({id});
 }

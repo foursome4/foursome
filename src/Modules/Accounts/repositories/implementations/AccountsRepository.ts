@@ -60,6 +60,16 @@ class AccountsRepository implements IAccountsRepository {
 
   list(){ }
   update({username, role, status, type, email, phone, password, online, patron}):void {}
+
+  async delete({id}) {
+    await collections.accounts.deleteOne(id).then((result) => {
+      console.log(result)
+    }).catch(error => {
+      console.log(error)
+    })
+  }
+
+
 }
 
 export { AccountsRepository };

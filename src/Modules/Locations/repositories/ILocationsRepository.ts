@@ -36,8 +36,26 @@ interface ILocationsRepository {
     complement,
     reference
   }: ICreateLocationsDTO): void;
+  update({
+    name,
+    description,
+    avatar,
+    cover,
+    theme,
+    privacity,
+    date,
+    status,
+    street,
+    number,
+    district,
+    city,
+    uf,
+    complement,
+    reference
+  }: ICreateLocationsDTO): void;
   findByName(name: string): Locations;
   list();
+  delete({id});
 }
 
 export { ILocationsRepository, ICreateLocationsDTO };

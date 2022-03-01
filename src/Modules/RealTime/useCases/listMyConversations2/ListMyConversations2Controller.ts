@@ -21,6 +21,6 @@ class ListMyConversations2Controller {
      })
 
   }
-}
+} 
 
 export { ListMyConversations2Controller };

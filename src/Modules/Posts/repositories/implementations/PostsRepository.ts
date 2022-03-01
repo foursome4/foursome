@@ -74,6 +74,8 @@ class PostsRepository implements IPostsRepository {
       console.log(error)
     })
   }
+
+  async update({text}): Promise<void> {}
 }
 
 

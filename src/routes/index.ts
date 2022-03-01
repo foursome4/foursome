@@ -20,7 +20,7 @@ import { cnversationsRoutes } from "./realTime/conversations.routes";
 import { messagesRoutes } from "./realTime/messages.routes";
 import { usersOlineRoutes } from "./realTime/usersOnline.routes";
 import {mailRoutes} from "./mail/mail"
-import { membersRoutes } from "./groups/members.routes";
+import { membersRoutes } from "./events/members.routes";
 const router = Router();
 
 connectToDatabase()

@@ -83,6 +83,16 @@ class LocationsRepository implements ILocationsRepository {
   }
 
   list(){  }
+
+  async update({ }){}
+
+  async delete({id}) {
+    await collections.locations.deleteOne(id).then((result) => {
+      console.log(result)
+    }).catch(error => {
+      console.log(error)
+    })
+  }
 }
 
 export { LocationsRepository };

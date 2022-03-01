@@ -11,8 +11,10 @@ interface ICommentsDTO {
 
 interface ICommentsRepository {
   create({idAccount, idPost, avatar, nickname, username, text, }: ICommentsDTO): Promise<void>;
+  update({idAccount, idPost, avatar, nickname, username, text, }: ICommentsDTO): Promise<void>;
   list();
   delete({id});
+  update({text}): Promise<void>
 }
 
 export { ICommentsRepository, ICommentsDTO };

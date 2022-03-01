@@ -50,6 +50,10 @@ interface ICharacteristicsRepository {
     hair,
     tattos,
     smokes}):void
+
+    
+    delete({id});
 }
+
 
 export { ICharacteristicsRepository, ICharacteristicsDTO };

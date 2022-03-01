@@ -25,8 +25,20 @@ interface IGroupsRepository {
     username,
     avatarUser
   }: ICreateGroupDTO): void;
+  update({
+    name,
+    description,
+    avatar,
+    cover,
+    theme,
+    privacity,
+    idAccount,
+    username,
+    avatarUser
+  }: ICreateGroupDTO): void;
   findByName(name: string): Group;
   list();
+  delete({id});
 }
 
 export { IGroupsRepository, ICreateGroupDTO };

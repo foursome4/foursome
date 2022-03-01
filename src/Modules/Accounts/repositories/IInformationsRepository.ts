@@ -15,6 +15,7 @@ interface IInformationsRepository {
   findById(idAccount: string): Promise<void> ;
   list();
   update({nickname, avatar, cover, relationship, city, uf}):void
+  delete({id});
 }
 
 export { IInformationsRepository, IInformationsDTO };

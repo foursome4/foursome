@@ -88,6 +88,15 @@ class CharacteristicsRepository implements ICharacteristicsRepository {
       hair,
       tattos,
       smokes}):void {}
+
+      async delete({id}) {
+        await collections.characteristics.deleteOne(id).then((result) => {
+          console.log(result)
+        }).catch(error => {
+          console.log(error)
+        })
+      }
+    
     
 }
 

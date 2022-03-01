@@ -44,6 +44,27 @@ interface IEventsRepository {
   }: ICreateEventsDTO): void;
   findByName(name: string): Events;
   list();
+  delete({id});
+  update({
+    name,
+    description,
+    avatar,
+    cover,
+    theme,
+    status,
+    date,
+    street,
+    number,
+    district,
+    city,
+    uf,
+    complement,
+    reference,
+    idAccount,
+    username,
+    avatarUser,
+    nickname
+  }: ICreateEventsDTO): void;
 }
 
 export { IEventsRepository, ICreateEventsDTO };

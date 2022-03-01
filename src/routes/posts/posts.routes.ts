@@ -8,6 +8,7 @@ import { listPostGroupsTypeController } from "../../Modules/Posts/useCases/listP
 import { listPostsController } from "../../Modules/Posts/useCases/listPosts";
 import { listPostsAccountsTypeController } from "../../Modules/Posts/useCases/listPostsAccountsType";
 import { listPostsAllController } from "../../Modules/Posts/useCases/listPostsAll";
+import { updatePostsController } from "../../Modules/Posts/useCases/updatePost";
 
 
 
@@ -43,6 +44,9 @@ postsRoutes.get("/events/:idEvent", (req, res) => {
 });
 postsRoutes.get("/groups/:idGroup/:type", (req, res) => {
   return listPostGroupsTypeController.handle(req, res);
+});
+postsRoutes.patch("/:id", (req, res) => {
+  return updatePostsController.handle(req, res);
 });
 
 
