@@ -45,7 +45,17 @@ class InformationsRepository implements IInformationsRepository {
           }
 
   list(){ }
+
+  async delete({id}) {
+    await collections.accounts.deleteOne(id).then((result) => {
+      console.log(result)
+    }).catch(error => {
+      console.log(error)
+    })
+  }
   update({    nickname, avatar, cover, relationship, city, uf}):void {}
+
+  
 }
 
 export { InformationsRepository };

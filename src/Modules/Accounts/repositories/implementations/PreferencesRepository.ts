@@ -46,7 +46,13 @@ class PreferencesRepository implements IPreferencesRepository {
     
   list(){ }
   update({ men, woman, couple, trisal, transvestites, transsexuals, groups, proposal}):void {}
-  
+  async delete({id}) {
+    await collections.accounts.deleteOne(id).then((result) => {
+      console.log(result)
+    }).catch(error => {
+      console.log(error)
+    })
+  }
 }
 
 export { PreferencesRepository };
