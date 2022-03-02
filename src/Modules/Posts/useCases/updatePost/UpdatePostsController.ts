@@ -8,7 +8,7 @@ class UpdatePostsController {
   }
 
   async handle(req: Request, res: Response) {
-    const {text } = req.body;
+    const {text} = req.body;
     const id = req.params; 
 
 
