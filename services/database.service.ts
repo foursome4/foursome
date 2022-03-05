@@ -27,6 +27,7 @@ export const collections: {
   conversations?:mongoDB.Collection,
   usersOnline?:mongoDB.Collection,
   locations?:mongoDB.Collection,
+  notifications?:mongoDB.Collection,
  } = {}
 
 export async function connectToDatabase() {
@@ -161,5 +162,8 @@ export async function connectToDatabase() {
       const locationsCollection: mongoDB.Collection = db.collection(process.env.LOCATIONS_COLLECTION_NAME);
       collections.locations = locationsCollection;
       // console.log(`Successfully connected to database: ${db.databaseName} and collection: ${locationsCollection.collectionName}`);
+      const notificationsCollection: mongoDB.Collection = db.collection(process.env.NOTIFICATIONS_COLLECTION_NAME);
+      collections.notifications = notificationsCollection;
+      // console.log(`Successfully connected to database: ${db.databaseName} and collection: ${notificationsCollection.collectionName}`);
     }
   

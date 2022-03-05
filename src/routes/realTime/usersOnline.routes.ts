@@ -18,7 +18,7 @@ usersOlineRoutes.get("/", (req, res) => {
 usersOlineRoutes.get("/:idAccount", (req, res) => {
   return listUsersOnlineController.handle(req, res);
 });
-usersOlineRoutes.delete("/:id", (req, res) => {
+usersOlineRoutes.delete("/:idAccount", (req, res) => {
   return deleteUsersOnlineController.handle(req, res);
 });
 

@@ -1,15 +1,15 @@
 import { Request, Response } from "express";
 import { collections } from "../../../../../services/database.service";
 
-import { DeleteUsersOnlineUseCase } from "./DeleteUsersOnlineUseCase";
+import { DeleteNotificationsUseCase } from "./DeleteNotificationsUseCase";
 
-class DeleteUsersOnlineController {
-  constructor(private DeleteUsersOnlineUseCase: DeleteUsersOnlineUseCase) {
+class DeleteNotificationsController {
+  constructor(private DeleteNotificationsUseCase: DeleteNotificationsUseCase) {
     ("");
   }
   async handle(req: Request, res: Response) {
     const idAccount = req.params;
-      await collections.usersOnline.deleteOne(idAccount)
+      await collections.notifications.deleteOne(idAccount)
       .then((result) => {
       return res.status(201).json(result);
     }).catch(error => {
@@ -20,4 +20,4 @@ class DeleteUsersOnlineController {
   }
 }
 
-export { DeleteUsersOnlineController };
+export { DeleteNotificationsController };

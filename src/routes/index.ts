@@ -21,6 +21,7 @@ import { messagesRoutes } from "./realTime/messages.routes";
 import { usersOlineRoutes } from "./realTime/usersOnline.routes";
 import {mailRoutes} from "./mail/mail"
 import { membersRoutes } from "./events/members.routes";
+import { notificationsRoutes } from "./realTime/notifications.routes";
 const router = Router();
 
 connectToDatabase()
@@ -46,6 +47,7 @@ connectToDatabase()
     router.use("/messages", messagesRoutes);
     router.use("/online", usersOlineRoutes);
     router.use("/mail", mailRoutes);
+    router.use("/notifications", notificationsRoutes);
   }).catch((error: Error) => {
     console.error("Database connection failed", error);
     process.exit();

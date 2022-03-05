@@ -48,6 +48,52 @@ const rooms: Rooms[] = [];
 io.on("connection", (socket) => {
     console.log(`User Connection ${socket.id}`)
     console.log("Connection successfully established!");
+
+
+
+    // Recebendo e listando users online
+    socket.on("userOnline", (data) => {
+
+      console.log(`${data.idAccount}, acabou de entrar`)
+
+      const onlineUsers: UsersOline = {
+       idAccount: data.idAccount,
+       username: data.username,
+       nickname: data.nickname,
+       avatar: data.avatar,
+       lat: data.lat,
+       long: data.long,
+       equalCity: data.equalCity,
+       socketId: socket.id
+     }
+
+     const userOnlineNew = usersOnline.find(user => user.idAccount === data.idAccount);
+
+     if(userOnlineNew) {
+       userOnlineNew.socketId = socket.id
+     } else {
+       usersOnline.push(onlineUsers)
+     }
+     
+     socket.emit("userOnline", usersOnline);
+     console.log("usersOnline");
+     console.log(usersOnline);
+
+     collections.usersOnline.insertOne({
+      idAccount: data.idAccount,
+      username: data.username,
+      lat: data.lat,
+      long: data.long,
+      nickname: data.nickname,
+      equalCity: data.aqualCity,
+      created_at: new Date(),
+      id: uuidv4()}
+    )
+   })
+
+   
+
+    //Fim dos users online
   
     socket.on("select_room", (data, callback)=> {
       console.log(data)
@@ -118,67 +164,19 @@ io.on("connection", (socket) => {
 
       socket.to(data.room).emit("message", message);
     });
-  
-    
-    
-    
-    socket.on("userOnline", (data) => {
-
-       const onlineUsers: UsersOline = {
-        idAccount: data.idAccount,
-        username: data.username,
-        nickname: data.nickname,
-        avatar: data.avatar,
-        lat: data.lat,
-        long: data.long,
-        equalCity: data.equalCity,
-        socketId: socket.id
-      }
-
-      const userOnlineNew = usersOnline.find(user => user.idAccount === data.idAccount);
-
-      if(userOnlineNew) {
-        userOnlineNew.socketId = socket.id
-      } else {
-        usersOnline.push(onlineUsers)
-      }
-
-
-
-  
-  //     collections.usersOnline.find().toArray(function(err, result){
-
-  //       returnData(result)
-  //      })
-
-       
-  //      function returnData(res) {
-  //     //   console.log("dataResult")
-  //     //   console.log(res)
-  //     //  const userInOnline = res.filter(dataUser => (dataUser.idAccount === data.idAccount));
-  //     //  console.log("userInOnline")
-  //     //  console.log(userInOnline);
-  //     //  console.log("onlineUsers")
-  //     //  console.log(onlineUsers);
-
-  //     //  userInOnline === "" ? collections.usersOnline.insertOne(onlineUsers) : console.log("Usuário ja cadastrado")
-  //     console.log("data")
-  //     console.log(data)
-  //     console.log("onlineUsers")
-  //     console.log(onlineUsers)
-
-  // }
-  
-  
-
       
+    socket.on("removeUserOnline", (data) => {
+      console.log(data.idAccount);
+      let removedUsers = usersOnline.findIndex(user => user.idAccount === data.idAccount);
+      if(removedUsers >= 0) {
+        let newUsersOnline = usersOnline;
+        newUsersOnline.splice(removedUsers, 1);
+        usersOnline.push(...newUsersOnline)
+      }
+      console.log(`User desconectado. Offline ${data.idAccount}`)
+      console.log(usersOnline)
     })
 
-    socket.emit("userOnline", usersOnline);
-    console.log("usersOnline");
-    console.log(usersOnline);
-    
-    
     socket.on("disconnect", () => {
       console.log("Disconnected user!", socket.id);
     });
