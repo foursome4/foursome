@@ -2,14 +2,13 @@ import { Notifications } from "../models/Notifications";
 
 interface INotificationsDTO {
   idPatrono: string;
-  idFriend: string;
   idAccount: string;
   text: string;
 }
 
 interface INotificationsRepository {
   create({
-    idAccount, idPatrono, idFriend, text
+    idAccount, idPatrono, text
     }: INotificationsDTO): Promise<void>;
     findById(id: string): Promise<void> ;
   list();
