@@ -22,6 +22,7 @@ import { usersOlineRoutes } from "./realTime/usersOnline.routes";
 import {mailRoutes} from "./mail/mail"
 import { membersRoutes } from "./events/members.routes";
 import { notificationsRoutes } from "./realTime/notifications.routes";
+import { mapsRoutes } from "./realTime/maps.routes";
 const router = Router();
 
 connectToDatabase()
@@ -48,6 +49,7 @@ connectToDatabase()
     router.use("/online", usersOlineRoutes);
     router.use("/mail", mailRoutes);
     router.use("/notifications", notificationsRoutes);
+    router.use("https://maps.googleapis.com/maps/api/distancematrix/json?origins=-22.8447154,-42.0592233&destinations=-22.7012879,-42.6334516&key=AIzaSyAKKy0iHlEZMQavlxNM5i-tkIYp4q7X_Y0", mapsRoutes);
   }).catch((error: Error) => {
     console.error("Database connection failed", error);
     process.exit();

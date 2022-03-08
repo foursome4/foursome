@@ -33,32 +33,20 @@ class AccountsRepository implements IAccountsRepository {
     } 
   }
 
-    async create({username, role, status, type, email, phone, online, patron, password }: IAccountsDTO) {
-      const account: Accounts = new Accounts();
-      const v4 = uuidv4()
-      const _id = (v4.substring(0, 6))
-      
-        Object.assign(account, {
-          _id, id: _id, username, role, status, type, email, phone, online, patron, password ,created_at: new Date(),
-        });
-        this.accounts.push(account);
-        
-        await collections.accounts.insertOne(account).then((result) => {
-          //console.log(result)
-        }).catch(error => {
-          console.log(error)
-        })
-          }
-    
-    async session(email: string, username: string, password: string){
-      return {
-        email,
-        username,
-        password
-      }
+  async create({
+    username, role, status, type, email, phone, password, online, patron
+  }){}
+
+  async session(email: string, username: string, password: string){
+    return {
+      email,
+      username,
+      password
     }
+  }
 
   list(){ }
+
   update({username, role, status, type, email, phone, password, online, patron}):void {}
 
   async delete({id}) {
@@ -73,4 +61,7 @@ class AccountsRepository implements IAccountsRepository {
 }
 
 export { AccountsRepository };
+
+
+
 
