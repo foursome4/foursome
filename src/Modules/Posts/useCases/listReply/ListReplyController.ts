@@ -1,16 +1,16 @@
 import { Request, Response } from "express";
 import { collections } from "../../../../../services/database.service";
 
-import { ListCommentsUseCase } from "./ListCommentsUseCase";
+import { ListReplyUseCase } from "./ListReplyUseCase";
 
-class ListCommentsController {
-  constructor(private listCommentseCase: ListCommentsUseCase) {
+class ListReplyController {
+  constructor(private listReplyeCase: ListReplyUseCase) {
     ("");
   }
 
   async handle(req: Request, res: Response) {
-    const idPost = req.params;
-   await collections.comments.find(idPost).toArray(function(err, result){
+    const idComment = req.params;
+   await collections.reply.find(idComment).toArray(function(err, result){
       if(err) {
         res.status(500).json(err)
       } else {
@@ -23,4 +23,4 @@ class ListCommentsController {
   }
 }
 
-export { ListCommentsController };
+export { ListReplyController };

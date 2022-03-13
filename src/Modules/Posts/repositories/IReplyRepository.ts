@@ -11,7 +11,7 @@ interface IReplyDTO {
 
 interface IReplyRepository {
   create({idAccount, idComment, avatar, nickname, username, text, }: IReplyDTO): Promise<void>;
-  update({idAccount, idComment, avatar, nickname, username, text, }: IReplyDTO): Promise<void>;
+  update({text}): Promise<void>
   list()
   delete({id});
 }
