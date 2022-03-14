@@ -1,7 +1,7 @@
 import { Accounts } from "../../models/Accounts";
 import { IAccountsRepository, IAccountsDTO } from "../IAccountsRepository";
 import { collections } from '../../../../../services/database.service';
-import { v4 as uuidv4 } from "uuid";
+import { v1 as uuidv4 } from "uuid";
 
 class AccountsRepository implements IAccountsRepository {
   private accounts: Accounts[];
