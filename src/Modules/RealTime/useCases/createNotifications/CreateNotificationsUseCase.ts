@@ -4,6 +4,8 @@ import { INotificationsRepository } from "../../repositories/INotificationsRepos
 interface IRequest {
   idPatrono: string;
   idAccount: string;
+  idFriend: string;
+  type: string;
   text: string;
 }
 
@@ -12,11 +14,11 @@ class CreateNotificationsUseCase {
     ("");
   }
 
-  async execute({idAccount, idPatrono, text}: IRequest): Promise<void>{
+  async execute({idAccount, idPatrono, idFriend, type, text}: IRequest): Promise<void>{
 
 
    await this.NotificationsRepository.create({
-      idAccount, idPatrono, text,
+      idAccount, idPatrono, idFriend, type, text,
     });
   }
 }

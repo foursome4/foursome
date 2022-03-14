@@ -2,15 +2,17 @@ import { DateRead } from "../models/DateRead";
 
 interface IDateReadDTO {
   DateRead: string;
-  created_at: Date;
+  idAccount: string;
+  
 }
 
 interface IDateReadRepository {
   create({
     DateRead
     }: IDateReadDTO): Promise<void>;
-    findById(id: string): Promise<void> ;
+    findByIdAccount(idAccount: string): Promise<void> ;
     list();
+    update({ DateRead }: IDateReadDTO): void;
 }
 
 export { IDateReadRepository, IDateReadDTO };

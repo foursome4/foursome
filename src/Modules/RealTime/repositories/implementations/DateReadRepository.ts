@@ -20,18 +20,17 @@ class DateReadRepository implements IDateReadRepository {
     return DateReadRepository.INSTANCE;
   }
 
-  async findById(id: string): Promise<void>  {
-    const findid = await collections.dateRead.findOne({id})
-    
-        if(findid) {
-          throw new Error("Date already exists!")
-        } 
-    }
+  async findByIdAccount(idAccount: string): Promise<void> {
+    const findidAccount = await collections.dateRead.findOne({idAccount})
+      if(findidAccount) {
+        throw new Error("idAccount already exists!")
+      }   
+  }
  
-    async create({
-      DateRead
-    }){}
-    
+  async create({
+    DateRead
+  }){}
+
   list(): DateRead[] {
     return this.dateRead;
   }
@@ -43,6 +42,9 @@ class DateReadRepository implements IDateReadRepository {
       console.log(error)
     })
   }
+
+  update({DateRead}):void {}
 }
+
 
 export { DateReadRepository };

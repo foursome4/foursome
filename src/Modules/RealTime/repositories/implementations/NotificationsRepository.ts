@@ -29,14 +29,14 @@ class NotificationsRepository implements INotificationsRepository {
     }
  
  async create({ 
-  idAccount, idPatrono, text, 
+  idAccount, idPatrono, idFriend, type,text, 
   }: INotificationsDTO) {
     const notifications: Notifications = new Notifications();
     const _id = uuidv4()
     Object.assign(notifications, {
       _id,
       id: _id,
-      idAccount, idPatrono,  text,
+      idAccount, idPatrono, idFriend, type, text,
       created_at: new Date(),
     });
 

@@ -13,7 +13,7 @@ class CreateGroupController {
     const { name, description, avatar, cover, theme, privacity, idAccount, username, avatarUser } = req.body;
     const id = uuidv4();
 
-    await collections.groups.insertOne({id, name, description, avatar, cover, theme, privacity, idAccount, username, avatarUser}).then((result) => {
+    await collections.groups.insertOne({id, name, description, avatar, cover, theme, privacity, idAccount, username, avatarUser, created_at: new Date(),}).then((result) => {
       console.log(result);
       res.status(201).json({id, name, description, avatar, cover, theme, privacity, idAccount, username, avatarUser})
       

@@ -8,12 +8,12 @@ class CreateNotificationsController {
   }
   handle(req: Request, res: Response) {
     const { 
-     idAccount, idPatrono, text 
+     idAccount, idPatrono, idFriend, type, text 
      } =
       req.body;
 
     this.createNotificationsUseCase.execute({
-     idAccount, idPatrono, text 
+     idAccount, idPatrono, idFriend, type, text 
     }).then((result) => {
       return res.status(201).json(result).send();
     }).catch(error => {

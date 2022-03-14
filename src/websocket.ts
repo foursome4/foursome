@@ -134,6 +134,8 @@ io.on("connection", (socket) => {
 
     socket.emit("rooms", rooms);
 
+    console.log("rooms")
+    console.log(rooms)
   
     socket.on("message", (data) => {
       console.log(data);
@@ -161,6 +163,19 @@ io.on("connection", (socket) => {
         id: uuidv4()}
       )
       messages.push(message);
+
+      // if(rooms.length === 0) {
+      //   collections.notifications.insertOne({
+      //     idAccount: data.idAccount,
+      //     text: `${data.idAccount}, enviou uma nova mensagem.`,
+      //     idFriend: rooms. === data.idAccount ? rooms.idFriend : data.idAccount,
+      //     avatar: data.avatar,
+      //     username: data.username,
+      //     nickname: data.nickname,
+      //     created_at: data.created_at,
+      //     id: uuidv4()}
+      //   )
+      // }
 
       socket.to(data.room).emit("message", message);
     });
