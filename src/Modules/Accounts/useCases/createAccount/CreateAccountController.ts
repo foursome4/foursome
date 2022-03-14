@@ -17,10 +17,10 @@ class CreateAccountController {
 
 
     await collections.accounts.insertOne({
-      id, username, role, status, type, email, phone, online, patron, password, created_at: new Date(),
+      id, username, role, status, type, email, phone, online, patron, password:passwordHash, created_at: new Date(),
     }).then((result) => {
       console.log(result)
-      res.status(201).json({id, username, role, status, type, email, phone, online, patron, password:passwordHash});
+      res.status(201).json({id, username, role, status, type, email, phone, online, patron, password});
     }).catch(error => {
       console.log(error);
       return res.status(500)
