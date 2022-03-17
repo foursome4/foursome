@@ -70,8 +70,8 @@ class AuthenticateAccountUseCase {
         console.log(userData)
 
       const token = sign({
-        id: user._id,
-          id2: user.id,
+        id2: user._id,
+          id: user.id,
           username: user.username,
           email: user.email,
           phone: user.phone,
