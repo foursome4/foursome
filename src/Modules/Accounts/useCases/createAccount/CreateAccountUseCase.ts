@@ -11,7 +11,7 @@ interface IRequest {
   phone: string;
   online: boolean;
   patron: string;
-  password: string;
+  password: Promise<string>;
 }
 
 class CreateAccountUseCase {
@@ -25,7 +25,7 @@ class CreateAccountUseCase {
     const passwordHash = await hash(await password, 8);
 
       await this.accountRepository.create({
-        username, role, status, type, email, phone, online, patron, password
+        username, role, status, type, email, phone, online, patron, password: passwordHash
       });
 
   }

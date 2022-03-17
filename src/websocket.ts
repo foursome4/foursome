@@ -136,6 +136,7 @@ io.on("connection", (socket) => {
 
     console.log("rooms")
     console.log(rooms)
+    console.log(rooms.length)
   
     socket.on("message", (data) => {
       console.log(data);

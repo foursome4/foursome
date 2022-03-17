@@ -13,8 +13,8 @@ interface IResponse {
           role: string;
           status: string;
           type: string;
-          patron: string,
-          online: boolean,
+          patron: string;
+          online: boolean;
           date: Date;
 }
 
@@ -65,7 +65,7 @@ class AuthenticateAccountUseCase {
           type: user.type,
           date: user.created_at,
           online: user.online,
-          patron: user.patron
+          patron: user.patron,
         }
         console.log(userData)
 
@@ -80,10 +80,10 @@ class AuthenticateAccountUseCase {
           type: user.type,
           date: user.created_at,
           online: user.online,
-          patron: user.patron
+          patron: user.patron,
       }, "d64d7c8b83dd7212c25c3745933ee76e", 
       {
-        subject: userData.id,
+        subject: userData.id2,
         expiresIn: "1d"
       });
 
