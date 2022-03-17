@@ -55,8 +55,8 @@ class AuthenticateAccountUseCase {
           throw new Error("password, incorrect!")
         }
         const userData = {
-          id: user._id,
-          id2: user.id,
+          id2: user._id,
+          id: user.id,
           username: user.username,
           email: user.email,
           phone: user.phone,
@@ -91,8 +91,8 @@ class AuthenticateAccountUseCase {
       // console.log(userData)
 
       return {
-        id: user._id,
-          id2: user.id,
+        id2: user._id,
+        id: user.id,
           username: user.username,
           email: user.email,
           phone: user.phone,
