@@ -83,7 +83,7 @@ class AuthenticateAccountUseCase {
           patron: user.patron,
       }, "d64d7c8b83dd7212c25c3745933ee76e", 
       {
-        subject: userData.id2,
+        subject: userData.id,
         expiresIn: "1d"
       });
 
