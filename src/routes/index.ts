@@ -23,6 +23,7 @@ import {mailRoutes} from "./mail/mail"
 import { membersRoutes } from "./events/members.routes";
 import { notificationsRoutes } from "./realTime/notifications.routes";
 import { dateReadRoutes } from "./realTime/dateread.routes";
+import { visitsRoutes } from "./accounts/visits.routes";
 const router = Router();
 
 connectToDatabase()
@@ -50,6 +51,7 @@ connectToDatabase()
     router.use("/mail", mailRoutes);
     router.use("/notifications", notificationsRoutes);
     router.use("/dateread", dateReadRoutes);
+    router.use("/visits", visitsRoutes);
   }).catch((error: Error) => {
     console.error("Database connection failed", error);
     process.exit();
