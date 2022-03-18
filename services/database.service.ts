@@ -29,6 +29,8 @@ export const collections: {
   locations?:mongoDB.Collection,
   notifications?:mongoDB.Collection,
   dateRead?:mongoDB.Collection,
+  notificationsMessage?:mongoDB.Collection,
+  dateReadMessage?:mongoDB.Collection,
   visits?:mongoDB.Collection,
  } = {}
 
@@ -169,6 +171,12 @@ export async function connectToDatabase() {
       // console.log(`Successfully connected to database: ${db.databaseName} and collection: ${notificationsCollection.collectionName}`);
       const datereadCollection: mongoDB.Collection = db.collection(process.env.DATEREAD_COLLECTION_NAME);
       collections.dateRead = datereadCollection;
+      // console.log(`Successfully connected to database: ${db.databaseName} and collection: ${locationsCollection.collectionName}`);
+      const notificationsMessageCollection: mongoDB.Collection = db.collection(process.env.NOTIFICATIONSMESSAGE_COLLECTION_NAME);
+      collections.notificationsMessage = notificationsMessageCollection;
+      // console.log(`Successfully connected to database: ${db.databaseName} and collection: ${notificationsCollection.collectionName}`);
+      const datereadMessageCollection: mongoDB.Collection = db.collection(process.env.DATEREADMESSAGE_COLLECTION_NAME);
+      collections.dateReadMessage = datereadMessageCollection;
       // console.log(`Successfully connected to database: ${db.databaseName} and collection: ${notificationsCollection.collectionName}`);
       const visitsCollection: mongoDB.Collection = db.collection(process.env.VISITS_COLLECTION_NAME);
       collections.visits = visitsCollection;
