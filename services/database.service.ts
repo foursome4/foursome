@@ -32,6 +32,7 @@ export const collections: {
   notificationsMessage?:mongoDB.Collection,
   dateReadMessage?:mongoDB.Collection,
   visits?:mongoDB.Collection,
+  navigator?:mongoDB.Collection,
  } = {}
 
 export async function connectToDatabase() {
@@ -180,6 +181,9 @@ export async function connectToDatabase() {
       // console.log(`Successfully connected to database: ${db.databaseName} and collection: ${notificationsCollection.collectionName}`);
       const visitsCollection: mongoDB.Collection = db.collection(process.env.VISITS_COLLECTION_NAME);
       collections.visits = visitsCollection;
+      // console.log(`Successfully connected to database: ${db.databaseName} and collection: ${notificationsCollection.collectionName}`);
+      const navigatorCollection: mongoDB.Collection = db.collection(process.env.NAVIGATOR_COLLECTION_NAME);
+      collections.navigator = navigatorCollection;
       // console.log(`Successfully connected to database: ${db.databaseName} and collection: ${notificationsCollection.collectionName}`);
     }
   

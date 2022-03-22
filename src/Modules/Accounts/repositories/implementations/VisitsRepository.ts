@@ -21,7 +21,7 @@ class VisitsRepository implements IVisitsRepository {
   }
 
   async findByIdAccount(idAccount: string): Promise<void> {
-    const findidAccount = await collections.accounts.findOne({idAccount})
+    const findidAccount = await collections.visits.findOne({idAccount})
       if(findidAccount) {
         throw new Error("idAccount already exists!")
       } 
