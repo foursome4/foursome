@@ -8,6 +8,7 @@ interface IVisitsDTO {
 
 interface IVisitsRepository {
   create({idAccount, username, idFriend}: IVisitsDTO): void;
+  findByIdAccount(idAccount: string): Promise<void> ;
   list();
 }
 

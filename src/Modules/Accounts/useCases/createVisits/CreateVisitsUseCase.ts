@@ -14,6 +14,7 @@ class CreateVisitsUseCase {
   }
   
   async execute({ idAccount, username, idFriend }: IRequest): Promise<void> {
+    const findEmail = await this.VisitsRepository.findByIdAccount(idAccount);
 
       await this.VisitsRepository.create({
         idAccount, username, idFriend

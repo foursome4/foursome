@@ -20,6 +20,13 @@ class VisitsRepository implements IVisitsRepository {
     return VisitsRepository.INSTANCE;
   }
 
+  async findByIdAccount(idAccount: string): Promise<void> {
+    const findidAccount = await collections.accounts.findOne({idAccount})
+      if(findidAccount) {
+        throw new Error("idAccount already exists!")
+      } 
+  }
+
   
     async create({ idAccount, username, idFriend}: IVisitsDTO) {
       const visits: Visits = new Visits();
