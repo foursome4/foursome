@@ -16,7 +16,7 @@ notificationsMessageRoutes.get("/", (req, res) => {
   return listNotificationsMessageAllController.handle(req, res);
 });
 
-notificationsMessageRoutes.get("/my/:idAccount", (req, res) => {
+notificationsMessageRoutes.get("/my/:idFriend", (req, res) => {
   return listNotificationsMessageController.handle(req, res);
 });
 
