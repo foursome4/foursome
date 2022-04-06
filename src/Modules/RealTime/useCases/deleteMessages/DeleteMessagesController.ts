@@ -8,8 +8,8 @@ class DeleteMessagesController {
     ("");
   }
   async handle(req: Request, res: Response) {
-    const _id = req.params;
-      await collections.message.deleteOne(_id)
+    const id = req.params;
+      await collections.message.deleteOne(id)
       .then((result) => {
       return res.status(201).json(result);
     }).catch(error => {
