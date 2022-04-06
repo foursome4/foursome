@@ -19,6 +19,7 @@ class CreatePostController {
     idGroup,
     idForum,
     type,
+    like,
     text,
     link,
      } =
@@ -35,6 +36,7 @@ class CreatePostController {
     idGroup,
     idForum,
     type,
+    like,
     text,
     link,
     }).then((result) => {
