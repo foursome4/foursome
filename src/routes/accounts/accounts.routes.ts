@@ -4,6 +4,7 @@ import { listAccountsController } from "../../Modules/Accounts/useCases/listAcco
 import { createAccountController } from '../../Modules/Accounts/useCases/createAccount/index'
 import { updateAccountController } from "../../Modules/Accounts/useCases/updateAccount";
 import { listAccountsUnicController } from "../../Modules/Accounts/useCases/listAccountsUnic";
+import { deleteAccountsController } from "../../Modules/Accounts/useCases/deleteAccount";
 
 
 
@@ -27,6 +28,9 @@ groupsAccounts.get("/find/:email", (req, res) => {
 
 groupsAccounts.patch("/:id", (req, res) => {
   return updateAccountController.handle(req, res);
+});
+groupsAccounts.delete("/:id", (req, res) => {
+  return deleteAccountsController.handle(req, res);
 });
 
 export { groupsAccounts };

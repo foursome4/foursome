@@ -52,7 +52,7 @@ interface ICharacteristicsRepository {
     smokes}):void
 
     
-    delete({id});
+    delete({idAccount});
 }
 
 

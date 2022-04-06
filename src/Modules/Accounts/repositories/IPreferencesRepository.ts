@@ -17,7 +17,7 @@ interface IPreferencesRepository {
   findById({ idAccount: string }: IPreferencesDTO): Promise<void>;
   list();
   update({ men, woman, couple, trisal, transvestites, transsexuals, groups, proposal}):void
-  delete({id});
+  delete({idAccount});
 }
 
 export { IPreferencesRepository, IPreferencesDTO };

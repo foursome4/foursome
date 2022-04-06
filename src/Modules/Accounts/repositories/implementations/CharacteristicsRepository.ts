@@ -89,8 +89,8 @@ class CharacteristicsRepository implements ICharacteristicsRepository {
       tattos,
       smokes}):void {}
 
-      async delete({id}) {
-        await collections.characteristics.deleteOne(id).then((result) => {
+      async delete({idAccount}) {
+        await collections.characteristics.deleteOne(idAccount).then((result) => {
           console.log(result)
         }).catch(error => {
           console.log(error)

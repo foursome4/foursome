@@ -46,8 +46,8 @@ class InformationsRepository implements IInformationsRepository {
 
   list(){ }
 
-  async delete({id}) {
-    await collections.accounts.deleteOne(id).then((result) => {
+  async delete({idAccount}) {
+    await collections.accounts.deleteOne(idAccount).then((result) => {
       console.log(result)
     }).catch(error => {
       console.log(error)
