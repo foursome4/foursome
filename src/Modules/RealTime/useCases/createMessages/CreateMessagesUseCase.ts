@@ -1,13 +1,16 @@
 import { IMessagesRepository } from "../../repositories/IMessagesRepository";
 
 interface IRequest {
+  id: string;
   idRoom: string;
   idAccount: string;
   link: string;
+  type: string;
   avatar: string;
   nickname: string;
   username: string;
   text: string;
+  created_at: string;
 }
 
 class CreateMessagesUseCase {
@@ -16,11 +19,11 @@ class CreateMessagesUseCase {
   }
 
   async execute({
-    idRoom, idAccount, link, avatar, nickname, username, text
+     id, idRoom, idAccount, link, type, avatar, nickname, username, text, created_at
   }: IRequest): Promise<void>{
 
    await this.MessagesRepository.create({
-    idRoom, idAccount, link, avatar, nickname, username, text
+     id, idRoom, idAccount, link, type, avatar, nickname, username, text, created_at
     });
   }
 }

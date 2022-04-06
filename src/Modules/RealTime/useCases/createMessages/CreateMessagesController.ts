@@ -8,11 +8,11 @@ class CreateMessagesController {
   }
   handle(req: Request, res: Response) {
     const { 
-      idRoom, idAccount, link, avatar, nickname, username, text
+       id, idRoom, idAccount, link, type, avatar, nickname, username, text, created_at
      } =
       req.body;
     this.createMessagesUseCase.execute({
-      idRoom, idAccount, link, avatar, nickname, username, text
+       id, idRoom, idAccount, link, type, avatar, nickname, username, text, created_at
     }).then((result) => {
       return res.status(201).json(result).send();
     }).catch(error => {

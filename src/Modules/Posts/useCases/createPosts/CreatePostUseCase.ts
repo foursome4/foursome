@@ -13,6 +13,7 @@ interface IRequest {
   idForum: string;
   type: string;
   text: string;
+  like: number;
   link: string;
 }
 
@@ -34,6 +35,7 @@ class CreatePostUseCase {
     idForum,
     type,
     text,
+    like,
     link,
   }: IRequest): Promise<void>{
 
@@ -50,6 +52,7 @@ class CreatePostUseCase {
     idForum,
     type,
     text,
+    like,
     link,
     });
   }
