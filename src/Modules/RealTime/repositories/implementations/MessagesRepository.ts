@@ -21,14 +21,11 @@ class MessagesRepository implements IMessagesRepository {
   }
 
  async create({ 
-  idRoom, idAccount, link, avatar, nickname, username, text
+  id, idRoom, idAccount, link, avatar, nickname, username, text, created_at
   }: IMessagesDTO) {
     const messages: Messages = new Messages();
-    const _id = uuidv4()
     Object.assign(messages, {
-      _id,
-      id: _id,
-      idRoom, idAccount, link, avatar, nickname, username, text, created_at: new Date(),
+      id, idRoom, idAccount, link, avatar, nickname, username, text, created_at
     });
 
     this.messages.push(messages);
@@ -42,8 +39,8 @@ class MessagesRepository implements IMessagesRepository {
     return this.messages;
   }
 
-  async delete({_id}) {
-    await collections.message.deleteOne(_id).then((result) => {
+  async delete({id}) {
+    await collections.message.deleteOne(id).then((result) => {
       console.log(result)
     }).catch(error => {
       console.log(error)

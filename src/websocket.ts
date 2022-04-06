@@ -32,6 +32,7 @@ interface Messages {
   idAccount: string;
   text: string;
   link: string;
+  type: string;
   avatar: string;
   username: string;
   nickname: string;
@@ -145,11 +146,12 @@ io.on("connection", (socket) => {
         idAccount: data.idAccount,
         text: data.text,
         link: data.link,
+        type: data.type,
         avatar: data.avatar,
         username: data.username,
         nickname: data.nickname,
         created_at: data.created_at,
-        id: uuidv4()
+        id: data.id
       }
 
       collections.message.insertOne({
@@ -157,12 +159,13 @@ io.on("connection", (socket) => {
         idAccount: data.idAccount,
         text: data.text,
         link: data.link,
+        type: data.type,
         avatar: data.avatar,
         username: data.username,
         nickname: data.nickname,
         created_at: data.created_at,
-        id: uuidv4()}
-      )
+        id: data.id
+      })
       messages.push(message);
 
       // if(rooms.length === 0) {

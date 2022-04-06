@@ -1,14 +1,14 @@
-import { v4 as uuidv4 } from "uuid";
-
 class Messages {
+  id: string;
   idRoom: string;
   idAccount: string;
   link: string;
+  type: string;
   avatar: string;
   nickname: string;
   username: string;
   text: string;
-  created_at: Date;
+  created_at: string;
 
 }
 

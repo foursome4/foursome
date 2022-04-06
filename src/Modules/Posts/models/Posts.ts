@@ -14,6 +14,7 @@ class Posts {
   type: string;
   text: string;
   link: string;
+  like: number;
   created_at: Date;
 
 }
