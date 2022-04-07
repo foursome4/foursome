@@ -47,7 +47,8 @@ class AuthenticateAccountUseCase {
       }
       
       const passwordCompare = await compare(password, user.password)
-      //console.log(passwordCompare)
+      console.log("passwordCompare")
+      console.log(passwordCompare)
 
       if(!user ) {
         throw new Error("Username or email, incorrect!")

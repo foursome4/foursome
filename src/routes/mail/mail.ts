@@ -32,7 +32,7 @@ const mailRoutes = Router();
     Você foi convidado por ${patronNickname.patronNickname} a fazer parte de uma rede de relacionamento, exclusivo para casais, solteiros e solteiras. <br /> FOURSOME foi criado com o objetivo de aproximar pessoas com o mesmo pensamento de relacionamento de forma livre, segura e respeitosa. <br /><br/>
     Esse convite é valido por 10 dias e intransferível. <br/><br/>
     Para criar seu perfil agora, acesse: <br/>
-    <a href="https://foursome.com.br/signup/${mail.mail}" target="_blank">Criar minha conta agora!</a> <br/>
+    <a href="https://foursome.com.br/signup/${mail.mail}/${code.code}/${patron.patron}" target="_blank">Criar minha conta agora!</a> <br/>
     Utilize o Código: ${code.code} <br/>
     e adicione o código do seu Patrono: ${patron.patron} <br/><br/>
     Em caso de dúvida, fale conosco. <br/>
