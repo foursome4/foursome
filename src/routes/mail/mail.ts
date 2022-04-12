@@ -16,15 +16,16 @@ const mailRoutes = Router();
  let transporter = nodemailer.createTransport({
     host: "email-ssl.com.br",
     port: 465,
+    secure: true,
     auth: {
-      user: "desenvolvimento@foursome.com.br",
+      user: "contato@foursome.com.br",
       pass: "Foursome2021*"
     }
   });
 
   // send mail with defined transport object
   let info = await transporter.sendMail({
-    from: '"Você tem um convite" <desenvolvimento@foursome.com.br>', // sender address
+    from: '"Você tem um convite" <contato@foursome.com.br>', // sender address
     to: mail.mail, // list of receivers
     subject: "Convite Especial ✔", // Subject line
     text: "Hello world?", // plain text body
@@ -32,7 +33,7 @@ const mailRoutes = Router();
     Você foi convidado por ${patronNickname.patronNickname} a fazer parte de uma rede de relacionamento, exclusivo para casais, solteiros e solteiras. <br /> FOURSOME foi criado com o objetivo de aproximar pessoas com o mesmo pensamento de relacionamento de forma livre, segura e respeitosa. <br /><br/>
     Esse convite é valido por 10 dias e intransferível. <br/><br/>
     Para criar seu perfil agora, acesse: <br/>
-    <a href="https://foursome.com.br/signup/${mail.mail}" target="_blank">Criar minha conta agora!</a> <br/>
+    <a href="https://foursome.com.br/signup/${mail.mail}/${code.code}/${patron.patron}" target="_blank">Criar minha conta agora!</a> <br/>
     Utilize o Código: ${code.code} <br/>
     e adicione o código do seu Patrono: ${patron.patron} <br/><br/>
     Em caso de dúvida, fale conosco. <br/>
@@ -42,14 +43,13 @@ const mailRoutes = Router();
   });
 
 
-  transporter.sendMail(info, function(err) {
-    if(err) {
-      console.log(err)
-    }
-    res.status(200).json({"message":"Email enviado com sucesso"});
-    console.log("Email enviado com sucesso")
-  })
 
+  if(info) {
+        res.status(200).json({"message":"Email enviado com sucesso"});
+    console.log("Email enviado com sucesso")
+  } else {
+    res.status(500)
+  }
 });
 
 
@@ -62,14 +62,14 @@ mailRoutes.post("/confirmation", async (req, res) =>  {
     host: "email-ssl.com.br",
     port: 465,
     auth: {
-      user: "desenvolvimento@foursome.com.br",
+      user: "contato@foursome.com.br",
       pass: "Foursome2021*"
     }
   });
 
   // send mail with defined transport object
   let info = await transporter.sendMail({
-    from: '"Agora você faz parte" <desenvolvimento@foursome.com.br>', // sender address
+    from: '"Agora você faz parte" <contato@foursome.com.br>', // sender address
     to: mail.mail, // list of receivers
     subject: "Que Felicidade 🚀", // Subject line
     text: "Que Felicidade 🚀", // plain text body
@@ -87,13 +87,12 @@ mailRoutes.post("/confirmation", async (req, res) =>  {
   });
 
 
-  transporter.sendMail(info, function(err) {
-    if(err) {
-      console.log(err)
-    }
+  if(info) {
     res.status(200).json({"message":"Email enviado com sucesso"});
-    console.log("Email enviado com sucesso")
-  })
+console.log("Email enviado com sucesso")
+} else {
+res.status(500)
+}
 
 });
 
@@ -107,14 +106,14 @@ mailRoutes.post("/complete", async (req, res) =>  {
     host: "email-ssl.com.br",
     port: 465,
     auth: {
-      user: "desenvolvimento@foursome.com.br",
+      user: "contato@foursome.com.br",
       pass: "Foursome2021*"
     }
   });
 
   // send mail with defined transport object
   let info = await transporter.sendMail({
-    from: '"Você está pronto" <desenvolvimento@foursome.com.br>', // sender address
+    from: '"Você está pronto" <contato@foursome.com.br>', // sender address
     to: mail.mail, // list of receivers
     subject: "Missão cumprida 😎", // Subject line
     text: "Só mais um passo 😎", // plain text body
@@ -128,13 +127,12 @@ mailRoutes.post("/complete", async (req, res) =>  {
   });
 
 
-  transporter.sendMail(info, function(err) {
-    if(err) {
-      console.log(err)
-    }
+  if(info) {
     res.status(200).json({"message":"Email enviado com sucesso"});
-    console.log("Email enviado com sucesso")
-  })
+console.log("Email enviado com sucesso")
+} else {
+res.status(500)
+}
 
 });
 export { mailRoutes };
