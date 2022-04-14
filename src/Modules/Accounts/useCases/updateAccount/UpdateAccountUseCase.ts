@@ -3,6 +3,7 @@ import { IAccountsRepository } from "../../repositories/IAccountsRepository";
 import { Request, Response } from "express";
 
 interface IRequest {
+  id: string;
   username: string;
   role: string;
   status: string;
@@ -19,13 +20,13 @@ class UpdateAccountUseCase {
     " ";
   }
   
-  async execute({username, role, status, type, email, phone, online, password, patron }: IRequest): Promise<void> {
+  async execute({id, username, role, status, type, email, phone, online, password, patron }: IRequest): Promise<void> {
     const findEmail = await this.accountRepository.findByEmail(email);
     const findUsername = await this.accountRepository.findByUsername(username);
     const passwordHash = await hash(await password, 8);
 
       await this.accountRepository.update({
-        username, role, status, type, email, phone, online,patron, password: passwordHash
+        id, username, role, status, type, email, phone, online,patron, password: passwordHash
       });
 
   }
