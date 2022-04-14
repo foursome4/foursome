@@ -5,6 +5,7 @@ class Invites {
   email: string;
   phone: string;
   code: string;
+  type: string;
   created_at: Date;
 }
 

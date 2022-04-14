@@ -7,11 +7,12 @@ interface IInvitesDTO {
   email: string;
   phone: string;
   code: string;
+  type: string;
 }
 
 interface IInvitesRepository {
-  create({ code, idAccount, username, name, email, phone }: IInvitesDTO): Promise<void>;
-  update({ code, idAccount, username, name, email, phone }: IInvitesDTO): Promise<void>;
+  create({ code, idAccount, username, name, email, phone, type }: IInvitesDTO): Promise<void>;
+  update({ code, idAccount, username, name, email, phone, type }: IInvitesDTO): Promise<void>;
   findByInvites(email: string): Promise<void> ;
   list();
   delete({id});

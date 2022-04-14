@@ -1,6 +1,7 @@
 import { Accounts } from "../models/Accounts";
 
 interface IAccountsDTO {
+  id: string;
   username: string;
   role: string;
   status: string;
@@ -13,12 +14,12 @@ interface IAccountsDTO {
 }
 
 interface IAccountsRepository {
-  create({ username, role, status, type, email, phone, password, online, patron}: IAccountsDTO): Promise<void>;
+  create({ id, username, role, status, type, email, phone, password, online, patron}: IAccountsDTO): Promise<void>;
   findByEmail(email: string): Promise<void> ;
   findByUsername(username: string): Promise<void>;
   session(email: string, username: string, password: string);
   list();
-  update({ username, role, status, type, email, phone, password, online, patron}: IAccountsDTO): void;
+  update({ id, username, role, status, type, email, phone, password, online, patron}: IAccountsDTO): void;
   delete({id});
 }
 

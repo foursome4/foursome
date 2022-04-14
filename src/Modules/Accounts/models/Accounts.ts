@@ -1,4 +1,5 @@
 class Accounts {
+  id: string;
   username: string;
   role: string;
   status: string;
