@@ -5,6 +5,7 @@ import { createAccountController } from '../../Modules/Accounts/useCases/createA
 import { updateAccountController } from "../../Modules/Accounts/useCases/updateAccount";
 import { listAccountsUnicController } from "../../Modules/Accounts/useCases/listAccountsUnic";
 import { deleteAccountsController } from "../../Modules/Accounts/useCases/deleteAccount";
+import { listAccountsEmailController } from "../../Modules/Accounts/useCases/listAccountsEmail";
 
 
 
@@ -22,7 +23,7 @@ groupsAccounts.get("/filter/:id", (req, res) => {
   return listAccountsUnicController.handle(req, res);
 });
 groupsAccounts.get("/find/:email", (req, res) => {
-  return listAccountsUnicController.handle(req, res);
+  return listAccountsEmailController.handle(req, res);
 });
 
 

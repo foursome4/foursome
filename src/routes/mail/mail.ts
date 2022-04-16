@@ -136,6 +136,53 @@ res.status(500)
 }
 
 });
+
+
+mailRoutes.post("/username", async (req, res) =>  {
+  const mail = req.body;
+  const username = req.body;
+  console.log(mail.mail)
+
+
+ let transporter = nodemailer.createTransport({
+    host: "email-ssl.com.br",
+    port: 465,
+    auth: {
+      user: "contato@foursome.com.br",
+      pass: "Foursome2021*"
+    }
+  });
+
+  // send mail with defined transport object
+  let info = await transporter.sendMail({
+    from: '"Aqui está!" <contato@foursome.com.br>', // sender address
+    to: mail.mail, // list of receivers
+    subject: "Trouxemos o que nos pediu 😎", // Subject line
+    text: "Trouxemos o que nos pediu 😎", // plain text body
+    html: `<p>Você solicitou seu nome de usuário?.<br/>
+    Aqui está. Utilize-o para acessar o nosso site:<p/> <br/>
+    <p>Seu nome de usuário:</p>
+    <h3>${username.username}</h3>
+    <br/>
+    <p>Acessar site: <a href="https://foursome.com.br" target="_blank">www.foursome.com.br</a> <br/><br/>
+    Em caso de dúvida, fale conosco. <br/>
+    contato@foursome.com.br <br/><br/>
+    
+    FOURSOME <a href="https://www.foursome.com.br" target="_blank">www.foursome.com.br</a></p>`, // html body.
+  });
+
+
+  if(info) {
+    res.status(200).json({"message":"Email enviado com sucesso"});
+console.log("Email enviado com sucesso")
+} else {
+res.status(500)
+}
+
+});
+
+
+
 export { mailRoutes };
 
 
