@@ -1,6 +1,7 @@
 import { Characteristics } from "../models/Characteristics";
 
 interface ICharacteristicsDTO {
+  id: string;
   idAccount: string;
   birthDate: string;
   sex: string;
@@ -19,6 +20,7 @@ interface ICharacteristicsDTO {
 
 interface ICharacteristicsRepository {
   create({
+    id,
     idAccount,
     birthDate,
     sex,

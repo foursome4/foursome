@@ -1,4 +1,5 @@
 class Informations {
+  id: string;
   idAccount: string;
   nickname: string;
   avatar: string;

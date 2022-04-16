@@ -1,4 +1,5 @@
 class Preferences {
+  id: string;
   idAccount: string;
   men: string;
   woman: string;

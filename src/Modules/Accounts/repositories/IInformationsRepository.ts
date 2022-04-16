@@ -1,6 +1,7 @@
 import { Informations } from "../models/Informations";
 
 interface IInformationsDTO {
+  id: string;
   idAccount: string;
   nickname: string;
   avatar: string;
@@ -11,7 +12,7 @@ interface IInformationsDTO {
 }
 
 interface IInformationsRepository {
-  create({ idAccount, nickname, avatar, cover, relationship, city, uf}: IInformationsDTO): Promise<void>;
+  create({ id, idAccount, nickname, avatar, cover, relationship, city, uf}: IInformationsDTO): Promise<void>;
   findById(idAccount: string): Promise<void> ;
   list();
   update({nickname, avatar, cover, relationship, city, uf}):void

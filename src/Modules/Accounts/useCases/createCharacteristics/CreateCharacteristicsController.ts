@@ -9,6 +9,7 @@ class CreateCharacteristicsController {
 
   handle(req: Request, res: Response): Response {
     const {
+        id,
         idAccount,
         birthDate,
         sex,
@@ -25,6 +26,7 @@ class CreateCharacteristicsController {
         smokes, } = req.body;
 
     this.createCharacteristicsUseCase.execute({
+        id,
         idAccount,
         birthDate,
         sex,

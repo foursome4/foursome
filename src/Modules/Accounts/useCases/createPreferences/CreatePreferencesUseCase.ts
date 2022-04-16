@@ -1,6 +1,7 @@
 import { IPreferencesRepository } from "../../repositories/IPreferencesRepository";
 
 interface IRequest {
+  id: string;
   idAccount: string;
   men: string;
   woman: string;
@@ -17,11 +18,11 @@ class CreatePreferencesUseCase {
     " ";
   }
 
-  execute({idAccount, men, woman, couple, trisal, transvestites, transsexuals, groups, proposal }: IRequest): void {
+  execute({id, idAccount, men, woman, couple, trisal, transvestites, transsexuals, groups, proposal }: IRequest): void {
 
 
     this.accountRepository.create({
-      idAccount, men, woman, couple, trisal, transvestites, transsexuals, groups, proposal
+      id, idAccount, men, woman, couple, trisal, transvestites, transsexuals, groups, proposal
     });
   }
 }

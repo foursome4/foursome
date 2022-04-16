@@ -1,6 +1,7 @@
 import { IInformationsRepository } from "../../repositories/IInformationsRepository";
 
 interface IRequest {
+  id: string;
   nickname: string;
   avatar: string;
   cover: string;

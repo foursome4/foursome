@@ -3,6 +3,7 @@ import { IInformationsRepository } from "../../repositories/IInformationsReposit
 import { Request, Response } from "express";
 
 interface IRequest {
+  id: string;
   idAccount: string;
   nickname: string;
   avatar: string;
@@ -17,11 +18,11 @@ class CreateInformationsUseCase {
     " ";
   }
   
-  async execute({idAccount, nickname, avatar, cover, relationship, city, uf }: IRequest): Promise<void> {
+  async execute({id, idAccount, nickname, avatar, cover, relationship, city, uf }: IRequest): Promise<void> {
     const findById = await this.InformationsRepository.findById(idAccount);
 
       await this.InformationsRepository.create({
-        idAccount, nickname, avatar, cover, relationship, city, uf
+        id, idAccount, nickname, avatar, cover, relationship, city, uf
       });
 
   }

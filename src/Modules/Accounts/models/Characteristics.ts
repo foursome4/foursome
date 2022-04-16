@@ -1,4 +1,5 @@
 class Characteristics {
+  id: string;
   idAccount: string;
   birthDate: string;
   sex: string;

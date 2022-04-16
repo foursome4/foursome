@@ -1,6 +1,7 @@
 import { ICharacteristicsRepository } from "../../repositories/ICharacteristicsRepository";
 
 interface IRequest {
+  id: string;
   birthDate: string;
   sex: string;
   sexualOption: string;

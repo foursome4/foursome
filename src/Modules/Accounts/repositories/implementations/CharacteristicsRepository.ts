@@ -2,7 +2,6 @@ import { Characteristics } from "../../models/Characteristics";
 import { ICharacteristicsRepository, ICharacteristicsDTO } from "../ICharacteristicsRepository";
 import { collections } from '../../../../../services/database.service';
 
-import { v4 as uuidv4 } from "uuid";
 
 class CharacteristicsRepository implements ICharacteristicsRepository {
   private characteristics: Characteristics[];
@@ -27,7 +26,8 @@ class CharacteristicsRepository implements ICharacteristicsRepository {
         }   
     }
   
-    async create({ 
+    async create({
+      id,
       idAccount,
       birthDate,
       sex,
@@ -44,10 +44,9 @@ class CharacteristicsRepository implements ICharacteristicsRepository {
       smokes,
     }: ICharacteristicsDTO) {
       const characteristic: Characteristics = new Characteristics();
-      const _id = uuidv4()
       Object.assign(characteristic, {
-        _id,
-        id: _id,
+        id,
+        _id: id,
         idAccount,
         birthDate,
         sex,

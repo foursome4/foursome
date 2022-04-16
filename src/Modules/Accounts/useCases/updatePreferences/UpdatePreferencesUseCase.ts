@@ -2,7 +2,8 @@ import { hash } from "bcrypt";
 import { IPreferencesRepository } from "../../repositories/IPreferencesRepository";
 import { Request, Response } from "express";
 
-interface IPreferencesDTO {
+interface IRequest {
+  id: string;
   idAccount: string;
   men: string;
   woman: string;
@@ -19,7 +20,7 @@ class UpdatePreferencesUseCase {
     " ";
   }
   
-  async execute({men, woman, couple, trisal, transvestites, transsexuals, groups, proposal }): Promise<void> {
+  async execute({men, woman, couple, trisal, transvestites, transsexuals, groups, proposal }: IRequest): Promise<void> {
 
       await this.PreferencesRepository.update({
         men, woman, couple, trisal, transvestites, transsexuals, groups, proposal
