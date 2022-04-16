@@ -9,8 +9,8 @@ class ListRecuperationController {
   }
 
   async handle(req: Request, res: Response) {
-    const idAccount = req.params;
-   await collections.recuperation.find(idAccount).toArray(function(err, result){
+    const email = req.params;
+   await collections.recuperation.find(email).toArray(function(err, result){
       if(err) {
         res.status(500).json(err)
       } else {

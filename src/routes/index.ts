@@ -26,6 +26,7 @@ import { dateReadRoutes } from "./realTime/dateread.routes";
 import { visitsRoutes } from "./accounts/visits.routes";
 import { notificationsMessageRoutes } from "./realTime/notificationsMessage.routes";
 import { dateReadMessageRoutes } from "./realTime/datereadMessage.routes";
+import { groupsRecuperation } from "./recuperation/recuperation.routes";
 const router = Router();
 
 connectToDatabase()
@@ -40,6 +41,7 @@ connectToDatabase()
     router.use("/characteristics", groupsCharacteristics);
     router.use("/session", sessionAccounts);
     router.use("/invites", groupsInvites);
+    router.use("/recuperation", groupsRecuperation);
     router.use("/posts", postsRoutes);
     router.use("/comments", commentsRoutes);
     router.use("/reactions", reactionsRoutes);

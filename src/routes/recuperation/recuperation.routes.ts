@@ -15,7 +15,7 @@ groupsRecuperation.post("/", (req, res) => {
 groupsRecuperation.get("/find/:email/:code", (req, res) => {
   return findRecuperationController.handle(req, res);
 });
-groupsRecuperation.get("/:idAccount", (req, res) => {
+groupsRecuperation.get("/:email", (req, res) => {
   return listRecuperationController.handle(req, res);
 });
 groupsRecuperation.get("/", (req, res) => {
