@@ -25,4 +25,6 @@ groupsRecuperation.delete("/:id", (req, res) => {
   return deleteRecuperationController.handle(req, res);
 });
 
+//Recuperação de senha
+
 export { groupsRecuperation };
