@@ -159,7 +159,7 @@ mailRoutes.post("/username", async (req, res) =>  {
     to: mail.mail, // list of receivers
     subject: "Trouxemos o que nos pediu 😎", // Subject line
     text: "Trouxemos o que nos pediu 😎", // plain text body
-    html: `<p>Você solicitou seu nome de usuário?.<br/>
+    html: `<p>Você solicitou seu nome de usuário?<br/>
     Aqui está. Utilize-o para acessar o nosso site:<p/>
     <p>Seu nome de usuário:</p>
     <h3>${username.username}</h3>
@@ -202,7 +202,7 @@ mailRoutes.post("/passwordcode", async (req, res) =>  {
     to: mail.mail, // list of receivers
     subject: "Recupere seu acesso 🗝️", // Subject line
     text: "Recupere seu acesso 🗝️", // plain text body
-    html: `<p>Você solicitou código de recuperação de senha?.<br/>
+    html: `<p>Você solicitou código de recuperação de senha?<br/>
     Aqui está. Utilize-o para redefinir seu acesso:<p/> 
     <p>Seu código:</p>
     <h3>${code.code}</h3>
