@@ -206,7 +206,7 @@ mailRoutes.post("/passwordcode", async (req, res) =>  {
     Aqui está. Utilize-o para redefinir seu acesso:<p/> 
     <p>Seu código:</p>
     <h3>${code.code}</h3>
-    <p>Acesse o link para alterar sua senha: <a href="https://foursome.com.br/recuperationcode/${mail}" target="_blank">Recuperar minha senha</a> <br/><br/>
+    <p>Acesse o link para alterar sua senha: <a href="https://foursome.com.br/recuperationcode/${mail.mail}" target="_blank">Recuperar minha senha</a> <br/><br/>
     Em caso de dúvida, fale conosco. <br/>
     contato@foursome.com.br <br/><br/>
     
