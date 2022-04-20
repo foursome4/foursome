@@ -1,11 +1,11 @@
 import { Router } from "express";
 import { listAccountsController } from "../../Modules/Accounts/useCases/listAccounts";
-
 import { createAccountController } from '../../Modules/Accounts/useCases/createAccount/index'
 import { updateAccountController } from "../../Modules/Accounts/useCases/updateAccount";
 import { listAccountsUnicController } from "../../Modules/Accounts/useCases/listAccountsUnic";
 import { deleteAccountsController } from "../../Modules/Accounts/useCases/deleteAccount";
 import { listAccountsEmailController } from "../../Modules/Accounts/useCases/listAccountsEmail";
+import { updatePasswordController } from "../../Modules/Accounts/useCases/updatePassword";
 
 
 
@@ -29,6 +29,9 @@ groupsAccounts.get("/find/:email", (req, res) => {
 
 groupsAccounts.patch("/:id", (req, res) => {
   return updateAccountController.handle(req, res);
+});
+groupsAccounts.patch("/recover/:email", (req, res) => {
+  return updatePasswordController.handle(req, res);
 });
 groupsAccounts.delete("/:id", (req, res) => {
   return deleteAccountsController.handle(req, res);

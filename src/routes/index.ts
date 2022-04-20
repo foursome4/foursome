@@ -40,6 +40,7 @@ connectToDatabase()
     router.use("/followers", groupsFollowers);
     router.use("/characteristics", groupsCharacteristics);
     router.use("/session", sessionAccounts);
+    router.use("/sessionfast", sessionAccounts);
     router.use("/invites", groupsInvites);
     router.use("/recuperation", groupsRecuperation);
     router.use("/posts", postsRoutes);

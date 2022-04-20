@@ -32,7 +32,7 @@ class AccountsRepository implements IAccountsRepository {
       throw new Error("Username already exists!")
     } 
   }
-
+s
 
   async create({id, username, role, status, type, email, phone, online, patron, password }: IAccountsDTO) {
     const account: Accounts = new Accounts();
@@ -54,6 +54,11 @@ class AccountsRepository implements IAccountsRepository {
       email,
       username,
       password
+    }
+  }
+  async sessionFast(id: string){
+    return {
+     id
     }
   }
 
