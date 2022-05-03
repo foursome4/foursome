@@ -6,11 +6,12 @@ interface INotificationsDTO {
   idFriend: string;
   type: string;
   text: string;
+  idPost:string;
 }
 
 interface INotificationsRepository {
   create({
-    idAccount, idPatrono, idFriend, type, text
+    idAccount, idPatrono, idFriend, type, text, idPost
     }: INotificationsDTO): Promise<void>;
     findById(id: string): Promise<void> ;
   list();

@@ -6,8 +6,8 @@ class Notifications {
   idFriend: string;
   type: string;
   text: string;
+  idPost:string;
   created_at: Date;
-
 }
 
 export { Notifications };

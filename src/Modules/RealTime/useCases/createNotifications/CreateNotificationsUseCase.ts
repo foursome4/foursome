@@ -7,6 +7,7 @@ interface IRequest {
   idFriend: string;
   type: string;
   text: string;
+  idPost: string;
 }
 
 class CreateNotificationsUseCase {
@@ -14,11 +15,11 @@ class CreateNotificationsUseCase {
     ("");
   }
 
-  async execute({idAccount, idPatrono, idFriend, type, text}: IRequest): Promise<void>{
+  async execute({idAccount, idPatrono, idFriend, type, text, idPost}: IRequest): Promise<void>{
 
 
    await this.NotificationsRepository.create({
-      idAccount, idPatrono, idFriend, type, text,
+      idAccount, idPatrono, idFriend, type, text, idPost
     });
   }
 }
