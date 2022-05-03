@@ -9,6 +9,7 @@ import { listPostGroupsTypeController } from "../../Modules/Posts/useCases/listP
 import { listPostsController } from "../../Modules/Posts/useCases/listPosts";
 import { listPostsAccountsTypeController } from "../../Modules/Posts/useCases/listPostsAccountsType";
 import { listPostsAllController } from "../../Modules/Posts/useCases/listPostsAll";
+import { listPostsOneController } from "../../Modules/Posts/useCases/listPostsOne";
 import { updateLikController } from "../../Modules/Posts/useCases/updateLike";
 import { updatePostsController } from "../../Modules/Posts/useCases/updatePost";
 
@@ -49,6 +50,9 @@ postsRoutes.get("/groups/:idGroup/:type", (req, res) => {
 });
 postsRoutes.patch("/:id", (req, res) => {
   return updatePostsController.handle(req, res);
+});
+postsRoutes.get("/one/:id", (req, res) => {
+  return listPostsOneController.handle(req, res);
 });
 postsRoutes.patch("/like/:id", (req, res) => {
   return updateLikController.handle(req, res);
