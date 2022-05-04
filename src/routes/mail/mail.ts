@@ -38,6 +38,7 @@ const mailRoutes = Router();
     <a href="https://foursome.com.br/signup/${mail.mail}/${code.code}/${patron.patron}/${type.type}" target="_blank">Criar minha conta agora!</a> <br/>
     <br/><br/>
     Em caso de dúvida, fale conosco. <br/>
+    Whatsapp: (22)99791-0510<br/>
     contato@foursome.com.br <br/><br/>
     
     FOURSOME <a href="https://www.foursome.com.br" target="_blank">www.foursome.com.br</a><p/>`, // html body.
@@ -82,6 +83,7 @@ mailRoutes.post("/confirmation", async (req, res) =>  {
     Estamos esperando por você!. <br/><br/>
 
     Em caso de dúvida, fale conosco. <br/>
+    Whatsapp: (22)99791-0510<br/>
     contato@foursome.com.br <br/><br/>
     
     FOURSOME <a href="https://www.foursome.com.br" target="_blank">www.foursome.com.br</a><p/>`, // html body.
@@ -122,6 +124,7 @@ mailRoutes.post("/complete", async (req, res) =>  {
     Acesse agora o nosso site, e divirta-se <br/>
     Acessar site: <a href="https://foursome.com.br" target="_blank">www.foursome.com.br</a> <br/><br/>
     Em caso de dúvida, fale conosco. <br/>
+    Whatsapp: (22)99791-0510<br/>
     contato@foursome.com.br <br/><br/>
     
     FOURSOME <a href="https://www.foursome.com.br" target="_blank">www.foursome.com.br</a><p/>`, // html body.
@@ -165,6 +168,7 @@ mailRoutes.post("/username", async (req, res) =>  {
     <h3>${username.username}</h3>
     <p>Acessar site: <a href="https://foursome.com.br" target="_blank">www.foursome.com.br</a> <br/><br/>
     Em caso de dúvida, fale conosco. <br/>
+    Whatsapp: (22)99791-0510<br/>
     contato@foursome.com.br <br/><br/>
     
     FOURSOME <a href="https://www.foursome.com.br" target="_blank">www.foursome.com.br</a></p>`, // html body.
@@ -208,6 +212,7 @@ mailRoutes.post("/passwordcode", async (req, res) =>  {
     <h3>${code.code}</h3>
     <p>Acesse o link para alterar sua senha: <a href="https://foursome.com.br/recuperationcode/${mail.mail}" target="_blank">Recuperar minha senha</a> <br/><br/>
     Em caso de dúvida, fale conosco. <br/>
+    Whatsapp: (22)99791-0510<br/>
     contato@foursome.com.br <br/><br/>
     
     FOURSOME <a href="https://www.foursome.com.br" target="_blank">www.foursome.com.br</a></p>`, // html body.
