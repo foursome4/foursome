@@ -6,6 +6,7 @@ import { listAccountsUnicController } from "../../Modules/Accounts/useCases/list
 import { deleteAccountsController } from "../../Modules/Accounts/useCases/deleteAccount";
 import { listAccountsEmailController } from "../../Modules/Accounts/useCases/listAccountsEmail";
 import { updatePasswordController } from "../../Modules/Accounts/useCases/updatePassword";
+import { listAccountsLimitsController } from "../../Modules/Accounts/useCases/listAccountsLimits";
 
 
 
@@ -17,6 +18,9 @@ groupsAccounts.post("/", (req, res) => {
 
 groupsAccounts.get("/", (req, res) => {
   return listAccountsController.handle(req, res);
+})
+groupsAccounts.get("/qtd", (req, res) => {
+  return listAccountsLimitsController.handle(req, res);
 })
 
 groupsAccounts.get("/filter/:id", (req, res) => {

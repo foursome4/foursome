@@ -4,6 +4,7 @@ import { deleteInvitesController } from "../../Modules/Invite/useCases/deleteInv
 import { findInvitesController } from "../../Modules/Invite/useCases/findInvites";
 import { listInvitesController } from "../../Modules/Invite/useCases/ListInvites";
 import { listInvitesAllController } from "../../Modules/Invite/useCases/ListInvitesAll";
+import { listInvitesLimitsController } from "../../Modules/Invite/useCases/ListInvitesLimits";
 
 
 
@@ -20,6 +21,9 @@ groupsInvites.get("/:idAccount", (req, res) => {
 });
 groupsInvites.get("/", (req, res) => {
   return listInvitesAllController.handle(req, res);
+});
+groupsInvites.get("/qtd", (req, res) => {
+  return listInvitesLimitsController.handle(req, res);
 });
 groupsInvites.delete("/:id", (req, res) => {
   return deleteInvitesController.handle(req, res);
