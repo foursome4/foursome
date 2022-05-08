@@ -9,6 +9,7 @@ import { listPostGroupsTypeController } from "../../Modules/Posts/useCases/listP
 import { listPostsController } from "../../Modules/Posts/useCases/listPosts";
 import { listPostsAccountsTypeController } from "../../Modules/Posts/useCases/listPostsAccountsType";
 import { listPostsAllController } from "../../Modules/Posts/useCases/listPostsAll";
+import { listPostsAllFilterController } from "../../Modules/Posts/useCases/listPostsAllFilter";
 import { listPostsOneController } from "../../Modules/Posts/useCases/listPostsOne";
 import { updateLikController } from "../../Modules/Posts/useCases/updateLike";
 import { updatePostsController } from "../../Modules/Posts/useCases/updatePost";
@@ -32,6 +33,9 @@ postsRoutes.get("/filter/:idAccount/:type", (req, res) => {
 });
 postsRoutes.get("/filter/:type", (req, res) => {
   return listPostsAllController.handle(req, res);
+});
+postsRoutes.get("/qtd/:type", (req, res) => {
+  return listPostsAllFilterController.handle(req, res);
 });
 postsRoutes.get("/all", (req, res) => {
   return listAllPostsController.handle(req, res);
