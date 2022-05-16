@@ -18,6 +18,7 @@ class Events {
   username: string;
   avatarUser: string;
   nickname: string;
+  featured: Boolean;
   created_at: Date;
 }
 

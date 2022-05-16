@@ -24,12 +24,12 @@ class MembersRepository implements IMembersRepository {
   }
 
   async create({
-    idAccount, idEvent, role, status, avatar, username, nickname
-  }: IMembersDTO) {
+    idAccount, idEvent, role, status, username
+   }: IMembersDTO) {
     const member: Members = new Members();
     const _id = uuidv4()
     Object.assign(member, {
-      _id, id: _id, idAccount, idEvent, role, status, avatar, username, nickname,
+      _id, id: _id, idAccount, idEvent, role, status, username,
       created_at: new Date(),
     });
 

@@ -26,7 +26,8 @@ class CreateEventsController {
       idAccount,
       username,
       avatarUser,
-      nickname
+      nickname,
+      featured
   } = req.body;
 
     this.createEventsUseCase.execute({
@@ -47,7 +48,8 @@ class CreateEventsController {
       idAccount,
       username,
       avatarUser,
-      nickname
+      nickname,
+      featured
     });
 
 

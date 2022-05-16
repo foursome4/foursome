@@ -53,6 +53,7 @@ class EventsRepository implements IEventsRepository {
     username,
     avatarUser,
     nickname,
+    featured
   }: ICreateEventsDTO) {
     const event: Events = new Events();
     const _id = uuidv4()
@@ -76,6 +77,7 @@ class EventsRepository implements IEventsRepository {
       username,
       avatarUser,
       nickname,
+      featured,
       created_at: new Date()
     });
 

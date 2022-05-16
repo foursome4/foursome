@@ -19,6 +19,7 @@ interface ICreateEventsDTO {
     username: string;
     avatarUser: string;
     nickname: string;
+    featured: Boolean;
 }
 
 interface IEventsRepository {
@@ -40,7 +41,8 @@ interface IEventsRepository {
     idAccount,
     username,
     avatarUser,
-    nickname
+    nickname,
+    featured
   }: ICreateEventsDTO): void;
   findByName(name: string): Events;
   list();
@@ -63,7 +65,8 @@ interface IEventsRepository {
     idAccount,
     username,
     avatarUser,
-    nickname
+    nickname,
+    featured
   }: ICreateEventsDTO): void;
 }
 

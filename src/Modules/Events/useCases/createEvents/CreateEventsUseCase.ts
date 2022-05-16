@@ -19,6 +19,7 @@ interface IRequest {
   username: string;
   avatarUser: string;
   nickname: string;
+  featured: Boolean;
 }
 
 class CreateEventsUseCase {
@@ -43,7 +44,8 @@ class CreateEventsUseCase {
     idAccount,
     username,
     avatarUser,
-    nickname
+    nickname,
+    featured
     , }: IRequest): void {
     this.EventsRepository.findByName(name);
 
@@ -66,7 +68,8 @@ class CreateEventsUseCase {
       idAccount,
       username,
       avatarUser,
-      nickname
+      nickname,
+      featured
     });
   }
 }

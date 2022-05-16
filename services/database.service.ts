@@ -34,6 +34,8 @@ export const collections: {
   visits?:mongoDB.Collection,
   navigator?:mongoDB.Collection,
   recuperation?:mongoDB.Collection,
+  payments?:mongoDB.Collection,
+  plains?:mongoDB.Collection,
  } = {}
 
 export async function connectToDatabase() {
@@ -188,6 +190,12 @@ export async function connectToDatabase() {
       // console.log(`Successfully connected to database: ${db.databaseName} and collection: ${notificationsCollection.collectionName}`);
       const recuperationCollection: mongoDB.Collection = db.collection(process.env.RECUPERATION_COLLECTION_NAME);
       collections.recuperation = recuperationCollection;
+      // console.log(`Successfully connected to database: ${db.databaseName} and collection: ${notificationsCollection.collectionName}`);
+      const paymentsCollection: mongoDB.Collection = db.collection(process.env.PAYMENTS_COLLECTION_NAME);
+      collections.payments = paymentsCollection;
+      // console.log(`Successfully connected to database: ${db.databaseName} and collection: ${notificationsCollection.collectionName}`);
+      const plainsCollection: mongoDB.Collection = db.collection(process.env.PLAINS_COLLECTION_NAME);
+      collections.plains = plainsCollection;
       // console.log(`Successfully connected to database: ${db.databaseName} and collection: ${notificationsCollection.collectionName}`);
     }
   

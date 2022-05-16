@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { createMembersController } from "../../Modules/Events/useCases/createMembers";
+import { deleteMemberController } from "../../Modules/Events/useCases/deleteMember";
 import { listMembersEventController } from "../../Modules/Events/useCases/listMembersEvent";
 
 
@@ -17,6 +18,9 @@ membersRoutes.get("/", (req, res) => {
 
 membersRoutes.get("/:idEvent", (req, res) => {
   return listMembersEventController.handle(req, res);
+});
+membersRoutes.delete("/:id", (req, res) => {
+  return deleteMemberController.handle(req, res);
 });
 
 export { membersRoutes };

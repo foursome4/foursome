@@ -27,12 +27,13 @@ import { visitsRoutes } from "./accounts/visits.routes";
 import { notificationsMessageRoutes } from "./realTime/notificationsMessage.routes";
 import { dateReadMessageRoutes } from "./realTime/datereadMessage.routes";
 import { groupsRecuperation } from "./recuperation/recuperation.routes";
+import { DistanceMatrixRoutes } from "./DistanceMatrix/DistanceMatrix";
 const router = Router();
 
 connectToDatabase()
   .then(() => {
     router.use("/groups", groupsRoutes);
-    router.use("/members", membersRoutes);
+    router.use("/membersevents", membersRoutes);
     router.use("/newsletter", newsletterRoutes);
     router.use("/accounts", groupsAccounts);
     router.use("/informations", informationsRoutes);
@@ -54,6 +55,7 @@ connectToDatabase()
     router.use("/messages", messagesRoutes);
     router.use("/online", usersOlineRoutes);
     router.use("/mail", mailRoutes);
+    router.use("/distance", DistanceMatrixRoutes);
     router.use("/notifications", notificationsRoutes);
     router.use("/notificationsmessage", notificationsMessageRoutes);
     router.use("/dateread", dateReadRoutes);

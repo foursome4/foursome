@@ -1,0 +1,17 @@
+import { Plains } from "../models/Plains";
+
+interface IPlainsDTO {
+  name: string;
+  value: string;
+  period:string;
+  created_at: Date;
+}
+
+interface IPlainsRepository {
+  create({ name, value, period }: IPlainsDTO): Promise<void>;
+  update({name, value, period }): Promise<void>
+  list();
+  delete({id});
+}
+
+export { IPlainsRepository, IPlainsDTO };
