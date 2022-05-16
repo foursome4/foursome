@@ -8,7 +8,6 @@ interface IPaymentsDTO {
   value: string;
   period: string;
   linkComprovant: string;
-  created_at: Date;
 }
 
 interface IPaymentsRepository {

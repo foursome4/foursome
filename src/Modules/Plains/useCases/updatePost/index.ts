@@ -1,11 +1,11 @@
-import { PostsRepository } from "../../repositories/implementations/PlainsRepository";
-import { UpdatePostsController } from "./UpdatePostsController";
-import { UpdatePostsUseCase } from "./UpdatePostsUseCase";
+import { PlainsRepository } from "../../repositories/implementations/PlainsRepository";
+import { UpdatePlainsController } from "./UpdatePlainsController";
+import { UpdatePlainsUseCase } from "./UpdatePlainsUseCase";
 
-const postsRepository = PostsRepository.getInstance();
+const plainsRepository = PlainsRepository.getInstance();
 
-const updatePostsUseCase = new UpdatePostsUseCase(postsRepository);
+const updatePlainsUseCase = new UpdatePlainsUseCase(plainsRepository);
 
-const updatePostsController = new UpdatePostsController(updatePostsUseCase);
+const updatePlainsController = new UpdatePlainsController(updatePlainsUseCase);
 
-export { updatePostsController };
+export { updatePlainsController };

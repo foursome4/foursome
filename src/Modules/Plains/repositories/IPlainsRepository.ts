@@ -4,7 +4,6 @@ interface IPlainsDTO {
   name: string;
   value: string;
   period:string;
-  created_at: Date;
 }
 
 interface IPlainsRepository {
