@@ -30,13 +30,13 @@ groupsAccounts.get("/find/:email", (req, res) => {
   return listAccountsEmailController.handle(req, res);
 });
 
-
 groupsAccounts.patch("/:id", (req, res) => {
   return updateAccountController.handle(req, res);
 });
 groupsAccounts.patch("/recover/:email", (req, res) => {
   return updatePasswordController.handle(req, res);
 });
+
 groupsAccounts.delete("/:id", (req, res) => {
   return deleteAccountsController.handle(req, res);
 });

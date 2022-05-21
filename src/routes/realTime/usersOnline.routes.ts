@@ -2,6 +2,7 @@ import { Router } from "express";
 import { createUsersOnlineController } from "../../Modules/RealTime/useCases/createUsersOnline";
 import { deleteUsersOnlineController } from "../../Modules/RealTime/useCases/deleteUsersOnline";
 import { listUsersOnlineController } from "../../Modules/RealTime/useCases/listUsersOnline";
+import { updateUsersOnlineController } from "../../Modules/RealTime/useCases/updateUsersOnline";
 
 
 
@@ -20,6 +21,9 @@ usersOlineRoutes.get("/:idAccount", (req, res) => {
 });
 usersOlineRoutes.delete("/:idAccount", (req, res) => {
   return deleteUsersOnlineController.handle(req, res);
+});
+usersOlineRoutes.patch("/:id", (req, res) => {
+  return updateUsersOnlineController.handle(req, res);
 });
 
 

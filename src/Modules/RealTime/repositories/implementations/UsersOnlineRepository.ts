@@ -29,14 +29,14 @@ class UsersOnlineRepository implements IUsersOnlineRepository {
     }
  
  async create({ 
-  idAccount, username, nickname, avatar, lat, long, equalCity 
+  idAccount, username, nickname, avatar, lat, long, equalCity, plane, emoji, song 
   }: IUsersOnlineDTO) {
     const usersOnline: UsersOnline = new UsersOnline();
     const _id = uuidv4()
     Object.assign(usersOnline, {
       _id,
       id: _id,
-      idAccount, username, nickname, avatar, lat, long, equalCity,
+      idAccount, username, nickname, avatar, lat, long, equalCity, plane, emoji, song,
       created_at: new Date(),
     });
 
@@ -60,6 +60,9 @@ class UsersOnlineRepository implements IUsersOnlineRepository {
       console.log(error)
     })
   }
+  
+  update({idAccount, username, nickname, avatar, lat, long, equalCity, plane, emoji, song}):void {}
 }
+
 
 export { UsersOnlineRepository };

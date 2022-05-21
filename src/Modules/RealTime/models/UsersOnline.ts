@@ -8,6 +8,9 @@ class UsersOnline {
   lat: string;
   long: string;
   equalCity: boolean;
+  plane: boolean;
+  emoji: boolean;
+  song: boolean;
   created_at: Date;
 
 }

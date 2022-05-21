@@ -9,6 +9,9 @@ interface IRequest {
   lat: string;
   long: string;
   equalCity: boolean;
+  plane: boolean;
+  emoji: boolean;
+  song: boolean;
 }
 
 class CreateUsersOnlineUseCase {
@@ -16,7 +19,7 @@ class CreateUsersOnlineUseCase {
     ("");
   }
 
-  async execute({idAccount, username, nickname, avatar, lat, long, equalCity}: IRequest): Promise<void>{
+  async execute({idAccount, username, nickname, avatar, lat, long, equalCity, plane, emoji, song}: IRequest): Promise<void>{
 
    const findByIdAccount = await collections.usersOnline.findOne({idAccount});
 
@@ -26,7 +29,7 @@ class CreateUsersOnlineUseCase {
    }
 
    await this.UsersOnlineRepository.create({
-      idAccount, username, nickname, avatar, lat, long, equalCity,
+      idAccount, username, nickname, avatar, lat, long, equalCity, plane, emoji, song,
     });
   }
 }
