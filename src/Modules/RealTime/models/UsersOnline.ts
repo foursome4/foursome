@@ -15,7 +15,7 @@ class UsersOnline {
   actualUf: string;
   equalCity: boolean;
   plane: boolean;
-  emoji: boolean;
+  emoji: string;
   song: boolean;
   invisible: boolean;
   created_at: Date;

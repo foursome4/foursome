@@ -17,7 +17,7 @@ interface IRequest {
   actualUf: string;
   equalCity: boolean;
   plane: boolean;
-  emoji: boolean;
+  emoji: string;
   song: boolean;
   invisible: boolean;
 }
