@@ -8,12 +8,12 @@ class CreateUsersOnlineController {
   }
   handle(req: Request, res: Response) {
     const { 
-      idAccount, username, type, nickname, avatar, relationship, lat, long, city, uf, actualCity, actualUf, equalCity, plane, emoji, song
+      idAccount, username, type, nickname, avatar, relationship, lat, long, city, uf, actualCity, actualUf, equalCity, plane, emoji, song, invisible
      } =
       req.body;
 
     this.createUsersOnlineUseCase.execute({
-      idAccount, username, type, nickname, avatar, relationship, lat, long, city, uf, actualCity, actualUf, equalCity, plane, emoji, song
+      idAccount, username, type, nickname, avatar, relationship, lat, long, city, uf, actualCity, actualUf, equalCity, plane, emoji, song, invisible
     }).then((result) => {
       return res.status(201).json(result).send();
     }).catch(error => {

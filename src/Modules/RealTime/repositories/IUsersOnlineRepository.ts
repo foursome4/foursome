@@ -17,16 +17,17 @@ interface IUsersOnlineDTO {
   plane: boolean;
   emoji: boolean;
   song: boolean;
+  invisible: boolean;
 }
 
 interface IUsersOnlineRepository {
   create({
-    idAccount, username, type, nickname, avatar, relationship, lat, long, city, uf, actualCity, actualUf, equalCity, plane, emoji, song
+    idAccount, username, type, nickname, avatar, relationship, lat, long, city, uf, actualCity, actualUf, equalCity, plane, emoji, song, invisible
     }: IUsersOnlineDTO): Promise<void>;
     findById(idAccount: string): Promise<void> ;
   list();
   delete({id});
-  update({ idAccount, username, type, nickname, avatar, relationship, lat, long, city, uf, actualCity, actualUf, equalCity, plane, emoji, song }: IUsersOnlineDTO): void;
+  update({ idAccount, username, type, nickname, avatar, relationship, lat, long, city, uf, actualCity, actualUf, equalCity, plane, emoji, song, invisible }: IUsersOnlineDTO): void;
 }
 
 export { IUsersOnlineRepository, IUsersOnlineDTO };

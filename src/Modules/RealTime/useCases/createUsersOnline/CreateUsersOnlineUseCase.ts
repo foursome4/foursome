@@ -18,6 +18,7 @@ interface IRequest {
   plane: boolean;
   emoji: boolean;
   song: boolean;
+  invisible: boolean;
 }
 
 class CreateUsersOnlineUseCase {
@@ -25,7 +26,7 @@ class CreateUsersOnlineUseCase {
     ("");
   }
 
-  async execute({idAccount, username, type, nickname, avatar, relationship, lat, long, city, uf, actualCity, actualUf, equalCity, plane, emoji, song}: IRequest): Promise<void>{
+  async execute({idAccount, username, type, nickname, avatar, relationship, lat, long, city, uf, actualCity, actualUf, equalCity, plane, emoji, song, invisible}: IRequest): Promise<void>{
 
    const findByIdAccount = await collections.usersOnline.findOne({idAccount});
 
@@ -35,7 +36,7 @@ class CreateUsersOnlineUseCase {
    }
 
    await this.UsersOnlineRepository.create({
-      idAccount, username, type, nickname, avatar, relationship, lat, long, city, uf, actualCity, actualUf, equalCity, plane, emoji, song,
+      idAccount, username, type, nickname, avatar, relationship, lat, long, city, uf, actualCity, actualUf, equalCity, plane, emoji, song, invisible
     });
   }
 }

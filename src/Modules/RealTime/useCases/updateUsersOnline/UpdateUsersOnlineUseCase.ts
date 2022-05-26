@@ -19,6 +19,7 @@ interface IRequest {
   plane: boolean;
   emoji: boolean;
   song: boolean;
+  invisible: boolean;
 }
 
 class UpdateUsersOnlineUseCase {
@@ -26,10 +27,10 @@ class UpdateUsersOnlineUseCase {
     " ";
   }
   
-  async execute({idAccount, username, type, nickname, avatar, relationship, lat, long, city, uf, actualCity, actualUf, equalCity, plane, emoji, song }: IRequest): Promise<void> {
+  async execute({idAccount, username, type, nickname, avatar, relationship, lat, long, city, uf, actualCity, actualUf, equalCity, plane, emoji, song, invisible }: IRequest): Promise<void> {
 
       await this.UsersOnlineRepository.update({
-        idAccount, username, type, nickname, avatar, relationship, lat, long, city, uf, actualCity, actualUf, equalCity, plane, emoji, song
+        idAccount, username, type, nickname, avatar, relationship, lat, long, city, uf, actualCity, actualUf, equalCity, plane, emoji, song, invisible
       });
 
   }

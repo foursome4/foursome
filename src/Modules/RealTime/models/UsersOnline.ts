@@ -17,6 +17,7 @@ class UsersOnline {
   plane: boolean;
   emoji: boolean;
   song: boolean;
+  invisible: boolean;
   created_at: Date;
 
 }
