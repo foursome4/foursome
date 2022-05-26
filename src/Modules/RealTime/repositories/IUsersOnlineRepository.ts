@@ -3,11 +3,17 @@ import { UsersOnline } from "../models/UsersOnline";
 interface IUsersOnlineDTO {
   idAccount: string;
   username: string;
+  type: string;
   nickname: string;
   avatar: string;
+  relationship: string;
   lat: string;
   long: string;
-  equalCity: boolean;
+  city: string;
+  uf: string;
+  actualCity: string;
+  actualUf: string;
+  equalCity: Boolean;
   plane: boolean;
   emoji: boolean;
   song: boolean;
@@ -15,12 +21,12 @@ interface IUsersOnlineDTO {
 
 interface IUsersOnlineRepository {
   create({
-    idAccount, username, nickname, avatar, lat, long, equalCity, plane, emoji, song
+    idAccount, username, type, nickname, avatar, relationship, lat, long, city, uf, actualCity, actualUf, equalCity, plane, emoji, song
     }: IUsersOnlineDTO): Promise<void>;
     findById(idAccount: string): Promise<void> ;
   list();
   delete({id});
-  update({ idAccount, username, nickname, avatar, lat, long, equalCity, plane, emoji, song }: IUsersOnlineDTO): void;
+  update({ idAccount, username, type, nickname, avatar, relationship, lat, long, city, uf, actualCity, actualUf, equalCity, plane, emoji, song }: IUsersOnlineDTO): void;
 }
 
 export { IUsersOnlineRepository, IUsersOnlineDTO };
