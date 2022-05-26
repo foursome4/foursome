@@ -15,7 +15,7 @@ interface IUsersOnlineDTO {
   actualUf: string;
   equalCity: Boolean;
   plane: boolean;
-  emoji: boolean;
+  emoji: string;
   song: boolean;
   invisible: boolean;
 }
