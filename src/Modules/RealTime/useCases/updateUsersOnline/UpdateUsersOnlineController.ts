@@ -12,7 +12,7 @@ class UpdateUsersOnlineController {
     const id = req.params; 
 
 
-    await collections.usersOnline.findOneAndUpdate(id, {$set:{idAccount, username, type, nickname, avatar, relationship, lat, long, city, uf, actualCity, actualUf, equalCity, plane, emoji, song, invisible}}, {upsert: true}).then((result) => {
+    await collections.usersOnline.findOneAndUpdate(id, {$set:{idAccount, username, type, nickname, avatar, relationship, lat, long, city, uf, actualCity, actualUf, equalCity, plane, emoji, song, invisible}}, {upsert: false}).then((result) => {
       return res.status(201).json(result);
     }).catch(error => {
       return res.status(500);

@@ -4,8 +4,8 @@ import { ListUsersOnlineOneUseCase } from "./listUsersOnlineOneUseCase";
 
 const usersOnlineRepository = UsersOnlineRepository.getInstance();
 
-const listUsersOnlineUsecase = new ListUsersOnlineOneUseCase(usersOnlineRepository);
+const listUsersOnlineOneUsecase = new ListUsersOnlineOneUseCase(usersOnlineRepository);
 
-const listUsersOnlineController = new ListUsersOnlineOneController(listUsersOnlineUsecase);
+const listUsersOnlineOneController = new ListUsersOnlineOneController(listUsersOnlineOneUsecase);
 
-export { listUsersOnlineController };
+export { listUsersOnlineOneController };

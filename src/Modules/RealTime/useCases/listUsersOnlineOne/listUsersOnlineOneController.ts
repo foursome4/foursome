@@ -9,8 +9,8 @@ class ListUsersOnlineOneController {
   }
 
   async handle(req: Request, res: Response) {
-    const idAccount = req.body;
-   await collections.usersOnline.find({idAccount}).sort( { created_at: -1 } ).toArray(function(err, result){
+    const idAccount = req.params;
+   await collections.usersOnline.find(idAccount).sort( { created_at: -1 } ).toArray(function(err, result){
       if(err) {
         res.status(500).json(err)
       } else {
