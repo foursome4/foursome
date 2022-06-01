@@ -30,7 +30,7 @@ const mailRoutes = Router();
     from: '"Você tem um convite" <contato@foursome.com.br>', // sender address
     to: mail.mail, // list of receivers
     subject: "Convite Especial ✔", // Subject line
-    text: "Hello world?", // plain text body
+    text: "Convite Especial ✔", // plain text body
     html: `<p>Parabens ${name.name}! <br/>
     Você foi convidado por ${patronNickname.patronNickname} a fazer parte de uma rede de relacionamento, exclusivo para casais, solteiros e solteiras. <br /> FOURSOME foi criado com o objetivo de aproximar pessoas com o mesmo pensamento de relacionamento de forma livre, segura e respeitosa. <br /><br/>
     Esse convite é intransferível. <br/><br/>
