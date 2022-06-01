@@ -33,7 +33,7 @@ const mailRoutes = Router();
     text: "Hello world?", // plain text body
     html: `<p>Parabens ${name.name}! <br/>
     Você foi convidado por ${patronNickname.patronNickname} a fazer parte de uma rede de relacionamento, exclusivo para casais, solteiros e solteiras. <br /> FOURSOME foi criado com o objetivo de aproximar pessoas com o mesmo pensamento de relacionamento de forma livre, segura e respeitosa. <br /><br/>
-    Esse convite é valido por 10 dias e intransferível. <br/><br/>
+    Esse convite é intransferível. <br/><br/>
     Para criar seu perfil agora, acesse: <br/>
     <a href="https://foursome.com.br/signup/${mail.mail}/${code.code}/${patron.patron}/${type.type}" target="_blank">Criar minha conta agora!</a> <br/>
     <br/><br/>
