@@ -39,7 +39,7 @@ const mailRoutes = Router();
     <br/><br/>
     Em caso de dúvida, fale conosco. <br/>
     Whatsapp: (22)99791-0510<br/>
-    contato@foursome.com.br <br/><br/>
+    contato@foursome.com.br <br/>
     
     FOURSOME <a href="https://www.foursome.com.br" target="_blank">www.foursome.com.br</a><p/>`, // html body.
   });
