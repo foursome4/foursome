@@ -7,6 +7,7 @@ import { deleteAccountsController } from "../../Modules/Accounts/useCases/delete
 import { listAccountsEmailController } from "../../Modules/Accounts/useCases/listAccountsEmail";
 import { updatePasswordController } from "../../Modules/Accounts/useCases/updatePassword";
 import { listAccountsLimitsController } from "../../Modules/Accounts/useCases/listAccountsLimits";
+import { listAccountsPatronController } from "../../Modules/Accounts/useCases/listAccountsPatron";
 
 
 
@@ -28,6 +29,9 @@ groupsAccounts.get("/filter/:id", (req, res) => {
 });
 groupsAccounts.get("/find/:email", (req, res) => {
   return listAccountsEmailController.handle(req, res);
+});
+groupsAccounts.get("/find/patron/:patron", (req, res) => {
+  return listAccountsPatronController.handle(req, res);
 });
 
 groupsAccounts.patch("/:id", (req, res) => {
