@@ -57,7 +57,6 @@ const mailRoutes = Router();
 
 mailRoutes.post("/confirmation", async (req, res) =>  {
   const mail = req.body;
-  console.log(mail.mail)
 
 
  let transporter = nodemailer.createTransport({
