@@ -10,6 +10,7 @@ class Accounts {
   online: boolean;
   patron: string;
   created_at: Date;
+  
 }
 
 
