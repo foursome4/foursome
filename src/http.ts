@@ -22,7 +22,7 @@ app.use(router);
 
 const io = new Server(server, {
   cors: {
-    origin: ["https://www.foursome.com.br/", "https://adm.foursome.com.br/", "http://localhost:3000/"],
+    origin: ["https://www.foursome.com.br", "https://adm.foursome.com.br", "http://localhost:3000"],
     methods: ["GET", "POST", "PUT", "DELETE","PATCH"],
     credentials: true
   }
