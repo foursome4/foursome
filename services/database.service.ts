@@ -31,6 +31,8 @@ export const collections: {
   dateRead?:mongoDB.Collection,
   notificationsMessage?:mongoDB.Collection,
   dateReadMessage?:mongoDB.Collection,
+  dateReadFeed?:mongoDB.Collection,
+  dateReadLogin?:mongoDB.Collection,
   visits?:mongoDB.Collection,
   navigator?:mongoDB.Collection,
   recuperation?:mongoDB.Collection,
@@ -166,36 +168,55 @@ export async function connectToDatabase() {
       const usersOnlineCollection: mongoDB.Collection = db.collection(process.env.USERSONLINE_COLLECTION_NAME);
       collections.usersOnline = usersOnlineCollection;
       // console.log(`Successfully connected to database: ${db.databaseName} and collection: ${usersOnlineCollection.collectionName}`);
+
       // Messages
       const locationsCollection: mongoDB.Collection = db.collection(process.env.LOCATIONS_COLLECTION_NAME);
       collections.locations = locationsCollection;
       // console.log(`Successfully connected to database: ${db.databaseName} and collection: ${locationsCollection.collectionName}`);
+
       const notificationsCollection: mongoDB.Collection = db.collection(process.env.NOTIFICATIONS_COLLECTION_NAME);
       collections.notifications = notificationsCollection;
       // console.log(`Successfully connected to database: ${db.databaseName} and collection: ${notificationsCollection.collectionName}`);
+
       const datereadCollection: mongoDB.Collection = db.collection(process.env.DATEREAD_COLLECTION_NAME);
       collections.dateRead = datereadCollection;
       // console.log(`Successfully connected to database: ${db.databaseName} and collection: ${locationsCollection.collectionName}`);
+
       const notificationsMessageCollection: mongoDB.Collection = db.collection(process.env.NOTIFICATIONSMESSAGE_COLLECTION_NAME);
       collections.notificationsMessage = notificationsMessageCollection;
       // console.log(`Successfully connected to database: ${db.databaseName} and collection: ${notificationsCollection.collectionName}`);
+      
       const datereadMessageCollection: mongoDB.Collection = db.collection(process.env.DATEREADMESSAGE_COLLECTION_NAME);
       collections.dateReadMessage = datereadMessageCollection;
       // console.log(`Successfully connected to database: ${db.databaseName} and collection: ${notificationsCollection.collectionName}`);
+
+      const datereadFeedCollection: mongoDB.Collection = db.collection(process.env.DATEREADFEED_COLLECTION_NAME);
+      collections.dateReadFeed = datereadFeedCollection;
+      // console.log(`Successfully connected to database: ${db.databaseName} and collection: ${notificationsCollection.collectionName}`);
+
+      const datereadLoginCollection: mongoDB.Collection = db.collection(process.env.DATEREADLOGIN_COLLECTION_NAME);
+      collections.dateReadLogin = datereadLoginCollection;
+      // console.log(`Successfully connected to database: ${db.databaseName} and collection: ${notificationsCollection.collectionName}`);
+
       const visitsCollection: mongoDB.Collection = db.collection(process.env.VISITS_COLLECTION_NAME);
       collections.visits = visitsCollection;
       // console.log(`Successfully connected to database: ${db.databaseName} and collection: ${notificationsCollection.collectionName}`);
+
       const navigatorCollection: mongoDB.Collection = db.collection(process.env.NAVIGATOR_COLLECTION_NAME);
       collections.navigator = navigatorCollection;
       // console.log(`Successfully connected to database: ${db.databaseName} and collection: ${notificationsCollection.collectionName}`);
+
       const recuperationCollection: mongoDB.Collection = db.collection(process.env.RECUPERATION_COLLECTION_NAME);
       collections.recuperation = recuperationCollection;
       // console.log(`Successfully connected to database: ${db.databaseName} and collection: ${notificationsCollection.collectionName}`);
+
       const paymentsCollection: mongoDB.Collection = db.collection(process.env.PAYMENTS_COLLECTION_NAME);
       collections.payments = paymentsCollection;
       // console.log(`Successfully connected to database: ${db.databaseName} and collection: ${notificationsCollection.collectionName}`);
+
       const plainsCollection: mongoDB.Collection = db.collection(process.env.PLAINS_COLLECTION_NAME);
       collections.plains = plainsCollection;
       // console.log(`Successfully connected to database: ${db.databaseName} and collection: ${notificationsCollection.collectionName}`);
+
     }
   
