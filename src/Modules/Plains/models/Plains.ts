@@ -2,7 +2,7 @@
 class Plains {
   name: string;
   value: string;
-  period:string;
+  period: number;
   created_at: Date;
 
 }

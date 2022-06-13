@@ -6,7 +6,7 @@ interface IPaymentsDTO {
   username:string;
   namePlain:string;
   value: string;
-  period: string;
+  period: number;
   linkComprovant: string;
 }
 

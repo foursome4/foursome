@@ -30,6 +30,8 @@ import { dateReadFeedRoutes } from "./realTime/datereadFeed.routes";
 import { dateReadLoginRoutes } from "./realTime/datereadLogin.routes";
 import { groupsRecuperation } from "./recuperation/recuperation.routes";
 import { DistanceMatrixRoutes } from "./DistanceMatrix/DistanceMatrix";
+import { plainsRoutes } from "./plains/plains.routes";
+import { paymentsRoutes } from "./plains/payments.routes";
 const router = Router();
 
 connectToDatabase()
@@ -65,6 +67,8 @@ connectToDatabase()
     router.use("/datereadfeed", dateReadFeedRoutes);
     router.use("/datereadlogin", dateReadLoginRoutes);
     router.use("/visits", visitsRoutes);
+    router.use("/plains", plainsRoutes);
+    router.use("/payments", paymentsRoutes);
   }).catch((error: Error) => {
     console.error("Database connection failed", error);
     process.exit();

@@ -3,7 +3,7 @@ import { IPlainsRepository } from "../../repositories/IPlainsRepository";
 interface IRequest {
   name: string;
   value: string;
-  period:string;
+  period:number;
 }
 
 class UpdatePlainsUseCase {

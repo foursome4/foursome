@@ -5,8 +5,8 @@ class Payments {
   username:string;
   namePlain:string;
   value: string;
-  period: string;
-  linkCOmprovant: string;
+  period: number;
+  linkComprovant: string;
   created_at: Date;
 }
 

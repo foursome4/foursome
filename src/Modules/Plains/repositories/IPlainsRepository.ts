@@ -3,7 +3,7 @@ import { Plains } from "../models/Plains";
 interface IPlainsDTO {
   name: string;
   value: string;
-  period:string;
+  period:number;
 }
 
 interface IPlainsRepository {
