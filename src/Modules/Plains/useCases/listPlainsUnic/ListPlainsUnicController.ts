@@ -1,21 +1,17 @@
 import { Request, Response } from "express";
 import { collections } from "../../../../../services/database.service";
 
-import { ListPlainsUseCase } from "./ListPlainsUseCase";
+import { ListPlainsUnicUseCase } from "./ListPlainsUnicUseCase";
 
-class ListPlainsController {
-  constructor(private listPostseCase: ListPlainsUseCase) {
+class ListPlainsUnicController {
+  constructor(private listPostseCase: ListPlainsUnicUseCase) {
     ("");
   }
 
 
   async handle(req: Request, res: Response) {
-    const page = req.query.page;
-    const limit = req.query.limit;
-
-console.log(page)
-console.log(limit)
-await collections.plains.find({}).toArray(function(err, result){
+    const id = req.params;
+await collections.plains.find(id).sort( { created_at: -1 } ).toArray(function(err, result){
       if(err) {
         res.status(500).json(err)
       } else {
@@ -29,4 +25,4 @@ await collections.plains.find({}).toArray(function(err, result){
   }
 }
 
-export { ListPlainsController };
+export { ListPlainsUnicController };

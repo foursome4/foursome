@@ -2,6 +2,7 @@ import { Router } from "express";
 import { createPlainsController } from "../../Modules/Plains/useCases/createPlains";
 import { deletePlainsController } from "../../Modules/Plains/useCases/deletePlains";
 import { listPlainsController } from "../../Modules/Plains/useCases/listPlains";
+import { listPlainsUnicController } from "../../Modules/Plains/useCases/listPlainsUnic";
 import { updatePlainsController } from "../../Modules/Plains/useCases/updatePlains";
 
 
@@ -14,6 +15,9 @@ plainsRoutes.post("/", (req, res) => {
 
 plainsRoutes.get("/", (req, res) => {
   return listPlainsController.handle(req, res);
+});
+plainsRoutes.get("/unic/:id", (req, res) => {
+  return listPlainsUnicController.handle(req, res);
 });
 
 plainsRoutes.patch("/:id", (req, res) => {
