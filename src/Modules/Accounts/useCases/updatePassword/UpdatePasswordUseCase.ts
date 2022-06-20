@@ -12,6 +12,15 @@ interface IRequest {
   phone: string;
   online: boolean;
   patron: string;
+  nickname: string;
+  avatar: string;
+  cover: string;
+  relationship: string;
+  city: string;
+  uf: string;
+  cep: string;
+  latitude: string;
+  longitude: string;
   password: Promise<string>;
 }
 
@@ -20,11 +29,11 @@ class UpdatePasswordUseCase {
     " ";
   }
   
-  async execute({id, username, role, status, type, email, phone, online, password, patron }: IRequest): Promise<void> {
+  async execute({id, username, role, status, type, email, phone, online, patron, nickname, avatar, cover, relationship, city, uf, password, cep, latitude, longitude }: IRequest): Promise<void> {
     const passwordHash = await hash(await password, 8);
 
       await this.accountRepository.update({
-        id, username, role, status, type, email, phone, online,patron, password: passwordHash
+        id, username, role, status, type, email, phone, online,patron, nickname, avatar, cover, relationship, city, uf, password: passwordHash , cep, latitude, longitude
       });
 
   }
