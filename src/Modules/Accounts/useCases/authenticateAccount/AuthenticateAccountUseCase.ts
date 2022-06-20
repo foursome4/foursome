@@ -15,6 +15,16 @@ interface IResponse {
           type: string;
           patron: string;
           online: boolean;
+          nickname: string;
+          avatar: string;
+          cover: string;
+          relationship: string;
+          city: string;
+          uf: string;
+          cep: string;
+          latitude: string;
+          longitude: string;
+          expiresIn: string;
           date: Date;
 }
 
@@ -67,6 +77,12 @@ class AuthenticateAccountUseCase {
           date: user.created_at,
           online: user.online,
           patron: user.patron,
+          nickname: user.nickname,
+          avatar: user.avatar,
+          cover: user.cover,
+          relationship: user.relationship,
+          city: user.city,
+          uf: user.uf,
         }
         console.log(userData)
 
@@ -82,6 +98,15 @@ class AuthenticateAccountUseCase {
           date: user.created_at,
           online: user.online,
           patron: user.patron,
+          nickname: user.nickname,
+          avatar: user.avatar,
+          cover: user.cover,
+          relationship: user.relationship,
+          city: user.city,
+          uf: user.uf,
+          cep: user.cep,
+          latitude: user.latitude,
+          longitude: user.longitude,
       }, "d64d7c8b83dd7212c25c3745933ee76e", 
       {
         subject: userData.id,
@@ -103,7 +128,17 @@ class AuthenticateAccountUseCase {
           date: user.created_at,
           online: user.online,
           patron: user.patron,
-          token:token
+          nickname: user.nickname,
+          avatar: user.avatar,
+          cover: user.cover,
+          relationship: user.relationship,
+          city: user.city,
+          uf: user.uf,
+          cep: user.cep,
+          latitude: user.latitude,
+          longitude: user.longitude,
+          token:token,
+          expiresIn: "1d",
       }
   }
 }

@@ -9,8 +9,16 @@ class Accounts {
   password: string;
   online: boolean;
   patron: string;
+  nickname: string;
+  avatar: string;
+  cover: string;
+  relationship: string;
+  city: string;
+  uf: string;
+  cep: string;
+  latitude: string;
+  longitude: string;
   created_at: Date;
-
 }
 
 

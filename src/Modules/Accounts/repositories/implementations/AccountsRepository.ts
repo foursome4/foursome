@@ -34,11 +34,11 @@ class AccountsRepository implements IAccountsRepository {
   }
 s
 
-  async create({id, username, role, status, type, email, phone, online, patron, password }: IAccountsDTO) {
+  async create({id, username, role, status, type, email, phone, online, patron, password, nickname, avatar, cover, relationship, city, uf }: IAccountsDTO) {
     const account: Accounts = new Accounts();
      
       Object.assign(account, {
-        id, _id: id, username, role, status, type, email, phone, online, patron, password ,created_at: new Date(),
+        id, _id: id, username, role, status, type, email, phone, online, patron, password, nickname, avatar, cover, relationship, city, uf ,created_at: new Date(),
       });
       this.accounts.push(account);
       
@@ -64,7 +64,7 @@ s
 
   list(){ }
 
-  update({username, role, status, type, email, phone, password, online, patron}):void {}
+  update({username, role, status, type, email, phone, online, patron, nickname, avatar, cover, relationship, city, uf, password, cep, latitude, longitude}):void {}
 
   async delete({id}) {
     await collections.accounts.deleteOne(id).then((result) => {
