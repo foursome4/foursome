@@ -34,11 +34,11 @@ class AccountsRepository implements IAccountsRepository {
   }
 s
 
-  async create({id, username, role, status, type, email, phone, online, patron, password, nickname, avatar, cover, relationship, city, uf }: IAccountsDTO) {
+  async create({id, username, role, status, type, email, phone, online, patron, password, nickname, avatar, cover, relationship, city, uf, cep, latitude, longitude }: IAccountsDTO) {
     const account: Accounts = new Accounts();
      
       Object.assign(account, {
-        id, _id: id, username, role, status, type, email, phone, online, patron, password, nickname, avatar, cover, relationship, city, uf ,created_at: new Date(),
+        id, _id: id, username, role, status, type, email, phone, online, patron, password, nickname, avatar, cover, relationship, city, uf, cep, latitude, longitude ,created_at: new Date(),
       });
       this.accounts.push(account);
       
