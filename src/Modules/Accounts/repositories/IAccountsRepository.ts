@@ -2,6 +2,7 @@ import { Accounts } from "../models/Accounts";
 
 interface IAccountsDTO {
   id: string;
+  país: string;
   username: string;
   role: string;
   status: string;
@@ -23,14 +24,14 @@ interface IAccountsDTO {
 }
 
 interface IAccountsRepository {
-  create({ id, username, role, status, type, email, phone, password, online, patron, nickname, avatar, cover, relationship, city, uf, cep, latitude, longitude}: IAccountsDTO): Promise<void>;
+  create({ id, país, username, role, status, type, email, phone, password, online, patron, nickname, avatar, cover, relationship, city, uf, cep, latitude, longitude}: IAccountsDTO): Promise<void>;
   findByEmail(email: string): Promise<void> ;
   findByUsername(username: string): Promise<void>;
   findByUsername(id: string): Promise<void>;
   session(email: string, username: string, password: string);
   sessionFast(id: string);
   list();
-  update({ id, username, role, status, type, email, phone, online, patron, nickname, avatar, cover, relationship, city, uf, password, cep, latitude, longitude}: IAccountsDTO): void;
+  update({ id, país, username, role, status, type, email, phone, online, patron, nickname, avatar, cover, relationship, city, uf, password, cep, latitude, longitude}: IAccountsDTO): void;
   delete({id});
 }
 

@@ -5,6 +5,7 @@ import { IAccountsRepository } from "../../repositories/IAccountsRepository";
 
 interface IResponse {
           token: string;
+          país: string;
           id: string;
           id2: string;
           username: string;
@@ -68,6 +69,7 @@ class AuthenticateAccountUseCase {
         const userData = {
           id2: user._id,
           id: user.id,
+          país: user.país,
           username: user.username,
           email: user.email,
           phone: user.phone,
@@ -89,6 +91,7 @@ class AuthenticateAccountUseCase {
       const token = sign({
         id2: user._id,
           id: user.id,
+          país: user.país,
           username: user.username,
           email: user.email,
           phone: user.phone,
@@ -119,6 +122,7 @@ class AuthenticateAccountUseCase {
       return {
         id2: user._id,
         id: user.id,
+        país: user.país,
           username: user.username,
           email: user.email,
           phone: user.phone,

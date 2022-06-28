@@ -1,5 +1,6 @@
 class Accounts {
   id: string;
+ país: string; 
   username: string;
   role: string;
   status: string;
