@@ -28,11 +28,11 @@ class InformationsRepository implements IInformationsRepository {
       } 
   }
 
-    async create({id, idAccount, nickname, avatar, cover, relationship, city, uf }: IInformationsDTO) {
+    async create({id, idAccount, nickname, avatar, cover, relationship, city, uf, país }: IInformationsDTO) {
       const informations: Informations = new Informations();
       
         Object.assign(informations, {
-          id, _id: id, idAccount, nickname, avatar, cover, relationship, city, uf ,created_at: new Date(),
+          id, _id: id, idAccount, nickname, avatar, cover, relationship, city, uf, país ,created_at: new Date(),
         });
         this.informations.push(informations);
         
@@ -52,7 +52,7 @@ class InformationsRepository implements IInformationsRepository {
       console.log(error)
     })
   }
-  update({    nickname, avatar, cover, relationship, city, uf}):void {}
+  update({    nickname, avatar, cover, relationship, city, uf, país}):void {}
 
   
 }

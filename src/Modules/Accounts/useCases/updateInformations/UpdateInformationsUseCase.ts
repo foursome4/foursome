@@ -8,6 +8,7 @@ interface IRequest {
   relationship: string;
   city: string;
   uf: string;
+  país: string;
  created_at: Date;
 }
 
@@ -16,9 +17,9 @@ class UpdateInformationsUseCase {
     " ";
   }
   
-  async execute({nickname, avatar, cover, relationship, city, uf }: IRequest): Promise<void> {
+  async execute({nickname, avatar, cover, relationship, city, uf, país }: IRequest): Promise<void> {
          await this.informationsRepository.update({
-       nickname, avatar, cover, relationship, city, uf
+       nickname, avatar, cover, relationship, city, uf, país
       });
 
   }

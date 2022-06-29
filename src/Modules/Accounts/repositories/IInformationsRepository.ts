@@ -9,13 +9,14 @@ interface IInformationsDTO {
   relationship: string;
   city: string;
   uf: string;
+  país: string;
 }
 
 interface IInformationsRepository {
-  create({ id, idAccount, nickname, avatar, cover, relationship, city, uf}: IInformationsDTO): Promise<void>;
+  create({ id, idAccount, nickname, avatar, cover, relationship, city, uf, país}: IInformationsDTO): Promise<void>;
   findById(idAccount: string): Promise<void> ;
   list();
-  update({nickname, avatar, cover, relationship, city, uf}):void
+  update({nickname, avatar, cover, relationship, city, uf, país}):void
   delete({idAccount});
 }
 

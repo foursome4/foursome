@@ -7,6 +7,7 @@ class Informations {
   relationship: string;
   city: string;
   uf: string;
+  país: string;
  created_at: Date;
 }
 

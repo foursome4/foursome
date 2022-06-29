@@ -11,6 +11,7 @@ interface IRequest {
   relationship: string;
   city: string;
   uf: string;
+  país: string;
 }
 
 class CreateInformationsUseCase {
@@ -18,11 +19,11 @@ class CreateInformationsUseCase {
     " ";
   }
   
-  async execute({id, idAccount, nickname, avatar, cover, relationship, city, uf }: IRequest): Promise<void> {
+  async execute({id, idAccount, nickname, avatar, cover, relationship, city, uf, país }: IRequest): Promise<void> {
     const findById = await this.InformationsRepository.findById(idAccount);
 
       await this.InformationsRepository.create({
-        id, idAccount, nickname, avatar, cover, relationship, city, uf
+        id, idAccount, nickname, avatar, cover, relationship, city, uf, país
       });
 
   }

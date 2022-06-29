@@ -7,10 +7,10 @@ class CreateInformationsController {
   }
 
   handle(req: Request, res: Response) {
-    const { id, idAccount, nickname, avatar, cover, relationship, city, uf } = req.body;
+    const { id, idAccount, nickname, avatar, cover, relationship, city, uf, país } = req.body;
 
     this.createInformationsUseCase.execute({
-      id, idAccount, nickname, avatar, cover, relationship, city, uf
+      id, idAccount, nickname, avatar, cover, relationship, city, uf, país
     }).then((result) => {
       return res.status(201).json(result).send();
     }).catch(error => {

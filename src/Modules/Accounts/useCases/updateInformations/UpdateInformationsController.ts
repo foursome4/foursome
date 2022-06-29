@@ -8,11 +8,11 @@ class UpdateInformationsController {
   }
 
   async handle(req: Request, res: Response) {
-    const { nickname, avatar, cover, relationship, city, uf } = req.body;
+    const { nickname, avatar, cover, relationship, city, uf, país } = req.body;
     const id = req.params; 
 
 
-    await collections.informations.findOneAndUpdate(id, {$set:{nickname, avatar, cover, relationship, city, uf}}, {upsert: true}).then((result) => {
+    await collections.informations.findOneAndUpdate(id, {$set:{nickname, avatar, cover, relationship, city, uf, país}}, {upsert: true}).then((result) => {
       return res.status(201).json(result);
     }).catch(error => {
      console.log(error);
