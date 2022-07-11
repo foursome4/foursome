@@ -28,12 +28,12 @@ class InvitesRepository implements IInvitesRepository {
       } 
   }
 
-    async create({ code, idAccount, name, username, email, phone, type }: IInvitesDTO) {
+    async create({ code, idAccount, name, username, email, phone, type, active, resend }: IInvitesDTO) {
       const account: Invites = new Invites();
       const _id = uuidv4()
       
         Object.assign(account, {
-          _id, id: _id, code, idAccount, username, name, email, phone, type, created_at: new Date(),
+          _id, id: _id, code, idAccount, username, name, email, phone, type, active, resend, created_at: new Date(),
         });
         this.invites.push(account);
         

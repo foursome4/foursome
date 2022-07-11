@@ -6,6 +6,8 @@ class Invites {
   phone: string;
   code: string;
   type: string;
+  active: boolean;
+  resend: boolean;
   created_at: Date;
 }
 

@@ -1,5 +1,6 @@
+import { hash } from "bcrypt";
 import { IInvitesRepository } from "../../repositories/IInviteRepository";
-
+import { Request, Response } from "express";
 
 interface IRequest {
   idAccount: string;
@@ -13,19 +14,18 @@ interface IRequest {
   resend: boolean;
 }
 
-class CreateInvitesUseCase {
-  constructor(private invitesRepository: IInvitesRepository) {
+class UpdateInviteUseCase {
+  constructor(private inviteRepository: IInvitesRepository) {
     " ";
   }
   
   async execute({code, idAccount, username, name, email, type, phone, active, resend }: IRequest): Promise<void> {
-    const findEmail = await this.invitesRepository.findByInvites(email);
 
-      await this.invitesRepository.create({
+      await this.inviteRepository.update({
         code, idAccount, username, name, email, type, phone, active, resend
       });
 
   }
 }
 
-export { CreateInvitesUseCase };
+export { UpdateInviteUseCase };
