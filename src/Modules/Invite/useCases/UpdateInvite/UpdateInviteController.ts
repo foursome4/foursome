@@ -17,7 +17,9 @@ class UpdateInviteController {
     }).catch(error => {
       return res.status(500);
     })
+
   }
+  
 }
 
 export { UpdateInviteController };
