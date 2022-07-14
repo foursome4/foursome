@@ -20,7 +20,6 @@ class UpdateInviteController {
 
   }
   
-  
 }
 
 export { UpdateInviteController };
