@@ -14,7 +14,7 @@ class DeletePreferencesController {
       return res.status(201).json(result).send();
     }).catch(error => {
       console.log(error);
-      return res.status(500).send()
+      return res.status(500).send();
     })
 
   }
