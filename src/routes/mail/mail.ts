@@ -106,6 +106,92 @@ mailRoutes.post("/reinvite", async (req, res) =>  {
   }
 });
 
+mailRoutes.post("/accountaproved", async (req, res) =>  {
+  const mail = req.body;
+
+
+ let transporter = nodemailer.createTransport({
+    host: "email-ssl.com.br",
+    port: 465,
+    auth: {
+      user: "contato@foursome.com.br",
+      pass: "Foursome2021*"
+    }
+  });
+
+  // send mail with defined transport object
+  let info = await transporter.sendMail({
+    from: '"Estamos muito felizes" <contato@foursome.com.br>', // sender address
+    to: mail.mail, // list of receivers
+    subject: "Vem com a gente 🚀", // Subject line
+    text: "Vem com a gente 🚀", // plain text body
+    html: `<p>Sua conta foi aprovada!!! <br/>
+    Sua solicitação para fazer parte da mais nova rede de relacionamento, exclusivo para casais, solteiros e solteiras, foi aprovada.<br/>
+
+    Acesse agora mesmo: <a href="https://foursome.com.br" target="_blank">www.foursome.com.br</a> <br/><br/>
+    
+    Estamos esperando por você!. <br/><br/>
+
+    Em caso de dúvida, fale conosco. <br/>
+    Whatsapp: (22)99791-0510<br/>
+    contato@foursome.com.br <br/><br/>
+    
+    FOURSOME <a href="https://www.foursome.com.br" target="_blank">www.foursome.com.br</a><p/>`, // html body.
+  });
+
+
+  if(info) {
+    res.status(200).json({"message":"Email enviado com sucesso"});
+console.log("Email enviado com sucesso")
+} else {
+res.status(500)
+}
+
+});
+mailRoutes.post("/accountrecused", async (req, res) =>  {
+  const mail = req.body;
+
+
+ let transporter = nodemailer.createTransport({
+    host: "email-ssl.com.br",
+    port: 465,
+    auth: {
+      user: "contato@foursome.com.br",
+      pass: "Foursome2021*"
+    }
+  });
+
+  // send mail with defined transport object
+  let info = await transporter.sendMail({
+    from: '"algo deu errado" <contato@foursome.com.br>', // sender address
+    to: mail.mail, // list of receivers
+    subject: "Que pena 😞", // Subject line
+    text: "Que pena 😞", // plain text body
+    html: `<p>Sua solicitação foi reprovada! <br/>
+    Parece que alguns de seus dados não estão em conformidade com a política de nosso site. <br/>
+    Mas não fique triste, você pode enviar uma nova solicitação agora mesmo. <br/>
+    Crie uma nova conta e preste bem atenção em todos os detalhes. Ok?. <br/>
+
+    Acesse site e crie uma nova conta: <a href="https://foursome.com.br" target="_blank">www.foursome.com.br</a> <br/><br/>
+    
+    Estamos esperando por você!. <br/><br/>
+
+    Em caso de dúvida, fale conosco. <br/>
+    Whatsapp: (22)99791-0510<br/>
+    contato@foursome.com.br <br/><br/>
+    
+    FOURSOME <a href="https://www.foursome.com.br" target="_blank">www.foursome.com.br</a><p/>`, // html body.
+  });
+
+
+  if(info) {
+    res.status(200).json({"message":"Email enviado com sucesso"});
+console.log("Email enviado com sucesso")
+} else {
+res.status(500)
+}
+
+});
 mailRoutes.post("/confirmation", async (req, res) =>  {
   const mail = req.body;
 
