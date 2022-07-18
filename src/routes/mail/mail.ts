@@ -322,7 +322,7 @@ mailRoutes.post("/passwordcode", async (req, res) =>  {
       user: "contato@foursome.com.br",
       pass: "Foursome2021*"
     }
-  });
+  })
 
   // send mail with defined transport object
   let info = await transporter.sendMail({
