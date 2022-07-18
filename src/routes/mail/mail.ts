@@ -49,9 +49,7 @@ const mailRoutes = Router();
   if(info) {
         res.status(200).json({"message":"Email enviado com sucesso"});
     console.log("Email enviado com sucesso")
-  } else {
-    res.status(500)
-  }
+  } 
 });
 
 mailRoutes.post("/reinvite", async (req, res) =>  {
