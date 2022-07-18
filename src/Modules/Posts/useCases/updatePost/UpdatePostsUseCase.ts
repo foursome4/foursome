@@ -14,6 +14,7 @@ interface IRequest {
   type: string;
   text: string;
   link: string;
+  typeAccount: string;
 }
 
 class UpdatePostsUseCase {

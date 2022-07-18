@@ -34,7 +34,7 @@ postsRoutes.get("/filter/:idAccount/:type", (req, res) => {
 postsRoutes.get("/filter/:type", (req, res) => {
   return listPostsAllController.handle(req, res);
 });
-postsRoutes.get("/qtd/:type", (req, res) => {
+postsRoutes.get("/qtd/:typeAccount", (req, res) => {
   return listPostsAllFilterController.handle(req, res);
 });
 postsRoutes.get("/all", (req, res) => {

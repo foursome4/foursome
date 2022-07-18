@@ -22,6 +22,7 @@ class CreatePostController {
     like,
     text,
     link,
+    typeAccount
      } =
       req.body;
     this.createPostUseCase.execute({
@@ -39,6 +40,7 @@ class CreatePostController {
     like,
     text,
     link,
+    typeAccount
     }).then((result) => {
       return res.status(201).json(result).send();
     }).catch(error => {

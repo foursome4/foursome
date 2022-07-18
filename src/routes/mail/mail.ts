@@ -87,7 +87,7 @@ mailRoutes.post("/reinvite", async (req, res) =>  {
     Este convite foi enviado por: ${patronNickname.patronNickname} <br /> 
     Esse convite é intransferível. <br/><br/>
     crie seu perfil agora mesmo: <br/>
-    <a href="https://foursome.com.br/signup/${mail.mail}/${code.code}/${patron.patron}/${type.type}" target="_blank">Criar minha conta agora!</a> <br/>
+    <a href="https://foursome.com.br/signup/convite/${mail.mail}/${code.code}/${patron.patron}/${type.type}" target="_blank">Criar minha conta agora!</a> <br/>
     <br/>
     Em caso de dúvida, fale conosco. <br/>
     Whatsapp: (22)99791-0510<br/>
@@ -102,7 +102,7 @@ mailRoutes.post("/reinvite", async (req, res) =>  {
         res.status(200).json({"message":"Email enviado com sucesso"});
     console.log("Email enviado com sucesso")
   } else {
-    res.status(500)
+    console.log("Email não enviado")
   }
 });
 

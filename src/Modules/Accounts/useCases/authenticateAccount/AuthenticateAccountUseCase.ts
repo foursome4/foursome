@@ -25,6 +25,7 @@ interface IResponse {
           cep: string;
           latitude: string;
           longitude: string;
+          recommendation: string;
           expiresIn: string;
           date: Date;
 }
@@ -110,6 +111,7 @@ class AuthenticateAccountUseCase {
           cep: user.cep,
           latitude: user.latitude,
           longitude: user.longitude,
+          recommendation: user.recommendation,
       }, "d64d7c8b83dd7212c25c3745933ee76e", 
       {
         subject: userData.id,
@@ -141,6 +143,7 @@ class AuthenticateAccountUseCase {
           cep: user.cep,
           latitude: user.latitude,
           longitude: user.longitude,
+          recommendation: user.recommendation,
           token:token,
           expiresIn: "1d",
       }

@@ -21,17 +21,18 @@ interface IAccountsDTO {
   cep: string;
   latitude: string;
   longitude: string;
+recommendation: string;
 }
 
 interface IAccountsRepository {
-  create({ id, país, username, role, status, type, email, phone, password, online, patron, nickname, avatar, cover, relationship, city, uf, cep, latitude, longitude}: IAccountsDTO): Promise<void>;
+  create({ id, país, username, role, status, type, email, phone, password, online, patron, nickname, avatar, cover, relationship, city, uf, cep, latitude, longitude, recommendation}: IAccountsDTO): Promise<void>;
   findByEmail(email: string): Promise<void> ;
   findByUsername(username: string): Promise<void>;
   findByUsername(id: string): Promise<void>;
   session(email: string, username: string, password: string);
   sessionFast(id: string);
   list();
-  update({ id, país, username, role, status, type, email, phone, online, patron, nickname, avatar, cover, relationship, city, uf, password, cep, latitude, longitude}: IAccountsDTO): void;
+  update({ id, país, username, role, status, type, email, phone, online, patron, nickname, avatar, cover, relationship, city, uf, password, cep, latitude, longitude, recommendation}: IAccountsDTO): void;
   delete({id});
 }
 

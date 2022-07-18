@@ -7,10 +7,10 @@ class CreateAccountController {
   }
 
   handle(req: Request, res: Response) {
-    const { id, país, username, role, status, type, email, phone, online, patron, password, nickname, avatar, cover, relationship, city, uf, cep, latitude, longitude } = req.body;
+    const { id, país, username, role, status, type, email, phone, online, patron, password, nickname, avatar, cover, relationship, city, uf, cep, latitude, longitude, recommendation } = req.body;
 
     this.createAccountUseCase.execute({
-      id, país, username, role, status, type, email, phone, online, patron, password, nickname, avatar, cover, relationship, city, uf, cep, latitude, longitude
+      id, país, username, role, status, type, email, phone, online, patron, password, nickname, avatar, cover, relationship, city, uf, cep, latitude, longitude, recommendation
     }).then((result) => {
       return res.status(201).json(result).send();
     }).catch(error => {

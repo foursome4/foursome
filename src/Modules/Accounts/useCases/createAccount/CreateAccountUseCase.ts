@@ -22,6 +22,7 @@ interface IRequest {
   cep: string;
   latitude: string;
   longitude: string;
+  recommendation: string;
   password: Promise<string>;
 }
 
@@ -30,13 +31,13 @@ class CreateAccountUseCase {
     " ";
   }
   
-  async execute({id, país, username, role, status, type, email, phone, online, patron, password, nickname, avatar, cover, relationship, city, uf, cep, latitude, longitude }: IRequest): Promise<void> {
+  async execute({id, país, username, role, status, type, email, phone, online, patron, password, nickname, avatar, cover, relationship, city, uf, cep, latitude, longitude, recommendation }: IRequest): Promise<void> {
     const findEmail = await this.accountRepository.findByEmail(email);
     const findUsername = await this.accountRepository.findByUsername(username);
     const passwordHash = await hash(await password, 8);
 
       await this.accountRepository.create({
-        id, país, username, role, status, type, email, phone, online, patron, password: passwordHash, nickname, avatar, cover, relationship, city, uf, cep, latitude, longitude
+        id, país, username, role, status, type, email, phone, online, patron, password: passwordHash, nickname, avatar, cover, relationship, city, uf, cep, latitude, longitude, recommendation
       });
 
   }

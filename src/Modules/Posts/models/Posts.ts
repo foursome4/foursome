@@ -15,6 +15,7 @@ class Posts {
   text: string;
   link: string;
   like: number;
+  typeAccount: string;
   created_at: Date;
 
 }

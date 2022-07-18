@@ -19,6 +19,7 @@ class Accounts {
   cep: string;
   latitude: string;
   longitude: string;
+  recommendation: string;
   created_at: Date;
 }
 

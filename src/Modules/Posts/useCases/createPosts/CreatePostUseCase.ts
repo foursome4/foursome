@@ -15,6 +15,7 @@ interface IRequest {
   text: string;
   like: number;
   link: string;
+  typeAccount: string;
 }
 
 class CreatePostUseCase {
@@ -37,6 +38,7 @@ class CreatePostUseCase {
     text,
     like,
     link,
+    typeAccount
   }: IRequest): Promise<void>{
 
    await this.postsRepository.create({
@@ -54,6 +56,7 @@ class CreatePostUseCase {
     text,
     like,
     link,
+    typeAccount
     });
   }
 }

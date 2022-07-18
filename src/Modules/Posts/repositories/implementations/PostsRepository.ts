@@ -35,6 +35,7 @@ class PostsRepository implements IPostsRepository {
   text,
   link,
   like,
+  typeAccount
   }: IPostsDTO) {
     const post: Posts = new Posts();
     const _id = uuidv4()
@@ -55,6 +56,7 @@ class PostsRepository implements IPostsRepository {
       text,
       link,
       like,
+      typeAccount,
       created_at: new Date(),
     });
 

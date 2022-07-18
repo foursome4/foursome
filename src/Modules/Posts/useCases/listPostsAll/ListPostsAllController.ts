@@ -24,3 +24,4 @@ class ListPostsAllController {
 }
 
 export { ListPostsAllController };
+
