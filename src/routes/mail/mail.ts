@@ -35,7 +35,7 @@ const mailRoutes = Router();
     Você foi convidado por ${patronNickname.patronNickname} a fazer parte de uma rede de relacionamento, exclusivo para casais, solteiros e solteiras. <br /> FOURSOME foi criado com o objetivo de aproximar pessoas com o mesmo pensamento de relacionamento de forma livre, segura e respeitosa. <br /><br/>
     Esse convite é intransferível. <br/><br/>
     Para criar seu perfil agora, acesse: <br/>
-    <a href="https://foursome.com.br/signup/${mail.mail}/${code.code}/${patron.patron}/${type.type}" target="_blank">Criar minha conta agora!</a> <br/>
+    <a href="https://foursome.com.br/signup/convite/${mail.mail}/${code.code}/${patron.patron}/${type.type}" target="_blank">Criar minha conta agora!</a> <br/>
     <br/><br/>
     Em caso de dúvida, fale conosco. <br/>
     Whatsapp: (22)99791-0510<br/>
@@ -249,7 +249,8 @@ mailRoutes.post("/complete", async (req, res) =>  {
     subject: "Missão cumprida 😎", // Subject line
     text: "Só mais um passo 😎", // plain text body
     html: `<p>Parabéns, você concluiu seu cadastro com sucesso.<br/><br/>
-    Acesse agora o nosso site, e divirta-se <br/>
+    Agora bastar aguardar a análise de nossos moderadores para liberação de sua conta.<br/>
+    <br/>
     Acessar site: <a href="https://foursome.com.br" target="_blank">www.foursome.com.br</a> <br/><br/>
     Em caso de dúvida, fale conosco. <br/>
     Whatsapp: (22)99791-0510<br/>
