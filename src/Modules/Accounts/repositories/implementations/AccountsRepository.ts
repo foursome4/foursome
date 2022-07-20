@@ -47,7 +47,6 @@ class AccountsRepository implements IAccountsRepository {
     } 
   }
 
-  
   async create({id, país, username, role, status, type, email, phone, online, patron, password, nickname, avatar, cover, relationship, city, uf, cep, latitude, longitude, recommendation }: IAccountsDTO) {
     const account: Accounts = new Accounts();
      
