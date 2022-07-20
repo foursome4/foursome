@@ -26,14 +26,26 @@ class AccountsRepository implements IAccountsRepository {
         throw new Error("Email already exists!")
       } 
   }
+  
+  
   async findByUsername(username: string): Promise<void>  {
     const findUsername = await collections.accounts.findOne({username})
     if(findUsername) {
-      throw new Error("Username already exists!")
+      throw new Error("nickname already exists!")
     } 
   }
-s
-
+  async findByNickname(nickname: string): Promise<void>  {
+    const findnickname = await collections.accounts.findOne({nickname})
+    if(findnickname) {
+      throw new Error("nickname already exists!")
+    } 
+  }
+  async findById(id: string): Promise<void>  {
+    const findNickname = await collections.accounts.findOne({id})
+    if(findNickname) {
+      throw new Error("Nickname already exists!")
+    } 
+  }
   async create({id, país, username, role, status, type, email, phone, online, patron, password, nickname, avatar, cover, relationship, city, uf, cep, latitude, longitude, recommendation }: IAccountsDTO) {
     const account: Accounts = new Accounts();
      

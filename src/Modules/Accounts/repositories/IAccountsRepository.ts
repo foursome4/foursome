@@ -28,7 +28,8 @@ interface IAccountsRepository {
   create({ id, país, username, role, status, type, email, phone, password, online, patron, nickname, avatar, cover, relationship, city, uf, cep, latitude, longitude, recommendation}: IAccountsDTO): Promise<void>;
   findByEmail(email: string): Promise<void> ;
   findByUsername(username: string): Promise<void>;
-  findByUsername(id: string): Promise<void>;
+  findByNickname(nickname: string): Promise<void>;
+  findById(id: string): Promise<void>;
   session(email: string, username: string, password: string);
   sessionFast(id: string);
   list();
