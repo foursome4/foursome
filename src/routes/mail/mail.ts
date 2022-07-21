@@ -268,8 +268,6 @@ console.log("Email enviado com sucesso")
 });
 
 
-
-
 mailRoutes.post("/username", async (req, res) =>  {
   const mail = req.body;
   const username = req.body;
