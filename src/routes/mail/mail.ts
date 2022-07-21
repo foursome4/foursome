@@ -164,11 +164,11 @@ mailRoutes.post("/accountrecused", async (req, res) =>  {
     subject: "Que pena 😞", // Subject line
     text: "Que pena 😞", // plain text body
     html: `<p>Sua solicitação foi reprovada! <br/>
-    Parece que alguns de seus dados não estão em conformidade com a política de nosso site. <br/>
-    Mas não fique triste, você pode enviar uma nova solicitação agora mesmo. <br/>
+    Seus dados não estão em conformidade com a política de nosso site ( foto do perfil ou dados incompletos). <br/><br/>
+    Mas não fique triste, você pode enviar uma nova solicitação agora mesmo.<br/>
     Crie uma nova conta e preste bem atenção em todos os detalhes. Ok?. <br/>
 
-    Acesse site e crie uma nova conta: <a href="https://foursome.com.br" target="_blank">www.foursome.com.br</a> <br/><br/>
+    Acesse site e crie uma nova conta:: <a href="https://foursome.com.br" target="_blank">www.foursome.com.br</a> <br/><br/>
     
     Estamos esperando por você!. <br/><br/>
 
