@@ -242,6 +242,8 @@ mailRoutes.post("/complete", async (req, res) =>  {
     }
   });
 
+
+  
   // send mail with defined transport object
   let info = await transporter.sendMail({
     from: '"Você está pronto" <contato@foursome.com.br>', // sender address
