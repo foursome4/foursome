@@ -1,30 +1,30 @@
 import { collections } from "../../../../../services/database.service";
 import { News } from "../../models/News";
-import { INewsDTO, INewsRepository } from "../INewsRepository";
+import { INewsReplyDTO, INewsReplyRepository } from "../INewsReplyRepository";
 import {v4 as uuidv4} from 'uuid'
 
-class NewsRepository implements INewsRepository {
+class NewsReplyRepository implements INewsReplyRepository {
   private news: News[];
 
-  private static INSTANCE: NewsRepository;
+  private static INSTANCE: NewsReplyRepository;
 
   private constructor() {
     this.news = [];
   }
 
-  public static getInstance(): NewsRepository {
-    if (!NewsRepository.INSTANCE) {
-      NewsRepository.INSTANCE = new NewsRepository();
+  public static getInstance(): NewsReplyRepository {
+    if (!NewsReplyRepository.INSTANCE) {
+      NewsReplyRepository.INSTANCE = new NewsReplyRepository();
     }
 
-    return NewsRepository.INSTANCE;
+    return NewsReplyRepository.INSTANCE;
   }
 
-  async create({ patron, reply, destination, idAccount, title, text, link, type, priority }: INewsDTO) {
+  async create({ idNews, idAccount, text, link }: INewsReplyDTO) {
     const newsOne: News = new News();
     const _id = uuidv4()
     Object.assign(newsOne, {
-      _id, id: _id, patron, reply, destination, idAccount, title, text, link, type, priority, created_at: new Date(),
+      _id, id: _id, idNews, idAccount, text, link, created_at: new Date(),
     });
 
     this.news.push(newsOne);
@@ -39,7 +39,7 @@ class NewsRepository implements INewsRepository {
 
   list(){}
 
-  update({id, patron, reply, destination, idAccount, title, text, link, type, priority}):void {}
+  update({id, idNews, idAccount, text, link}):void {}
 
 
   async delete({id}) {
@@ -51,4 +51,4 @@ class NewsRepository implements INewsRepository {
   }
 }
 
-export { NewsRepository };
+export { NewsReplyRepository };

@@ -1,6 +1,8 @@
 
 class News {
   id: string;
+  patron: string;
+  reply: boolean;
   destination: string;
   idAccount: string;
   title: string;

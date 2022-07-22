@@ -2,6 +2,8 @@ import { INewsRepository } from "../../repositories/INewsRepository";
 
 interface IRequest {
   id: string;
+  patron: string;
+  reply: boolean;
   destination: string;
   idAccount: string;
   title: string;
@@ -17,11 +19,11 @@ class CreateNewsUseCase {
   }
 
   async execute({
-    id, destination, idAccount, title, text, link, type, priority,
+    id, patron, reply, destination, idAccount, title, text, link, type, priority,
   }: IRequest): Promise<void>{
 
    await this.NewsRepository.create({
-    id, destination, idAccount, title, text, link, type, priority,
+    id, patron, reply, destination, idAccount, title, text, link, type, priority,
     });
   }
 }

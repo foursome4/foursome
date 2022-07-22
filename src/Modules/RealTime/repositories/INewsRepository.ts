@@ -2,6 +2,8 @@ import { News } from "../models/News";
 
 interface INewsDTO {
   id: string;
+  patron: string;
+  reply: boolean;
   destination: string;
   idAccount: string;
   title: string;
@@ -13,8 +15,8 @@ interface INewsDTO {
 }
 
 interface INewsRepository {
-  create({id, destination, idAccount, title, text, link, type, priority, }: INewsDTO): Promise<void>;
-  update({id, destination, idAccount, title, text, link, type, priority, }: INewsDTO):void;
+  create({id, patron, reply, destination, idAccount, title, text, link, type, priority, }: INewsDTO): Promise<void>;
+  update({id, patron, reply, destination, idAccount, title, text, link, type, priority, }: INewsDTO):void;
   list();
   delete({id});
 }
