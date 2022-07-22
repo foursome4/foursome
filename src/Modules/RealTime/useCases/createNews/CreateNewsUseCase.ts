@@ -8,7 +8,7 @@ interface IRequest {
   text: string;
   link: string;
   type: string;
-  prioriry: string;
+  priority: string;
 }
 
 class CreateNewsUseCase {
@@ -17,11 +17,11 @@ class CreateNewsUseCase {
   }
 
   async execute({
-    id, destination, idAccount, title, text, link, type, prioriry,
+    id, destination, idAccount, title, text, link, type, priority,
   }: IRequest): Promise<void>{
 
    await this.NewsRepository.create({
-    id, destination, idAccount, title, text, link, type, prioriry,
+    id, destination, idAccount, title, text, link, type, priority,
     });
   }
 }
