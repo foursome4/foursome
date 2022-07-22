@@ -7,3 +7,5 @@ const createNewsUseCase = new CreateNewsUseCase(newsRepository);
 const createNewsController = new CreateNewsController(createNewsUseCase);
 
 export { createNewsController };
+
+
