@@ -8,13 +8,13 @@ interface INewsDTO {
   text: string;
   link: string;
   type: string;
-  prioriry: string;
+  priority: string;
 
 }
 
 interface INewsRepository {
-  create({id, destination, idAccount, title, text, link, type, prioriry, }: INewsDTO): Promise<void>;
-  update({id, destination, idAccount, title, text, link, type, prioriry, }: INewsDTO):void;
+  create({id, destination, idAccount, title, text, link, type, priority, }: INewsDTO): Promise<void>;
+  update({id, destination, idAccount, title, text, link, type, priority, }: INewsDTO):void;
   list();
   delete({id});
 }

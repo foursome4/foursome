@@ -7,7 +7,7 @@ class News {
   text: string;
   link: string;
   type: string;
-  prioriry: string;
+  priority: string;
   created_at: Date;
 }
 
