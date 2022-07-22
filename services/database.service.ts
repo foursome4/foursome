@@ -39,6 +39,7 @@ export const collections: {
   payments?:mongoDB.Collection,
   plains?:mongoDB.Collection,
   news?:mongoDB.Collection,
+  newsreply?:mongoDB.Collection,
  } = {}
 
 export async function connectToDatabase() {
@@ -222,5 +223,8 @@ export async function connectToDatabase() {
       
       const plainsNews: mongoDB.Collection = db.collection(`${process.env.NEWS_COLLECTION_NAME}`);
       collections.news = plainsNews;
+
+      const plainsNewsReply: mongoDB.Collection = db.collection(`${process.env.NEWSREPLY_COLLECTION_NAME}`);
+      collections.newsreply = plainsNews;
     }
   
