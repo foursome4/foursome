@@ -32,6 +32,7 @@ import { groupsRecuperation } from "./recuperation/recuperation.routes";
 import { DistanceMatrixRoutes } from "./DistanceMatrix/DistanceMatrix";
 import { plainsRoutes } from "./plains/plains.routes";
 import { paymentsRoutes } from "./plains/payments.routes";
+import { newsRoutes } from "./realTime/news.routes";
 const router = Router();
 
 connectToDatabase()
@@ -56,6 +57,7 @@ connectToDatabase()
     router.use("/foruns", forunsRoutes);
     router.use("/preferences", preferencesRoutes);
     router.use("/conversations", cnversationsRoutes);
+    router.use("/news", newsRoutes);
     router.use("/messages", messagesRoutes);
     router.use("/online", usersOlineRoutes);
     router.use("/mail", mailRoutes);

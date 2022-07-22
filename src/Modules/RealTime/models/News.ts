@@ -1,5 +1,5 @@
 
-class Informations {
+class News {
   id: string;
   destination: string;
   idAccount: string;
@@ -11,4 +11,4 @@ class Informations {
   created_at: Date;
 }
 
-export { Informations };
+export { News };
