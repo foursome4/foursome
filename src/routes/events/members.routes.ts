@@ -1,7 +1,7 @@
 import { Router } from "express";
-import { createMembersController } from "../../Modules/Events/useCases/createMembers";
-import { deleteMemberController } from "../../Modules/Events/useCases/deleteMember";
-import { listMembersEventController } from "../../Modules/Events/useCases/listMembersEvent";
+import { createMembersController } from "../../Modules/Eventos/useCases/createMembers";
+import { deleteMemberController } from "../../Modules/Eventos/useCases/deleteMember";
+import { listMembersEventController } from "../../Modules/Eventos/useCases/listMembersEvent";
 
 
 

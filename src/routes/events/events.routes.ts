@@ -1,9 +1,9 @@
 import { Router } from "express";
-import { createEventsController } from "../../Modules/Events/useCases/createEvents";
-import { deleteEventsController } from "../../Modules/Events/useCases/deleteEvent";
-import { listEventsController } from "../../Modules/Events/useCases/listEvents";
-import { listEventsUnicController } from "../../Modules/Events/useCases/listEventsUnic";
-import { listEventsUserController } from "../../Modules/Events/useCases/listEventsUser";
+import { createEventsController } from "../../Modules/Eventos/useCases/createEvents";
+import { deleteEventsController } from "../../Modules/Eventos/useCases/deleteEvent";
+import { listEventsController } from "../../Modules/Eventos/useCases/listEvents";
+import { listEventsUnicController } from "../../Modules/Eventos/useCases/listEventsUnic";
+import { listEventsUserController } from "../../Modules/Eventos/useCases/listEventsUser";
 
 
 
