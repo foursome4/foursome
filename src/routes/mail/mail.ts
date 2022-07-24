@@ -285,6 +285,7 @@ mailRoutes.post("/username", async (req, res) =>  {
     }
   });
 
+  
   // send mail with defined transport object
   let info = await transporter.sendMail({
     from: '"Aqui está!" <contato@foursome.com.br>', // sender address
