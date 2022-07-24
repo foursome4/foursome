@@ -3,7 +3,7 @@ class NewsReply {
   id: string;
   idNews: string;
   idAccount: string;
-  text: boolean;
+  text: string;
   link: string;
   created_at: Date;
 }

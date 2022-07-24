@@ -4,7 +4,7 @@ interface INewsReplyDTO {
   id: string;
   idNews: string;
   idAccount: string;
-  text: boolean;
+  text: string;
   link: string;
 
 }

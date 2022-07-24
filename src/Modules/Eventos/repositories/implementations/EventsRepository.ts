@@ -23,7 +23,7 @@ class EventsRepository implements IEventsRepository {
   findByName(name: any): Events {
     const event = this.events.find((event) => event.name === name);
     try {
-      const findName = collections.newsletter.findOne({ name })
+      const findName = collections.events.findOne({ name })
 
       if (findName) {
         return
