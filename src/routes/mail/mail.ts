@@ -106,6 +106,7 @@ mailRoutes.post("/reinvite", async (req, res) =>  {
 
 mailRoutes.post("/accountaproved", async (req, res) =>  {
   const mail = req.body;
+  console.log(mail);
 
 
  let transporter = nodemailer.createTransport({
@@ -138,6 +139,7 @@ mailRoutes.post("/accountaproved", async (req, res) =>  {
   });
 
 
+  console.log(info)
   if(info) {
     res.status(200).json({"message":"Email enviado com sucesso"});
 console.log("Email enviado com sucesso")
@@ -147,6 +149,7 @@ console.log("Email enviado com sucesso")
 mailRoutes.post("/accountrecused", async (req, res) =>  {
   const mail = req.body;
 
+  console.log(mail)
 
  let transporter = nodemailer.createTransport({
     host: "email-ssl.com.br",
@@ -180,9 +183,12 @@ mailRoutes.post("/accountrecused", async (req, res) =>  {
   });
 
 
+  console.log(info)
   if(info) {
     res.status(200).json({"message":"Email enviado com sucesso"});
 console.log("Email enviado com sucesso")
+} else {
+  res.status(500)
 }
 
 });
@@ -286,7 +292,7 @@ mailRoutes.post("/username", async (req, res) =>  {
   });
 
 
-  
+
   // send mail with defined transport object
   let info = await transporter.sendMail({
     from: '"Aqui está!" <contato@foursome.com.br>', // sender address

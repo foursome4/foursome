@@ -8,7 +8,6 @@ class ListAllPostsController {
     ("");
   }
 
-
   async handle(req: Request, res: Response) {
     const page = req.query.page;
     const limit = req.query.limit;

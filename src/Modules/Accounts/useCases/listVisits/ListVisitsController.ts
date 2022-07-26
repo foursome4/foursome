@@ -10,7 +10,7 @@ class ListVisitsController {
 
   async handle(req: Request, res: Response) {
     const idFriend = req.params;
-   await collections.visits.find(idFriend).toArray(function(err, result){
+   await collections.visits.find(idFriend).sort( { created_at: -1 } ).toArray(function(err, result){
       if(err) {
         res.status(500).json(err)
       } else {
