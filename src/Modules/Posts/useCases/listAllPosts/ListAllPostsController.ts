@@ -12,6 +12,8 @@ class ListAllPostsController {
     const page = req.query.page;
     const limit = req.query.limit;
 
+
+    
 console.log(page)
 console.log(limit)
 await collections.post.find({}).sort( { created_at: -1 } ).skip(Number(page) > 0 ? (( Number(page) - 1) * Number(limit)) : 0).limit( Number(limit) ).toArray(function(err, result){
