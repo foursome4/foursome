@@ -35,6 +35,7 @@ import { paymentsRoutes } from "./plains/payments.routes";
 import { newsRoutes } from "./realTime/news.routes";
 const router = Router();
 
+
 connectToDatabase()
   .then(() => {
     router.use("/groups", groupsRoutes);
