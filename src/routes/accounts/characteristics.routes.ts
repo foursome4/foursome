@@ -21,6 +21,10 @@ groupsCharacteristics.delete("/:idAccount", (req, res) => {
   return deleteCharacteristicsController.handle(req, res);
 });
 
+
+
+
+
 export { groupsCharacteristics };
 
 
