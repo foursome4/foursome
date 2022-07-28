@@ -23,5 +23,3 @@ groupsCharacteristics.delete("/:idAccount", (req, res) => {
 
 
 export { groupsCharacteristics };
-
-
