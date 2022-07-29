@@ -172,7 +172,8 @@ mailRoutes.post("/accountrecused", async (req, res) =>  {
 - PERFIL CASAL ( FOTO DO CASAL)<br/>
 - PERFIL SOLTEIRO (A) ( FOTO DO SOLTEIRO (A))<br/><br/>
 Obs.: Foto NÃO necessariamente do rosto.<br/><br/>
-Crie uma nova conta e preste bem atenção em todos os detalhes. Ok?.<br/>
+Mas não fique triste, você pode enviar uma nova solicitação agora mesmo.<br/>
+Crie uma nova conta e preste bem atenção em todos os detalhes. Ok?.<br/><br/>
 Acesse site e crie uma nova conta: <a href="https://foursome.com.br" target="_blank">www.foursome.com.br</a> <br/><br/>
     
     Estamos esperando por você!. <br/><br/>
