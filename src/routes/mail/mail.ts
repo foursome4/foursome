@@ -160,10 +160,6 @@ mailRoutes.post("/accountrecused", async (req, res) =>  {
     }
   });
 
-  
-
-  
-
   // send mail with defined transport object
   let info = await transporter.sendMail({
     from: '"algo deu errado" <contato@foursome.com.br>', // sender address
