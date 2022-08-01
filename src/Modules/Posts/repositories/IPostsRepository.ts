@@ -16,6 +16,8 @@ interface IPostsDTO {
   link: string;
   like: number;
   typeAccount: string;
+  ufAccount: string;
+  cityAccount: string;
 }
 
 interface IPostsRepository {
@@ -34,7 +36,9 @@ interface IPostsRepository {
     text,
     link,
     like,
-    typeAccount
+    typeAccount,
+    ufAccount,
+    cityAccount
     }: IPostsDTO): Promise<void>;
     update({text}): Promise<void>
   list();

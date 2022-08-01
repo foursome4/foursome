@@ -16,6 +16,8 @@ class Posts {
   link: string;
   like: number;
   typeAccount: string;
+  ufAccount: string;
+  cityAccount: string;
   created_at: Date;
 
 }
