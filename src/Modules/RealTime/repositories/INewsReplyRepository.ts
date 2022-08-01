@@ -6,7 +6,6 @@ interface INewsReplyDTO {
   idAccount: string;
   text: string;
   link: string;
-
 }
 
 interface INewsReplyRepository {

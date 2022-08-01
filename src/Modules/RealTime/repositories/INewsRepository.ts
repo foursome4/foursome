@@ -22,7 +22,3 @@ interface INewsRepository {
 }
 
 export { INewsRepository, INewsDTO };
-
-
-
- 
