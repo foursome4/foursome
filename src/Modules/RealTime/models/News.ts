@@ -13,5 +13,4 @@ class News {
   created_at: Date;
 }
 
-
 export { News };
