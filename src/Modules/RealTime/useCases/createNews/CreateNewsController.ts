@@ -8,11 +8,11 @@ class CreateNewsController {
   }
   handle(req: Request, res: Response) {
     const { 
-     id, patron, reply, destination, idAccount, title, text, link, type, priority,
+     id, patron, reply, destination, destinationName, idAccount, title, text, link, type, priority,
      } =
       req.body;
     this.createNewsUseCase.execute({
-     id, patron, reply, destination, idAccount, title, text, link, type, priority,
+     id, patron, reply, destination, destinationName, idAccount, title, text, link, type, priority,
     }).then((result) => {
       return res.status(201).json(result).send();
     }).catch(error => {

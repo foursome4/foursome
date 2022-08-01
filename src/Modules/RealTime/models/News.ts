@@ -5,6 +5,7 @@ class News {
   idAccount: string;  // Usuário que enviou a notificação na moderação
   reply: boolean; // O usuário pode responder?
   destination: string; // Id do usuário que recebe ou "All" para todos.
+  destinationName: string; 
   title: string;  
   text: string;
   link: string;
