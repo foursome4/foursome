@@ -31,6 +31,7 @@ export const collections: {
   dateRead?:mongoDB.Collection,
   notificationsMessage?:mongoDB.Collection,
   dateReadMessage?:mongoDB.Collection,
+  dateReadMessageChat?:mongoDB.Collection,
   dateReadFeed?:mongoDB.Collection,
   dateReadLogin?:mongoDB.Collection,
   visits?:mongoDB.Collection,
@@ -190,6 +191,10 @@ export async function connectToDatabase() {
       
       const datereadMessageCollection: mongoDB.Collection = db.collection(process.env.DATEREADMESSAGE_COLLECTION_NAME);
       collections.dateReadMessage = datereadMessageCollection;
+      // console.log(`Successfully connected to database: ${db.databaseName} and collection: ${notificationsCollection.collectionName}`);
+
+      const datereadMessageChatCollection: mongoDB.Collection = db.collection(process.env.DATEREADMESSAGECHAT_COLLECTION_NAME);
+      collections.dateReadMessageChat = datereadMessageChatCollection;
       // console.log(`Successfully connected to database: ${db.databaseName} and collection: ${notificationsCollection.collectionName}`);
 
       const datereadFeedCollection: mongoDB.Collection = db.collection(process.env.DATEREADFEED_COLLECTION_NAME);
