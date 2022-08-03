@@ -8,11 +8,11 @@ class CreateNewsReplyController {
   }
   handle(req: Request, res: Response) {
     const { 
-     id, idNews, idAccount, text, link
+     id, idNews, idAccount,  username, nickname, text, link
      } =
       req.body;
     this.createNewsUseCase.execute({
-     id, idNews, idAccount, text, link
+     id, idNews, idAccount,  username, nickname, text, link
     }).then((result) => {
       return res.status(201).json(result).send();
     }).catch(error => {
