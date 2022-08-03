@@ -14,7 +14,9 @@ class ListReactionsController {
       if(err) {
         res.status(500).json(err)
       } else {
-        res.status(200).json(result)
+        res.status(200).json(result.length)
+        console.log(result)
+        console.log(result.length)
       }
     //  console.log(result)
       return result;
