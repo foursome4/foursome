@@ -230,6 +230,6 @@ export async function connectToDatabase() {
       collections.news = plainsNews;
 
       const plainsNewsReply: mongoDB.Collection = db.collection(`${process.env.NEWSREPLY_COLLECTION_NAME}`);
-      collections.newsreply = plainsNews;
+      collections.newsreply = plainsNewsReply;
     }
   

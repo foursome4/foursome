@@ -33,6 +33,7 @@ import { DistanceMatrixRoutes } from "./DistanceMatrix/DistanceMatrix";
 import { plainsRoutes } from "./plains/plains.routes";
 import { paymentsRoutes } from "./plains/payments.routes";
 import { newsRoutes } from "./realTime/news.routes";
+import { newsReplyRoutes } from "./realTime/newsReply.routes";
 const router = Router();
 
 
@@ -61,6 +62,7 @@ connectToDatabase()
     router.use("/preferences", preferencesRoutes);
     router.use("/conversations", cnversationsRoutes);
     router.use("/news", newsRoutes);
+    router.use("/newsreply", newsReplyRoutes);
     router.use("/messages", messagesRoutes);
     router.use("/online", usersOlineRoutes);
     router.use("/mail", mailRoutes);

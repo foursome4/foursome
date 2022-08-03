@@ -9,7 +9,7 @@ class DeleteNewsReplyController {
   }
   async handle(req: Request, res: Response) {
     const id = req.params;
-      await collections.news.deleteOne(id)
+      await collections.newsreply.deleteOne(id)
       .then((result) => {
       return res.status(201).json(result);
     }).catch(error => {

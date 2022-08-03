@@ -1,15 +1,15 @@
 import { collections } from "../../../../../services/database.service";
-import { News } from "../../models/News";
+import { NewsReply } from "../../models/NewsReply";
 import { INewsReplyDTO, INewsReplyRepository } from "../INewsReplyRepository";
 import {v4 as uuidv4} from 'uuid'
 
 class NewsReplyRepository implements INewsReplyRepository {
-  private news: News[];
+  private newsreply: NewsReply[];
 
   private static INSTANCE: NewsReplyRepository;
 
   private constructor() {
-    this.news = [];
+    this.newsreply = [];
   }
 
   public static getInstance(): NewsReplyRepository {
@@ -21,16 +21,16 @@ class NewsReplyRepository implements INewsReplyRepository {
   }
 
   async create({ idNews, idAccount, text, link }: INewsReplyDTO) {
-    const newsOne: News = new News();
+    const newsOne: NewsReply = new NewsReply();
     const _id = uuidv4()
     Object.assign(newsOne, {
       _id, id: _id, idNews, idAccount, text, link, created_at: new Date(),
     });
 
-    this.news.push(newsOne);
+    this.newsreply.push(newsOne);
     console.log(newsOne)
 
-    await collections.news.insertOne(newsOne).then((result) => {
+    await collections.newsreply.insertOne(newsOne).then((result) => {
       console.log(result) 
     }).catch(error => {
       console.log(error)
@@ -43,7 +43,7 @@ class NewsReplyRepository implements INewsReplyRepository {
 
 
   async delete({id}) {
-    await collections.news.deleteOne(id).then((result) => {
+    await collections.newsreply.deleteOne(id).then((result) => {
       console.log(result)
     }).catch(error => {
       console.log(error)
