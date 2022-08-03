@@ -7,6 +7,8 @@ interface INewsDTO {
   destination: string;
   destinationName: string;
   idAccount: string;
+  username: string;
+  nickname: string;
   title: string;
   text: string;
   link: string;
@@ -16,8 +18,8 @@ interface INewsDTO {
 }
 
 interface INewsRepository {
-  create({id, patron, reply, destination, destinationName, idAccount, title, text, link, type, priority, }: INewsDTO): Promise<void>;
-  update({id, patron, reply, destination, destinationName, idAccount, title, text, link, type, priority, }: INewsDTO):void;
+  create({id, patron, reply, destination, destinationName, idAccount, username, nickname,  title, text, link, type, priority, }: INewsDTO): Promise<void>;
+  update({id, patron, reply, destination, destinationName, idAccount, username, nickname,  title, text, link, type, priority, }: INewsDTO):void;
   list();
   delete({id});
 }

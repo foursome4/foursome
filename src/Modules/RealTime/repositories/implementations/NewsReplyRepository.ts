@@ -20,11 +20,11 @@ class NewsReplyRepository implements INewsReplyRepository {
     return NewsReplyRepository.INSTANCE;
   }
 
-  async create({ idNews, idAccount, text, link }: INewsReplyDTO) {
+  async create({ idNews, idAccount,  username, nickname, text, link }: INewsReplyDTO) {
     const newsOne: NewsReply = new NewsReply();
     const _id = uuidv4()
     Object.assign(newsOne, {
-      _id, id: _id, idNews, idAccount, text, link, created_at: new Date(),
+      _id, id: _id, idNews, idAccount,  username, nickname, text, link, created_at: new Date(),
     });
 
     this.newsreply.push(newsOne);
@@ -39,7 +39,7 @@ class NewsReplyRepository implements INewsReplyRepository {
 
   list(){}
 
-  update({id, idNews, idAccount, text, link}):void {}
+  update({id, idNews, idAccount,  username, nickname, text, link}):void {}
 
 
   async delete({id}) {

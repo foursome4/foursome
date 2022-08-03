@@ -7,6 +7,8 @@ interface IRequest {
   destination: string;
   destinationName: string;
   idAccount: string;
+  username: string;
+  nickname: string;
   title: string;
   text: string;
   link: string;
@@ -20,11 +22,11 @@ class CreateNewsUseCase {
   }
 
   async execute({
-    id, patron, reply, destination, destinationName, idAccount, title, text, link, type, priority,
+    id, patron, reply, destination, destinationName, idAccount,  username, nickname, title, text, link, type, priority,
   }: IRequest): Promise<void>{
 
    await this.NewsRepository.create({
-    id, patron, reply, destination, destinationName, idAccount, title, text, link, type, priority,
+    id, patron, reply, destination, destinationName, idAccount,  username, nickname, title, text, link, type, priority,
     });
   }
 }
