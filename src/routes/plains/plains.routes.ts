@@ -16,7 +16,7 @@ plainsRoutes.post("/", (req, res) => {
 plainsRoutes.get("/", (req, res) => {
   return listPlainsController.handle(req, res);
 });
-plainsRoutes.get("/unic/:id", (req, res) => {
+plainsRoutes.get("/unic/:name", (req, res) => {
   return listPlainsUnicController.handle(req, res);
 });
 
