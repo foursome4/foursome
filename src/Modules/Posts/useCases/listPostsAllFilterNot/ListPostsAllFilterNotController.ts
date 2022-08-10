@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
 import { collections } from "../../../../../services/database.service";
 
-import { ListPostsAllFilterUseCase } from "./ListPostsAllFilterUseCase";
+import { ListPostsAllFilterNotUseCase } from "./ListPostsAllFilterNotUseCase";
 
-class ListPostsAllFilterController {
-  constructor(private listPostseCase: ListPostsAllFilterUseCase) {
+class ListPostsAllFilterNotController {
+  constructor(private listPostseCase: ListPostsAllFilterNotUseCase) {
     ("");
   }
 
@@ -14,15 +14,10 @@ class ListPostsAllFilterController {
     const limit = req.query.limit;
     const data = req.body
 
-   await collections.post.find({
-    "$or": [{ "ufAccount" : ufAccount.ufAccount },
-    { "idAccount": "67789f" },
-    { "idAccount": "503465" },
-    { "idAccount": "2ac0f7" },
-    { "idAccount": "e90897" },
-    { "idAccount": "4aabed" },
-    { "idAccount": "7b9f35" }]
-}).sort( { created_at: -1 } ).skip(Number(page) > 0 ? (( Number(page) - 1) * Number(limit)) : 0).limit( Number(limit) ).toArray(function(err, result){
+   await collections.post.find(
+    {"ufAccount": {$ne: ufAccount.ufAccount},
+    "idAccount" : {$nin : ["67789f", "503465", "2ac0f7", "e90897", "4aabed", "7b9f35"]}}
+    ).sort( { created_at: -1 } ).skip(Number(page) > 0 ? (( Number(page) - 1) * Number(limit)) : 0).limit( Number(limit) ).toArray(function(err, result){
       if(err) {
         res.status(500).json(err)
       } else {
@@ -52,6 +47,6 @@ class ListPostsAllFilterController {
   }
 }
 
-export { ListPostsAllFilterController };
+export { ListPostsAllFilterNotController };
 
 
