@@ -8,14 +8,15 @@ interface IPaymentsDTO {
   namePlain:string;
   value: string;
   period: number;
+  aceptTerms: string;
   linkComprovant: string;
 }
 
 interface IPaymentsRepository {
-  create({idPlain, idAccount, username, email, namePlain, value, period, linkComprovant }: IPaymentsDTO): Promise<void>;
+  create({idPlain, idAccount, username, email, namePlain, value, period, linkComprovant, aceptTerms }: IPaymentsDTO): Promise<void>;
   list();
   delete({id});
-  update({idPlain, idAccount, username, email, namePlain, value, period, linkComprovant}): Promise<void>
+  update({idPlain, idAccount, username, email, namePlain, value, period, linkComprovant, aceptTerms}): Promise<void>
 }
 
 export { IPaymentsRepository, IPaymentsDTO };

@@ -9,6 +9,7 @@ interface IRequest {
   value: string;
   period: number;
   linkComprovant: string;
+  aceptTerms: string;
 }
 
 class CreatePaymentsUseCase {
@@ -17,11 +18,11 @@ class CreatePaymentsUseCase {
   }
 
   async execute({
-    idPlain, idAccount, username, email, namePlain, value, period, linkComprovant
+    idPlain, idAccount, username, email, namePlain, value, period, linkComprovant, aceptTerms
   }: IRequest): Promise<void>{
 
    await this.PaymentsRepository.create({
-    idPlain, idAccount, username, email, namePlain, value, period, linkComprovant
+    idPlain, idAccount, username, email, namePlain, value, period, linkComprovant, aceptTerms
     });
   }
 }

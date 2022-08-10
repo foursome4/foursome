@@ -8,6 +8,7 @@ class Payments {
   value: string;
   period: number;
   linkComprovant: string;
+  aceptTerms: string;
   created_at: Date;
 }
 
