@@ -3,6 +3,7 @@ import { createPlainsController } from "../../Modules/Plains/useCases/createPlai
 import { deletePlainsController } from "../../Modules/Plains/useCases/deletePlains";
 import { listPlainsController } from "../../Modules/Plains/useCases/listPlains";
 import { listPlainsUnicController } from "../../Modules/Plains/useCases/listPlainsUnic";
+import { listPlainsUnicIdController } from "../../Modules/Plains/useCases/listPlainsUnicId";
 import { updatePlainsController } from "../../Modules/Plains/useCases/updatePlains";
 
 
@@ -18,6 +19,9 @@ plainsRoutes.get("/", (req, res) => {
 });
 plainsRoutes.get("/unic/:reference", (req, res) => {
   return listPlainsUnicController.handle(req, res);
+});
+plainsRoutes.get("/plain/:id", (req, res) => {
+  return listPlainsUnicIdController.handle(req, res);
 });
 
 plainsRoutes.patch("/:id", (req, res) => {
