@@ -4,6 +4,7 @@ interface IPaymentsDTO {
   idPlain: string;
   idAccount: string;
   username:string;
+  email:string;
   namePlain:string;
   value: string;
   period: number;
@@ -11,10 +12,10 @@ interface IPaymentsDTO {
 }
 
 interface IPaymentsRepository {
-  create({idPlain, idAccount, username, namePlain, value, period, linkComprovant }: IPaymentsDTO): Promise<void>;
+  create({idPlain, idAccount, username, email, namePlain, value, period, linkComprovant }: IPaymentsDTO): Promise<void>;
   list();
   delete({id});
-  update({idPlain, idAccount, username, namePlain, value, period, linkComprovant}): Promise<void>
+  update({idPlain, idAccount, username, email, namePlain, value, period, linkComprovant}): Promise<void>
 }
 
 export { IPaymentsRepository, IPaymentsDTO };

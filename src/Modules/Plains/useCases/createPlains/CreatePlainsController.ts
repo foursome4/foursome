@@ -7,9 +7,9 @@ class CreatePlainsController {
     ("");
   }
   handle(req: Request, res: Response) {
-    const {name, value, period} =
+    const {reference, name, value, period} =
       req.body;
-    this.createPlainsUseCase.execute({name, value, period }).then((result) => {
+    this.createPlainsUseCase.execute({reference, name, value, period }).then((result) => {
       return res.status(201).json(result).send();
     }).catch(error => {
       console.log(error);

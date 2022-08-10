@@ -42,7 +42,7 @@ class ListPostsAllFilterController {
               results.idAccount !== "4aabed" ||
               results.idAccount !== "7b9f35" 
               )
-
+        console.log(filterResult)
         res.status(200).json(filterResult)
       }
      // console.log(result)

@@ -20,11 +20,11 @@ class PlainsRepository implements IPlainsRepository {
     return PlainsRepository.INSTANCE;
   }
 
- async create({ name, value, period }: IPlainsDTO) {
+ async create({ reference, name, value, period }: IPlainsDTO) {
     const plain: Plains = new Plains();
     const _id = uuidv4()
     Object.assign(plain, {
-      _id, id: _id,name, value, period, created_at: new Date(),
+      _id, id: _id,reference, name, value, period, created_at: new Date(),
     });
 
     this.plains.push(plain);
@@ -46,7 +46,7 @@ class PlainsRepository implements IPlainsRepository {
     })
   }
 
-  async update({name, value, period}): Promise<void> {}
+  async update({reference, name, value, period}): Promise<void> {}
 }
 
 

@@ -1,5 +1,6 @@
 
 class Plains {
+  reference: string;
   name: string;
   value: string;
   period: number;

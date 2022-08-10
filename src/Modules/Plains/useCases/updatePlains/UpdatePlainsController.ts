@@ -8,11 +8,11 @@ class UpdatePlainsController {
   }
 
   async handle(req: Request, res: Response) {
-    const {name, value, period} = req.body;
+    const {reference, name, value, period} = req.body;
     const id = req.params; 
 
 
-    await collections.plains.findOneAndUpdate(id, {$set:{name, value, period}}, {upsert: true}).then((result) => {
+    await collections.plains.findOneAndUpdate(id, {$set:{reference, name, value, period}}, {upsert: true}).then((result) => {
       return res.status(201).json(result);
     }).catch(error => {
      console.log(error);
