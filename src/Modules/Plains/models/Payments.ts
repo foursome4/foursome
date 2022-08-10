@@ -5,6 +5,7 @@ class Payments {
   username:string;
   email:string;
   namePlain:string;
+  referencePlain:string;
   value: string;
   period: number;
   linkComprovant: string;

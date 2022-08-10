@@ -20,11 +20,11 @@ class PaymentsRepository implements IPaymentsRepository {
     return PaymentsRepository.INSTANCE;
   }
 
-  async create({ idPlain, idAccount, username, email, namePlain, value, period, linkComprovant, aceptTerms }: IPaymentsDTO) {
+  async create({ idPlain, idAccount, username, email, namePlain, referencePlain, value, period, linkComprovant, aceptTerms }: IPaymentsDTO) {
     const payment: Payments = new Payments();
     const _id = uuidv4()
     Object.assign(payment, {
-      _id, id: _id, idPlain, idAccount, username, email, namePlain, value, period, linkComprovant,aceptTerms, created_at: new Date(),
+      _id, id: _id, idPlain, idAccount, username, email, namePlain, referencePlain, value, period, linkComprovant,aceptTerms, created_at: new Date(),
     });
 
     this.payments.push(payment);
