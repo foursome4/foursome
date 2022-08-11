@@ -27,6 +27,20 @@ class UsersOnlineRepository implements IUsersOnlineRepository {
           throw new Error("User already exists!")
         } 
     }
+  async findByUsername(username: string): Promise<void>  {
+    const findUsername = await collections.usersOnline.findOne({username})
+    
+        if(findUsername) {
+          throw new Error("User already exists!")
+        } 
+    }
+  async findByNickname(nickname: string): Promise<void>  {
+    const findByNickname = await collections.usersOnline.findOne({nickname})
+    
+        if(findByNickname) {
+          throw new Error("User already exists!")
+        } 
+    }
  
  async create({ 
   idAccount, username, type, nickname, avatar, relationship, lat, long, city, uf, actualCity, actualUf, equalCity, plane, emoji, song, invisible 

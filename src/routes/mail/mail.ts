@@ -278,6 +278,96 @@ console.log("Email enviado com sucesso")
 
 });
 
+mailRoutes.post("/paymentaproved", async (req, res) =>  {
+  const mail = req.body;
+  console.log(mail.mail)
+
+
+ let transporter = nodemailer.createTransport({
+    host: "email-ssl.com.br",
+    port: 465,
+    auth: {
+      user: "contato@foursome.com.br",
+      pass: "Foursome2021*"
+    }
+  });
+
+
+  
+  // send mail with defined transport object
+  let info = await transporter.sendMail({
+    from: '"Tudo ok por aqui" <contato@foursome.com.br>', // sender address
+    to: mail.mail, // list of receivers
+    subject: "Pagamento confrmado 👏", // Subject line
+    text: "Pagamento confrmado 👏", // plain text body
+    html: `<p>Parabéns, identificamos seu pagamento<br/>
+    Continue a usar o nosso site com todos os benefícios que seu plano oferece.<br/>
+    <br/>
+    Acessar site: <a href="https://foursome.com.br" target="_blank">www.foursome.com.br</a> <br/><br/>
+    Em caso de dúvida, fale conosco. <br/>
+    Whatsapp: (22)99791-0510<br/>
+    contato@foursome.com.br <br/><br/>
+    
+    FOURSOME <a href="https://www.foursome.com.br" target="_blank">www.foursome.com.br</a><p/>`, // html body.
+  });
+
+
+  if(info) {
+    res.status(200).json({"message":"Email enviado com sucesso"});
+console.log("Email enviado com sucesso")
+}
+
+});
+
+mailRoutes.post("/paymentreproved", async (req, res) =>  {
+  const mail = req.body;
+  console.log(mail.mail)
+
+
+ let transporter = nodemailer.createTransport({
+    host: "email-ssl.com.br",
+    port: 465,
+    auth: {
+      user: "contato@foursome.com.br",
+      pass: "Foursome2021*"
+    }
+  });
+
+
+  
+  // send mail with defined transport object
+  let info = await transporter.sendMail({
+    from: '"Ops. Temos um problema" <contato@foursome.com.br>', // sender address
+    to: mail.mail, // list of receivers
+    subject: "Temos um problema 😢", // Subject line
+    text: "Ops. Temos um problema 😢", // plain text body
+    html: `<p>Não identificamos o seu pagamento.<br/>
+    O comprovante enviado não é válido ou não bate com nossa base de pagamentos.
+    <br/><br/>
+    <b>Não envie tela de confirmação.<br/>
+    Não envie comprovante resumido.<br/>
+    Não envie linha de extrato.<br/>
+    Não rasure ou corte o comprovante.<br/>
+    O envio de comprovante fora dos padrões poderá causar o bloqueio do seu acesso.</b> <br/><br/>
+    Você pode enviar um novo comprovante para o nosso whatsapp, para acelerar a liberação de seu acesso.<br/>
+    <br/>
+    <br/>
+    Acessar site: <a href="https://foursome.com.br" target="_blank">www.foursome.com.br</a> <br/><br/>
+    Em caso de dúvida, fale conosco. <br/>
+    Whatsapp: (22)99791-0510<br/>
+    contato@foursome.com.br <br/><br/>
+    
+    FOURSOME <a href="https://www.foursome.com.br" target="_blank">www.foursome.com.br</a><p/>`, // html body.
+  });
+
+
+  if(info) {
+    res.status(200).json({"message":"Email enviado com sucesso"});
+console.log("Email enviado com sucesso")
+}
+
+});
+
 
 mailRoutes.post("/username", async (req, res) =>  {
   const mail = req.body;

@@ -9,6 +9,7 @@ import { updatePasswordController } from "../../Modules/Accounts/useCases/update
 import { listAccountsLimitsController } from "../../Modules/Accounts/useCases/listAccountsLimits";
 import { listAccountsPatronController } from "../../Modules/Accounts/useCases/listAccountsPatron";
 import { listAccountsStatusController } from "../../Modules/Accounts/useCases/listAccountsStatus";
+import { updateStatusController } from "../../Modules/Accounts/useCases/updateStatus";
 
 
 
@@ -43,6 +44,9 @@ groupsAccounts.patch("/:id", (req, res) => {
 });
 groupsAccounts.patch("/recover/:email", (req, res) => {
   return updatePasswordController.handle(req, res);
+});
+groupsAccounts.patch("/updatestatus/:id", (req, res) => {
+  return updateStatusController.handle(req, res);
 });
 
 groupsAccounts.delete("/:id", (req, res) => {

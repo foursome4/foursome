@@ -11,13 +11,14 @@ interface IPaymentsDTO {
   period: number;
   aceptTerms: string;
   linkComprovant: string;
+  status: string;
 }
 
 interface IPaymentsRepository {
-  create({idPlain, idAccount, username, email, namePlain,referencePlain, value, period, linkComprovant, aceptTerms }: IPaymentsDTO): Promise<void>;
+  create({idPlain, idAccount, username, email, namePlain,referencePlain, value, period, linkComprovant, aceptTerms, status }: IPaymentsDTO): Promise<void>;
   list();
   delete({id});
-  update({idPlain, idAccount, username, email, namePlain,referencePlain, value, period, linkComprovant, aceptTerms}): Promise<void>
+  update({idPlain, idAccount, username, email, namePlain,referencePlain, value, period, linkComprovant, aceptTerms, status}): Promise<void>
 }
 
 export { IPaymentsRepository, IPaymentsDTO };

@@ -34,6 +34,7 @@ import { plainsRoutes } from "./plains/plains.routes";
 import { paymentsRoutes } from "./plains/payments.routes";
 import { newsRoutes } from "./realTime/news.routes";
 import { newsReplyRoutes } from "./realTime/newsReply.routes";
+import { periodTestRoutes } from "./accounts/periodtest.routes";
 const router = Router();
 
 
@@ -76,6 +77,7 @@ connectToDatabase()
     router.use("/visits", visitsRoutes);
     router.use("/plains", plainsRoutes);
     router.use("/payments", paymentsRoutes);
+    router.use("/periodtest", periodTestRoutes);
   }).catch((error: Error) => {
     console.error("Database connection failed", error);
     process.exit();

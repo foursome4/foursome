@@ -10,6 +10,7 @@ class Payments {
   period: number;
   linkComprovant: string;
   aceptTerms: string;
+  status: string;
   created_at: Date;
 }
 

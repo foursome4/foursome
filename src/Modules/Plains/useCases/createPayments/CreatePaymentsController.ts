@@ -8,11 +8,11 @@ class CreatePaymentsController {
   }
   handle(req: Request, res: Response) {
     const { 
-      idPlain, idAccount, username, email, namePlain, referencePlain, value, period, linkComprovant, aceptTerms
+      idPlain, idAccount, username, email, namePlain, referencePlain, value, period, linkComprovant, aceptTerms, status
      } =
       req.body;
     this.createPaymentsUseCase.execute({
-      idPlain, idAccount, username, email, namePlain, referencePlain, value, period, linkComprovant, aceptTerms
+      idPlain, idAccount, username, email, namePlain, referencePlain, value, period, linkComprovant, aceptTerms, status
     }).then((result) => {
       return res.status(201).json(result).send();
     }).catch(error => {

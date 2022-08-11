@@ -11,6 +11,8 @@ interface IRequest {
   period: number;
   linkComprovant: string;
   aceptTerms: string;
+status: string;
+
 }
 
 class UpdatePaymentsUseCase {
@@ -18,9 +20,9 @@ class UpdatePaymentsUseCase {
     " ";
   }
   
-  async execute({idPlain, idAccount, username, email, namePlain, referencePlain, value, period, linkComprovant, aceptTerms }: IRequest): Promise<void> {
+  async execute({idPlain, idAccount, username, email, namePlain, referencePlain, value, period, linkComprovant, aceptTerms, status }: IRequest): Promise<void> {
          await this.PaymentsRepository.update({
-       idPlain, idAccount, username, email, namePlain, referencePlain, value, period, linkComprovant, aceptTerms
+       idPlain, idAccount, username, email, namePlain, referencePlain, value, period, linkComprovant, aceptTerms, status
       });
 
   }

@@ -35,14 +35,14 @@ class ListPostsAllFilterController {
               results.typeAccount === data.transvestites ||
               results.typeAccount === data.transsexuals ||
               results.typeAccount === data.groups ||
-              results.idAccount !== "67789f" ||
-              results.idAccount !== "503465" ||
-              results.idAccount !== "2ac0f7" ||
-              results.idAccount !== "e90897" ||
-              results.idAccount !== "4aabed" ||
-              results.idAccount !== "7b9f35" 
+              results.idAccount === "67789f" ||
+              results.idAccount === "503465" ||
+              results.idAccount === "2ac0f7" ||
+              results.idAccount === "e90897" ||
+              results.idAccount === "4aabed" ||
+              results.idAccount === "7b9f35" 
               )
-        console.log(filterResult)
+        console.log(data.man)
         res.status(200).json(filterResult)
       }
      // console.log(result)
