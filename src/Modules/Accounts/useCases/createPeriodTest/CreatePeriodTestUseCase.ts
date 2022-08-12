@@ -6,7 +6,6 @@ interface IRequest {
   stringDate: string;
   idAccount: string;
   username: string;
-  idFriend: string;
 }
 
 class CreatePeriodTestUseCase {
@@ -14,11 +13,11 @@ class CreatePeriodTestUseCase {
     " ";
   }
   
-  async execute({ stringDate, idAccount, username, idFriend }: IRequest): Promise<void> {
+  async execute({ stringDate, idAccount, username, }: IRequest): Promise<void> {
     const findEmail = await this.PeriodTestRepository.findByIdAccount(idAccount);
 
       await this.PeriodTestRepository.create({
-        stringDate, idAccount, username, idFriend
+        stringDate, idAccount, username,
       });
 
   }

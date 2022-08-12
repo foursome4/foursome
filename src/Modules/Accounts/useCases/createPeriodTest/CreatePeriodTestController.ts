@@ -7,10 +7,10 @@ class CreatePeriodTestController {
   }
 
   handle(req: Request, res: Response) {
-    const { stringDate, idAccount, username, idFriend } = req.body;
+    const { stringDate, idAccount, username } = req.body;
 
     this.createPeriodTestUseCase.execute({
-      stringDate, idAccount, username, idFriend
+      stringDate, idAccount, username
     }).then((result) => {
       return res.status(201).json(result).send();
     }).catch(error => {

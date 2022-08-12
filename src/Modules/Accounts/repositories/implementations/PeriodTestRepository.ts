@@ -34,7 +34,7 @@ class PeriodTestRepository implements IPeriodTestRepository {
   }
 
   
-    async create({ stringDate, idAccount, username, idFriend}: IPeriodTestDTO) {
+    async create({ stringDate, idAccount, username}: IPeriodTestDTO) {
       const periodTest: PeriodTest = new PeriodTest();
       const _id = uuidv4();
       
@@ -44,7 +44,6 @@ class PeriodTestRepository implements IPeriodTestRepository {
           stringDate,
           idAccount,
           username,
-          idFriend,
           created_at: new Date(),
         });
 
