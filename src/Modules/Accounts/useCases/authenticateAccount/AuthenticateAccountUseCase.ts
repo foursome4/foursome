@@ -42,25 +42,27 @@ class AuthenticateAccountUseCase {
   }
   
   async execute({email, username, password  }: IRequest): Promise<IResponse> {
+    console.log(email, username, password)
       await this.accountRepository.session(email, username, password);
 
-      
-  const accountEmail = await collections.accounts.findOne({email});
-      const accountUsername = await collections.accounts.findOne({username});
       let user;
-      
-      
-      if(accountEmail) {
-        user = accountEmail
-       // console.log(user)
-      } else if (accountUsername) {
-        user = accountUsername
-       // console.log(user)
+
+      if(email !== undefined) {
+        user = await collections.accounts.findOne({email});
+      }
+      if(username !== undefined) {
+        user = await collections.accounts.findOne({username});
       }
       
+      console.log(user)
+      
+      console.log(password)
+      console.log(user.password)
       const passwordCompare = await compare(password, user.password)
       console.log("passwordCompare")
       console.log(passwordCompare)
+      console.log("password")
+      console.log(password)
 
       if(!user ) {
         throw new Error("Username or email, incorrect!")
