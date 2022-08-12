@@ -9,7 +9,7 @@ class ListPaymentsAllController {
   }
 
   async handle(req: Request, res: Response) {
-   await collections.payments.find({}).toArray(function(err, result){
+   await collections.payments.find({}).sort( { created_at: -1 } ).toArray(function(err, result){
       if(err) {
         res.status(500).json(err)
       } else {
