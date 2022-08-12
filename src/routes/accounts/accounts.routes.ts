@@ -53,4 +53,5 @@ groupsAccounts.delete("/:id", (req, res) => {
   return deleteAccountsController.handle(req, res);
 });
 
+
 export { groupsAccounts };
