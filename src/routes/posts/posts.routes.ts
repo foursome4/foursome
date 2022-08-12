@@ -38,7 +38,7 @@ postsRoutes.get("/filter/:type", (req, res) => {
 postsRoutes.post("/preferences/:ufAccount", (req, res) => {
   return listPostsAllFilterController.handle(req, res);
 });
-postsRoutes.post("/difference/:ufAccount", (req, res) => {
+postsRoutes.post("/difference", (req, res) => {
   return listPostsAllFilterNotController.handle(req, res);
 });
 postsRoutes.get("/all", (req, res) => {
