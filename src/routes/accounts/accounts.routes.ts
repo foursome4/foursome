@@ -10,6 +10,7 @@ import { listAccountsLimitsController } from "../../Modules/Accounts/useCases/li
 import { listAccountsPatronController } from "../../Modules/Accounts/useCases/listAccountsPatron";
 import { listAccountsStatusController } from "../../Modules/Accounts/useCases/listAccountsStatus";
 import { updateStatusController } from "../../Modules/Accounts/useCases/updateStatus";
+import { listAccountsDistanceController } from "../../Modules/Accounts/useCases/listAccountsDistance";
 
 
 
@@ -28,6 +29,9 @@ groupsAccounts.get("/qtd", (req, res) => {
 
 groupsAccounts.get("/filter/:id", (req, res) => {
   return listAccountsUnicController.handle(req, res);
+});
+groupsAccounts.get("/distance/:latitude/:longitude", (req, res) => {
+  return listAccountsDistanceController.handle(req, res);
 });
 groupsAccounts.get("/find/:email", (req, res) => {
   return listAccountsEmailController.handle(req, res);
