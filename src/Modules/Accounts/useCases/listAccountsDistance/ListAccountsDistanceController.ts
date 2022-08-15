@@ -12,7 +12,7 @@ class ListAccountsDistanceController {
     const latitude = req.params;
     const longitude = req.params;
 
-    await collections.usersOnline.find({}).sort( { created_at: -1 } ).toArray(function(err, result){
+    await collections.accounts.find({}).sort( { created_at: -1 } ).toArray(function(err, result){
       if(err) {
         res.status(500).json(err)
       } else {
@@ -54,7 +54,7 @@ class ListAccountsDistanceController {
                   onlineUsers.push(dados)
           }
 
-          getDistanceFromLatLonInKm(latitude.latitude, longitude.longitude, userLocation.lat, userLocation.long)
+          getDistanceFromLatLonInKm(latitude.latitude, longitude.longitude, userLocation.latitude, userLocation.longitude)
 
   })
 

@@ -14,7 +14,7 @@ class CreateConversationsController {
     this.createConversationsUseCase.execute({
       idAccount, idFriend, room
     }).then((result) => {
-      return res.status(201).json(result).send();
+      return res.status(201).json({room, idAccount, idFriend, }).send();
     }).catch(error => {
       console.log(error);
       return res.status(500).send()
