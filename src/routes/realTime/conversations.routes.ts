@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { createConversationsController } from "../../Modules/RealTime/useCases/createConversations";
 import { deleteConversationsController } from "../../Modules/RealTime/useCases/deleteConversations";
+import { deleteConversationsRoomController } from "../../Modules/RealTime/useCases/deleteConversationsRoom";
 import { listConversationsController } from "../../Modules/RealTime/useCases/listConversations";
 import { listConversationsAllController } from "../../Modules/RealTime/useCases/listConversationsAll";
 import { listMyConversationsController } from "../../Modules/RealTime/useCases/listMyConversations";
@@ -13,6 +14,10 @@ cnversationsRoutes.post("/", (req, res) => {
 });
 cnversationsRoutes.delete("/:id", (req, res) => {
   return deleteConversationsController.handle(req, res);
+});
+
+cnversationsRoutes.delete("/room/:room", (req, res) => {
+  return deleteConversationsRoomController.handle(req, res);
 });
 
 cnversationsRoutes.get("/:idAccount/:idFriend", (req, res) => {

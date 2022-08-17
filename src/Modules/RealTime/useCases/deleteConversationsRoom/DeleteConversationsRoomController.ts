@@ -1,15 +1,15 @@
 import { Request, Response } from "express";
 import { collections } from "../../../../../services/database.service";
 
-import { DeleteMessagesRoomUseCase } from "./DeleteMessagesRoomUseCase";
+import { DeleteConversationsRoomUseCase } from "./DeleteConversationsRoomUseCase";
 
-class DeleteMessagesRoomController {
-  constructor(private DeleteMessagesUseCase: DeleteMessagesRoomUseCase) {
+class DeleteConversationsRoomController {
+  constructor(private DeleteConversationsUseCase: DeleteConversationsRoomUseCase) {
     ("");
   }
   async handle(req: Request, res: Response) {
     const room = req.params;
-      await collections.message.deleteOne(room)
+      await collections.conversations.deleteOne(room)
       .then((result) => {
       return res.status(201).json(result);
     }).catch(error => {
@@ -20,4 +20,4 @@ class DeleteMessagesRoomController {
   }
 }
 
-export { DeleteMessagesRoomController };
+export { DeleteConversationsRoomController };
