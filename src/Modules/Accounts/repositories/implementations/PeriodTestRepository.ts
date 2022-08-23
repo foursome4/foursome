@@ -58,6 +58,16 @@ class PeriodTestRepository implements IPeriodTestRepository {
 
   list(){}
 
+  update({ stringDate,  idAccount, username, created_at}):void {}
+
+  async delete({id}) {
+    await collections.periodTest.deleteOne(id).then((result) => {
+      console.log(result)
+    }).catch(error => {
+      console.log(error)
+    })
+  }
+
 }
 
 

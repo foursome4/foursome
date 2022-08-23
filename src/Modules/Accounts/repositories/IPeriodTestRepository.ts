@@ -11,6 +11,8 @@ interface IPeriodTestRepository {
   findByIdAccount(idAccount: string): Promise<void>;
   findByUsername(username: string): Promise<void>;
   list();
+  update({ stringDate, idAccount, username }: IPeriodTestDTO): void;
+  delete({id});
 }
 
 export { IPeriodTestRepository, IPeriodTestDTO };

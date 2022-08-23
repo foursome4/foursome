@@ -81,7 +81,7 @@ mailRoutes.post("/reinvite", async (req, res) =>  {
     text: "Não esqueça de nós 🤭", // plain text body
     html: `<p>Olá ${name.name}! <br/>
     Crie sua conta e faça parte de uma rede de relacionamento, exclusivo para casais, solteiros e solteiras. <br />
-    FOURSOME foi criado com o objetivo de aproximar pessoas com o mesmo pensamento de relacionamento de forma livre, segura e respeitosa. <br /><br/>
+    FOURSOME foi criado com o objetivo de aproximar pessoas com o mesmo pensamento de relacionamento de   ma livre, segura e respeitosa. <br /><br/>
     Este convite foi enviado por: ${patronNickname.patronNickname} <br /> 
     Esse convite é intransferível. <br/><br/>
     crie seu perfil agora mesmo: <br/>
