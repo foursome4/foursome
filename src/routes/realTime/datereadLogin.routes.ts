@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { createDateReadLoginController } from "../../Modules/RealTime/useCases/createDateReadLogin";
 import { listDateReadLoginController } from "../../Modules/RealTime/useCases/listDateReadLogin";
+import { listDateReadLoginAllController } from "../../Modules/RealTime/useCases/listDateReadLoginAll";
 import { updateDateReadLoginController } from "../../Modules/RealTime/useCases/updateDateReadLogin";
 
 
@@ -10,6 +11,9 @@ dateReadLoginRoutes.post("/", (req, res) => {
   return createDateReadLoginController.handle(req, res);
 });
 
+dateReadLoginRoutes.get("/", (req, res) => {
+  return listDateReadLoginAllController.handle(req, res);
+});
 dateReadLoginRoutes.get("/:idAccount", (req, res) => {
   return listDateReadLoginController.handle(req, res);
 });
