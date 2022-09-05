@@ -367,6 +367,97 @@ console.log("Email enviado com sucesso")
 }
 
 });
+mailRoutes.post("/invtefriend", async (req, res) =>  {
+  const mail = req.body;
+  console.log(mail.mail)
+
+
+ let transporter = nodemailer.createTransport({
+    host: "email-ssl.com.br",
+    port: 465,
+    auth: {
+      user: "contato@foursome.com.br",
+      pass: "Foursome2021*"
+    }
+  });
+
+
+  
+  // send mail with defined transport object
+  let info = await transporter.sendMail({
+    from: '"Convide e ganhe" <contato@foursome.com.br>', // sender address
+    to: mail.mail, // list of receivers
+    subject: "Convide e ganhe 😉", // Subject line
+    text: "Convide e ganhe 😉", // plain text body
+    html: `<p>Convide seus amigos.<br/><br/>
+    A cada 5 amigos assinantes, você ganha 1 mensalidade grátis.
+    <br/><br/>
+    <img src="https://firebasestorage.googleapis.com/v0/b/foursome4-b925c.appspot.com/o/images%2Fposts%2F1cf28d47-0092-4541-8f65-bd627d0b82eb?alt=media&token=7ab2aa54-b30c-435f-9c76-cf558ec36a30" width="500px"Plano promocional" />
+    <br/><br/>
+    Aproveite!<br/>
+    Assinatura premium apenas R$ 9,90 mensal
+    <br/>
+    <br/>
+    Acessar site: <a href="https://foursome.com.br" target="_blank">www.foursome.com.br</a> <br/><br/>
+    Em caso de dúvida, fale conosco. <br/>
+    Whatsapp: (22)99791-0510<br/>
+    contato@foursome.com.br <br/><br/>
+    
+    FOURSOME <a href="https://www.foursome.com.br" target="_blank">www.foursome.com.br</a><p/>`, // html body.
+  });
+
+
+  if(info) {
+    res.status(200).json({"message":"Email enviado com sucesso"});
+console.log("Email enviado com sucesso")
+}
+
+});
+mailRoutes.post("/plain", async (req, res) =>  {
+  const mail = req.body;
+  console.log(mail.mail)
+
+
+ let transporter = nodemailer.createTransport({
+    host: "email-ssl.com.br",
+    port: 465,
+    auth: {
+      user: "contato@foursome.com.br",
+      pass: "Foursome2021*"
+    }
+  });
+
+
+  
+  // send mail with defined transport object
+  let info = await transporter.sendMail({
+    from: '"Plano Promocional" <contato@foursome.com.br>', // sender address
+    to: mail.mail, // list of receivers
+    subject: "Plano Promocional 🤑", // Subject line
+    text: "Plano Promocional 🤑", // plain text body
+    html: `<p>Assine o plano premium com o valor promocional.<br/><br/>
+    Tenha todos os benefícios do plano Premium por apenas R$9,90.
+    <br/><br/>
+    <img src="https://firebasestorage.googleapis.com/v0/b/foursome4-b925c.appspot.com/o/images%2Fposts%2F918b249d-f332-4a8e-bc93-74262b1541a2?alt=media&token=7cfd16b4-98f9-4e20-8ec1-7d428dcfe9fc" width="500px"Plano promocional" />
+    <br/><br/>
+    Promoção válida até 31/12/2022
+    <br/>
+    <br/>
+    Acessar site: <a href="https://foursome.com.br" target="_blank">www.foursome.com.br</a> <br/><br/>
+    Em caso de dúvida, fale conosco. <br/>
+    Whatsapp: (22)99791-0510<br/>
+    contato@foursome.com.br <br/><br/>
+    
+    FOURSOME <a href="https://www.foursome.com.br" target="_blank">www.foursome.com.br</a><p/>`, // html body.
+  });
+
+
+  if(info) {
+    res.status(200).json({"message":"Email enviado com sucesso"});
+console.log("Email enviado com sucesso")
+}
+
+});
 
 
 mailRoutes.post("/username", async (req, res) =>  {
