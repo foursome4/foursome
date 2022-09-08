@@ -10,7 +10,7 @@ class ListAccountsPatronController {
 
   async handle(req: Request, res: Response) {
     const patron = req.params;
-   await collections.accounts.find(patron).toArray(function(err, result){
+   await collections.accounts.find(patron).sort( { created_at: -1 } ).toArray(function(err, result){
       if(err) {
         res.status(500).json(err)
       } else {
